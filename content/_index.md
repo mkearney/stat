@@ -12,15 +12,15 @@ markup: "mmark"
 When       |  Tue 3:30 - 6:00pm        |
 Where      | Lee Hills Hall 214  |   
 
-### Teaching team
+### Instructor
 {.table .table-condensed .table-striped .text-left}
 <span></span>     | <span></span>     | <span></span>    | <span></span>         
 ------------------|-------------------|------------------|------------------
-Instructor        | [Dr. Mike Kearney](https://mikewk.com/) | <a href="mailto:mine@stat.duke.edu" title="email"><i class="fa fa-envelope"></i></a> &nbsp; <a href="https://github.com/mkearney" title="GitHub"><i class="fa fa-github"></i></a> &nbsp; <a href="https://twitter.com/kearneymw" title="Twitter"><i class="fa fa-twitter"></i></a> | OH: Mon 1 - 3pm & Wed by appointment at Lee Hills Hall 314
+Instructor        | [Dr. Michael W. Kearney](https://mikewk.com/) | <a href="mailto:mine@stat.duke.edu" title="email"><i class="fa fa-envelope"></i></a> &nbsp; <a href="https://github.com/mkearney" title="GitHub"><i class="fa fa-github"></i></a> &nbsp; <a href="https://twitter.com/kearneymw" title="Twitter"><i class="fa fa-twitter"></i></a> | OH: Mon 1 - 3pm & Wed by appointment at Lee Hills Hall 314
 
 ### Texts
 
-All texts are freely available online:
+The only required texts are the ones freely available online:
 
 {.table .table-condensed .table-striped .text-left}
  <span></span>     | <span></span> | <span></span> 
