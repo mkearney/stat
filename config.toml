@@ -10,10 +10,6 @@ relativeurls = true
 publishDir = "docs"
 ignoreFiles = ["\\.Rmd$", "\\.Rmarkdown$", "_files$", "_cache$"]
 
-# Custom CSS. Put here your custom CSS files. They are loaded after the theme CSS;
-# they have to be referred from static root. Example
-customCSS = ["css/custom.css"]
-
 [permalinks]
 post = "/:year/:month/:slug/"
 
