@@ -5,8 +5,8 @@
     <link>/</link>
     <description>Recent content in JOURN 8016: Advanced Quantitative Research Methods on JOURN 8016</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
-    <lastBuildDate>Wed, 19 Apr 2017 00:00:00 +0000</lastBuildDate>
+    <language>en-US</language>
+    <lastBuildDate>Wed, 15 Aug 2018 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/index.xml" rel="self" type="application/rss+xml" />
     
@@ -14,7 +14,7 @@
     <item>
       <title></title>
       <link>/syllabus/</link>
-      <pubDate>Wed, 19 Apr 2017 00:00:00 +0000</pubDate>
+      <pubDate>Wed, 15 Aug 2018 00:00:00 +0000</pubDate>
       
       <guid>/syllabus/</guid>
       <description>Note: Due dates of bigger assignments and exams will not move, however the timeline of topics might be updated throughout the semester.  Date Lesson Reading Assignment Slides Exam   2018-08-21 Quant research design       2018-08-28 Descriptive statistics       2018-09-04 Group comparisons       2018-09-11 Correlations       2018-09-18 Factors       2018-09-25 Data wrangling       2018-10-02 Reporting results       2018-10-09 Exam 1       2018-10-16 NO CLASS       2018-10-23 The linear model pt 1       2018-10-30 The linear model pt 2       2018-11-06 The linear model pt 3       2018-11-13 Reporting results pt 2       2018-11-27 Data science       2018-12-04 Exam 2       </description>
@@ -26,7 +26,7 @@
       <pubDate>Thu, 13 Apr 2017 00:00:00 +0000</pubDate>
       
       <guid>/policies/</guid>
-      <description>Class: Class time is designed to be as interactive as possible. My role as instructor is to introduce you new tools and techniques, but it is up to you to take them and make use of them. Programming is a skill that is best learned by doing, so as much as possible you will be working on a variety of tasks and activities throughout each class.
+      <description>Class: Class time is designed to be as interactive as possible. My role as instructor is to introduce you new tools and techniques, but it is up to you to take them and make use of them. Quantitative analysis is a skill that is best learned by doing, so as much as possible you will be working on a variety of tasks and activities throughout each class.
 Grading: Your final grade will be comprised of the following:</description>
     </item>
     
