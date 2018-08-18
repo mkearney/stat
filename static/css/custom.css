@@ -17,12 +17,12 @@ body {
 
 
 h1, .h1 {
-  font-size: 3.5em;
+  font-size: 3em;
 }
 
 
 h4, .h4 {
-  font-size: 1.5em;
+  font-size: 1.25em;
 }
 
 .landing-page .navbar-transparent, .profile-page .navbar-transparent, .signup-page .navbar-transparent, .index-page .navbar-transparent {
@@ -31,32 +31,32 @@ h4, .h4 {
 
 
 .navbar .navbar-nav > li > a {
-  font-size: 15px;
+  font-size: 14px;
 }
 
 .col-md-offset-3 {
-  margin-left: 10%;
+  margin-left: 20%;
 }
 .col-md-6 {
-  width: 80%;
+  width: 60%;
 }
 
 
 
 .table {
-  width: 90%;
-  margin-left: 5%;
-  margin-right: 5%;
+  width: 95%;
+  margin-left: 2.5%;
+  margin-right: 2.5%;
 }
 
 .navbar {
-  background-color: #ccaa00;
+  background-color: #000;
   padding-top: 2px;
   padding-bottom: 5px;
 }
 
 .navbar, .navbar.navbar-default {
-  color: #000;
+  color: #fff;
 }
 
 .navbar-brand {
@@ -65,5 +65,5 @@ h4, .h4 {
 
 
 .profile-page .header {
-  height: 180px;
+  height: 280px;
 }
