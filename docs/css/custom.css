@@ -1,5 +1,5 @@
 body, h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4 {
-/*  font-family: 'Helvectia Neue', Helvetica, sans-serif;*/
+  font-family: Avenir, Roboto, 'Helvectia Neue', Helvetica, sans-serif;
 }
 
 body {
@@ -17,12 +17,13 @@ body {
 
 
 h1, .h1 {
-  font-size: 3em;
+  font-size: 2.7em;
 }
 
 
 h4, .h4 {
-  font-size: 1.25em;
+  font-size: 1.1em;
+  font-weight: 400;
 }
 
 .landing-page .navbar-transparent, .profile-page .navbar-transparent, .signup-page .navbar-transparent, .index-page .navbar-transparent {
@@ -50,7 +51,7 @@ h4, .h4 {
 }
 
 .navbar {
-  background-color: #000;
+  background-color: #050505;
   padding-top: 2px;
   padding-bottom: 5px;
 }
@@ -63,7 +64,10 @@ h4, .h4 {
   font-size: 16px;
 }
 
-
 .profile-page .header {
-  height: 280px;
+  height: 0;
+}
+
+.wrapper > .header {
+  min-height: 200px;
 }

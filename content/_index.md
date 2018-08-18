@@ -1,6 +1,6 @@
 ---
-title: "JOURN 8016: Advanced Quantitative Research Methods"
-description: "In this class we will introduce common statistical methods used in media/journalism-related social science research. Analytical methods include common categorical tests (t-tests; chi-square tests), correlations, factor analysis, the linear model (OLS regression and ANOVA). We will also preview several methods used in data science (e.g., text mining, network analysis, machine learning). Students will also be introduced and required to use R, an open source statistical computing environment."
+title: "JOURN 8016: Adv. Quant."
+description: "In this class we will introduce common statistical methods used in media and journalism-related social science research. The primary analytical methods covered in this course include simple group comparisons (i.e., t-tests, chi-square), correlations, factor analysis, and the linear model (i.e., OLS regression and ANOVA). We will also preview several advanced statistical models as well as some useful tools from data science. Students are required to learn and use R, an open source statistical computing environment."
 markup: "mmark"
 ---
 
