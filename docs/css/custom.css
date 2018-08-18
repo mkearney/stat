@@ -1,7 +1,69 @@
+body, h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4 {
+  font-family: 'Helvectia Neue', Helvetica, sans-serif;
+}
+
+body {
+  font-size: 16px;
+}
 .landing-page .header .container {
-  padding-top: 10vh;
+/*  padding-top: 10vh; */
 }
 
 .landing-page .header {
-  height: 60vh;
+  height: 105vh;
+  opacity: 0.8;
+  filter: alpha(opacity=80); /* For IE8 and earlier */
+}
+
+
+h1, .h1 {
+  font-size: 3.5em;
+}
+
+
+h4, .h4 {
+  font-size: 1.5em;
+}
+
+.landing-page .navbar-transparent, .profile-page .navbar-transparent, .signup-page .navbar-transparent, .index-page .navbar-transparent {
+  padding-top: 0;
+}
+
+
+.navbar .navbar-nav > li > a {
+  font-size: 15px;
+}
+
+.col-md-offset-3 {
+  margin-left: 10%;
+}
+.col-md-6 {
+  width: 80%;
+}
+
+
+
+.table {
+  width: 90%;
+  margin-left: 5%;
+  margin-right: 5%;
+}
+
+.navbar {
+  background-color: #ccaa00;
+  padding-top: 2px;
+  padding-bottom: 5px;
+}
+
+.navbar, .navbar.navbar-default {
+  color: #000;
+}
+
+.navbar-brand {
+  font-size: 16px;
+}
+
+
+.profile-page .header {
+  height: 180px;
 }
