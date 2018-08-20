@@ -3,37 +3,37 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>https://mkearney.github.io/syllabus/</loc>
+    <loc>https://mkearney.github.io/course-website/syllabus/</loc>
     <lastmod>2018-08-15T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://mkearney.github.io/policies/</loc>
+    <loc>https://mkearney.github.io/course-website/policies/</loc>
     <lastmod>2017-04-13T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://mkearney.github.io/archives/</loc>
+    <loc>https://mkearney.github.io/course-website/archives/</loc>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://mkearney.github.io/categories/</loc>
+    <loc>https://mkearney.github.io/course-website/categories/</loc>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://mkearney.github.io/</loc>
+    <loc>https://mkearney.github.io/course-website/</loc>
     <lastmod>2018-08-15T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://mkearney.github.io/tags/</loc>
+    <loc>https://mkearney.github.io/course-website/tags/</loc>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://mkearney.github.io/tools/</loc>
+    <loc>https://mkearney.github.io/course-website/tools/</loc>
   </url>
   
 </urlset>
