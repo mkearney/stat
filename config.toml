@@ -1,4 +1,4 @@
-baseurl = "/"
+baseurl = "https://mkearney.github.io/course-website"
 languageCode = "en-US"
 defaultContentLanguage = "en-US"
 title = "JOURN 8016"

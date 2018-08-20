@@ -2,40 +2,40 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>JOURN 8016: Adv. Quant. on JOURN 8016</title>
-    <link>/</link>
+    <link>https://mkearney.github.io/course-website/</link>
     <description>Recent content in JOURN 8016: Adv. Quant. on JOURN 8016</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-US</language>
     <lastBuildDate>Wed, 15 Aug 2018 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://mkearney.github.io/course-website/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title></title>
-      <link>/syllabus/</link>
+      <link>https://mkearney.github.io/course-website/syllabus/</link>
       <pubDate>Wed, 15 Aug 2018 00:00:00 +0000</pubDate>
       
-      <guid>/syllabus/</guid>
+      <guid>https://mkearney.github.io/course-website/syllabus/</guid>
       <description>Note: Schedule subject to change at instructor&#39;s discretion.  Date Lesson Reading Assignment Slides Exam   2018-08-21 Quant research design       2018-08-28 Descriptive statistics       2018-09-04 Group comparisons       2018-09-11 Correlations and factor analysis       2018-09-18 Data wrangling       2018-09-25 Exam 1       2018-10-02 Linear model - regression       2018-10-09 Linear model - ANOVA       2018-10-16 NO CLASS       2018-10-23 Linear model - diagnostics       2018-10-30 Generalized linear models       2018-11-06 Lontitudinal models       2018-11-13 Text mining       2018-11-27 Data science       2018-12-04 Exam 2       </description>
     </item>
     
     <item>
       <title>Policies</title>
-      <link>/policies/</link>
+      <link>https://mkearney.github.io/course-website/policies/</link>
       <pubDate>Thu, 13 Apr 2017 00:00:00 +0000</pubDate>
       
-      <guid>/policies/</guid>
+      <guid>https://mkearney.github.io/course-website/policies/</guid>
       <description>Class: Class time is designed to be as interactive as possible. My role as instructor is to introduce you new tools and techniques, but it is up to you to take them and make use of them. Quantitative analysis is a skill that is best learned by doing, so as much as possible you will be working on a variety of tasks and activities throughout each class.
 Grading: Your final grade will be comprised of the following:</description>
     </item>
     
     <item>
       <title>Tools</title>
-      <link>/tools/</link>
+      <link>https://mkearney.github.io/course-website/tools/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>/tools/</guid>
+      <guid>https://mkearney.github.io/course-website/tools/</guid>
       <description>R/RStudio     GitHub     Slack    R is the statistical programming language we will learn in this class. We will interface with R using RStudio, a fully feautred IDE. Go to https://vm-manage.oit.duke.edu/ to access RStudio and log in with your Net ID.    GitHub is a web-based version control repository and Internet hosting service. We will be using GitHub in this course as a collaboration platform and a course management system (i.</description>
     </item>
     

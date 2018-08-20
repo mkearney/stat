@@ -2,12 +2,12 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Archives on JOURN 8016</title>
-    <link>/archives/</link>
+    <link>https://mkearney.github.io/course-website/archives/</link>
     <description>Recent content in Archives on JOURN 8016</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-US</language>
     
-	<atom:link href="/archives/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://mkearney.github.io/course-website/archives/index.xml" rel="self" type="application/rss+xml" />
     
     
   </channel>
