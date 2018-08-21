@@ -124,6 +124,9 @@ Reading lists by topic/day
   - Machine learning
 
 <style>
+h3 {
+font-weight: bold;
+}
 extra {
   color: #999;
   font-style: italic;
