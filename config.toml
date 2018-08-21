@@ -70,7 +70,7 @@ url = "https://journalism.missouri.edu"
 weight = 2
 name = "R/RStudio"
 pre = '<i class="icon-rlogo" style="font-size:150%"></i>'
-url = "https://vm-manage.oit.duke.edu/"
+url = "install-rstats"
 [[menu.footer]]
 weight = 3
 identifier = "GitHub"
@@ -81,6 +81,6 @@ url = "https://github.com/mkearney/journ8016/"
 
 [params]
 dateFormat = "January 2, 2006"
-background = "course-website/img/bg2.png"
+background = "img/bg2.png"
 favicon = "course-website/img/favicon.ico"
 

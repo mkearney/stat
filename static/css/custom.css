@@ -3,10 +3,7 @@ body, h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4 {
 }
 
 body {
-  font-size: 16px;
-}
-.landing-page .header .container {
-/*  padding-top: 10vh; */
+  font-size: 1.8em;
 }
 
 .landing-page .header {
@@ -16,14 +13,63 @@ body {
 }
 
 
-h1, .h1 {
-  font-size: 2.7em;
+
+h1, .h1, .title, h2, .h2, .title {
+  font-size: 1.9em;
+  font-weight: bold;
 }
 
+h3, .h3 {
+  font-size: 1.2em;
+  font-weight: bold;
+  margin-bottom: 1px;
+}
 
 h4, .h4 {
   font-size: 1.1em;
-  font-weight: 400;
+  margin: 0 0 0 0;
+  font-weight: bold;
+}
+
+.text-left h4 {
+  color: goldenrod;
+}
+
+ul {
+  margin: .05em 0 .2em -.5em;
+}
+
+div.navbar-collapse.collapse.in {
+  background: #333;
+  opacity: .85;
+}
+
+extra {
+  color: #666;
+  font-size: .92em;
+  font-style: italic;
+}
+
+a, a:focus {
+  color: #2352dd;
+}
+a:hover {
+  color: #081d5b;
+}
+
+
+extra a {
+  color: #8da4e8;
+}
+
+div.main.main-raised, div.wrapper {
+  min-width: 660px;
+}
+div.section.text-left {
+  max-width: 900px;
+  margin: 0 auto;
+  width: 100%;
+  padding-top: 2em;
 }
 
 .landing-page .navbar-transparent, .profile-page .navbar-transparent, .signup-page .navbar-transparent, .index-page .navbar-transparent {
@@ -38,11 +84,11 @@ h4, .h4 {
 .col-md-offset-3 {
   margin-left: 20%;
 }
+
 .col-md-6 {
-  width: 60%;
+  width: 100%;
+  max-width: 900px;
 }
-
-
 
 .table {
   width: 95%;
@@ -69,5 +115,11 @@ h4, .h4 {
 }
 
 .wrapper > .header {
-  min-height: 200px;
+  min-height: 150px;
+}
+
+
+h1.ref {
+  content: none;
+  display: none;
 }

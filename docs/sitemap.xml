@@ -3,45 +3,44 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>https://mkearney.github.io/syllabus/</loc>
+    <loc>/syllabus/</loc>
     <lastmod>2018-08-15T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://mkearney.github.io/policies/</loc>
-    <lastmod>2017-04-13T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://mkearney.github.io/archives/</loc>
+    <loc>/archives/</loc>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://mkearney.github.io/categories/</loc>
+    <loc>/categories/</loc>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://mkearney.github.io/</loc>
+    <loc>/install-rstats/</loc>
+  </url>
+  
+  <url>
+    <loc>/</loc>
     <lastmod>2018-08-15T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://mkearney.github.io/reading/</loc>
+    <loc>/policies/</loc>
   </url>
   
   <url>
-    <loc>https://mkearney.github.io/readings/</loc>
+    <loc>/reading/</loc>
   </url>
   
   <url>
-    <loc>https://mkearney.github.io/tags/</loc>
+    <loc>/tags/</loc>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://mkearney.github.io/tools/</loc>
+    <loc>/tools/</loc>
   </url>
   
 </urlset>

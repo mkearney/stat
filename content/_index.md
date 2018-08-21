@@ -1,6 +1,6 @@
 ---
 title: "JOURN 8016: Adv. Quant."
-description: "In this class we will introduce common statistical methods used in media and journalism-related social science research. The primary analytical methods covered in this course include simple group comparisons (i.e., t-tests, chi-square), correlations, factor analysis, and the linear model (i.e., OLS regression and ANOVA). We will also preview several advanced statistical models as well as some useful tools from data science. Students are required to learn and use R, an open source statistical computing environment."
+description: "This course provides an introduction to statistical methods used in journalism/media-related social science research–analytical techniques include simple group comparisons, correlations, factor analysis, and linear models–and previews of several advanced statistical models and tools from data science. An introduction to R, an open source [and free] statistical computing environment used in the examples and assignments in this course, will also be provided."
 markup: "mmark"
 ---
 
@@ -21,7 +21,7 @@ Instructor        | [Dr. Mike Kearney](https://mikewk.com/) | <a href="mailto:ke
 
 ### Texts
 
-All required textbooks are open source:
+The only required textbook is open source:
 
 {.table .table-condensed .table-striped .text-left}
  <span></span>     | <span></span> | <span></span> 

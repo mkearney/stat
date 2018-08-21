@@ -2,9 +2,12 @@
 title: Readings
 ---
 
-Reading lists by topic/day
+<hr>
 
-### Quant research design
+
+### 1: Quantitative research
+
+#### Research design
 
   - Fox Ch. 1: Statistical models and social science, 1-11
   - Babbie Ch. 4: Research design, 90-123
@@ -14,9 +17,12 @@ Reading lists by topic/day
     1-15</extra>
   - <extra>Hayes Ch. 2: Fundamentals of measurement, 16-30</extra>
 
-### Descriptive statistics
+<hr>
 
-#### Descriptive
+
+### 2. Descriptive statistics
+
+#### Descriptives
 
   - Fox Ch. 3: Examining data, 28-54
   - Fox Ch. 4: Transforming data, 55-80
@@ -25,12 +31,15 @@ Reading lists by topic/day
 
 #### rstats
 
-  - Wickham & Grolemund Ch 1. Data visualization with ggplot2, 3-35
-  - Wickham & Grolemund Ch 3. Exploratory data analysis, 81-110
+  - [Wickham & Grolemund Ch. 3: Data visualization with ggplot2](http://r4ds.had.co.nz/data-visualisation.html)
+  - [Wickham & Grolemund Ch. 7: Exploratory data analysis](http://r4ds.had.co.nz/exploratory-data-analysis.html)
   - <extra>Treadwell Ch. 6: Summarizing research results: Data reduction
     and descriptive statistics, 93-113</extra>
 
-### Group comparisons
+<hr>
+
+
+### 3. Hypothesis tests and group comparisons
 
 #### Hypothesis testing
 
@@ -46,25 +55,40 @@ Reading lists by topic/day
   - <extra>Hayes Ch. 11: Some tests for categorical variables,
     244-270</extra>
 
-### Correlations and factor analysis
+<hr>
 
-  - pearson’s correlation
+
+
+### 4. Correlations and factor analysis
+
+#### Correlations
+  - [Caldwell Ch. 12: Correlation analysis](stats-unplugged-cor.pdf)
+
+#### Factors
+  - [A beginner's guide to factor analysis](http://www.tqmp.org/RegularArticles/vol09-2/p079/p079.pdf)
   - <extra>Hayes Ch. 6: Assessing and quantifying reliability,
     103-129</extra>
 
-### Data wrangling
+<hr>
+
+
+### 5. Data wrangling
 
 #### rstats
 
-  - Wickham & Grolemund Ch 7: Tibbles with tibble, 119-124
-  - Wickham & Grolemund Ch 8: Data import with readr, 125-146
-  - Wickham & Grolemund Ch 8: Tidy data with tidyr, 147-170
-  - Wickham & Grolemund Ch 10: Relational data with dplyr, 171-194
-  - <extra>Wickham & Grolemund Ch 11: Strings with stringr, 195-222</extra>
-  - Wickham & Grolemund Ch 12: Factors with forcats, 223-235
-  - <extra>Wickham & Grolemund Ch 13: Dates and times with lubridate, 237-256</extra>
+  - [Wickham & Grolemund Ch 5: Data transformation](http://r4ds.had.co.nz/transform.html)
+  - [Wickham & Grolemund Ch 10: Tibbles](http://r4ds.had.co.nz/tibbles.html)
+  - [Wickham & Grolemund Ch 11: Data import](http://r4ds.had.co.nz/data-import.html)
+  - [Wickham & Grolemund Ch 12: Tidy data](http://r4ds.had.co.nz/tidy-data.html)
+  -  <extra>[Wickham & Grolemund Ch 13: Relational data](http://r4ds.had.co.nz/relational-data.html) </extra>
+  - <extra>[Wickham & Grolemund Ch 14: Strings](http://r4ds.had.co.nz/strings.html)</extra>
+  - [Wickham & Grolemund Ch 12: Factors](http://r4ds.had.co.nz/factors.html)
+  - <extra>[Wickham & Grolemund Ch 16: Dates and times lubridate](http://r4ds.had.co.nz/dates-and-times.html)</extra>
 
-### Linear model - regression
+<hr>
+
+
+### 6. Linear model - regression
 
 #### Regression
 
@@ -78,11 +102,14 @@ Reading lists by topic/day
 
 #### rstats
 
-  - Wickham & Grolemund Ch 18: Model basics with modelr, 345-373
-  - Wickham & Grolemund Ch 19: Model building, 375-396
-  - Wickham & Grolemund Ch 20: Many models with purrr and broom, 297-420
+  - [Wickham & Grolemund Ch 18: Model basics](http://r4ds.had.co.nz/model-basics.html)
+  - [Wickham & Grolemund Ch 19: Model building](http://r4ds.had.co.nz/model-building.html)
+  - [Wickham & Grolemund Ch 20: Many models](http://r4ds.had.co.nz/many-models.html)
 
-### Linear model - ANOVA
+<hr>
+
+
+### 7. Linear model - ANOVA
 
 #### ANOVA
 
@@ -92,7 +119,10 @@ Reading lists by topic/day
   - <extra>Maxwell & Delaney Ch. 4: Individual comparisons of means,
     129-169</extra>
 
-### Linear model - diagnostics
+<hr>
+
+
+### 8. Linear model - diagnostics
 
 #### Diagnostics
 
@@ -101,38 +131,51 @@ Reading lists by topic/day
     nonlinearity, 296-340
   - Fox Ch. 13: Collinearity and its purported remedies, 341-368
 
-### Generalized linear models
+<hr>
 
+
+### 9. Generalized linear models
+
+#### Logistic regression
   - Fox Ch. 14: Logit and probit models for categorical response
     variables, 370-417
+
+#### Generalized models
   - Fox Ch. 15: Generalized linear models, 418-472
 
-### Longitudinal models
+<hr>
 
-  - Panel models
+
+### 10. Longitudinal models
+
+#### Panel models
+  - [Cross-lagged panel analysis](https://www.researchgate.net/publication/307963897_Cross-Lagged_Panel_Analysis)
+
+#### Advanced models
   - <extra>Fox Ch. 23: Linear mixed-effects models for hierarchical and
     longitudinal data, 700-742</extra>
 
-### Text mining
+<hr>
 
-  - [Text nining with R](https://www.tidytextmining.com/)
-  - [Quanteda](https://tutorials.quanteda.io/)
 
-### Data science
+### 11. Text mining
 
-  - Digital sources of data
-  - Machine learning
+#### Tools/resources
+  - [Text mining with R](https://www.tidytextmining.com/)
+  - [Quanteda: Quantitative analysis of textual data](https://tutorials.quanteda.io/)
 
-<style>
-h3 {
-font-weight: bold;
-}
-extra {
-  color: #999;
-  font-style: italic;
-}
-div.section.text-left {
-max-width: 900px;
-margin: 0 auto;
-}
-</style>
+<hr>
+
+
+### 12. Data science
+
+#### Importing data
+  - [Getting started with httr](https://cran.r-project.org/web/packages/httr/vignettes/quickstart.html)
+  - [rtweet: Collecting Twitter data](https://rtweet.info)
+
+#### Neural networks
+  - [TensorFlow](https://www.tensorflow.org/)
+  - [Keras](https://keras.io/)
+  - [Keras in R](https://keras.rstudio.com/)
+
+<hr>
