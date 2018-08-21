@@ -1,5 +1,8 @@
-Readings
-================
+---
+title: "Readings"
+description: "Reading list by topic/day"
+markup: "mmark"
+---
 
 ## Quant research design
 

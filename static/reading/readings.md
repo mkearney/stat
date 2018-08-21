@@ -1,8 +1,5 @@
----
-title: "Readings"
-description: "Reading list by topic/day"
-markup: "mmark"
----
+Readings
+================
 
 ## Quant research design
 
@@ -113,11 +110,10 @@ markup: "mmark"
   - <extra>Fox Ch. 23: Linear mixed-effects models for hierarchical and
     longitudinal data, 700-742</extra>
 
-## Text analysis
+## Text mining
 
-  - Text cleaning and processing
-  - Classifying text
-  - Semantic networks
+  - [Text nining with R](https://www.tidytextmining.com/)
+  - [Quanteda](https://tutorials.quanteda.io/)
 
 ## Data science
 
@@ -126,7 +122,7 @@ markup: "mmark"
 
 <style>
 extra {
-  color: #aaa;
+  color: #999;
   font-style: italic;
 }
 </style>

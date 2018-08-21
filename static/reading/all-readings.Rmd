@@ -106,11 +106,9 @@ knitr::opts_chunk$set(echo = TRUE)
 + <extra>Fox Ch. 23: Linear mixed-effects models for hierarchical and longitudinal data, 700-742</extra>
 
 
-
-## Text analysis
-+ Text cleaning and processing
-+ Classifying text
-+ Semantic networks
+## Text mining
++ [Text nining with R](https://www.tidytextmining.com/)
++ [Quanteda](https://tutorials.quanteda.io/)
 
 ## Data science
 + Digital sources of data
@@ -120,7 +118,7 @@ knitr::opts_chunk$set(echo = TRUE)
 
 <style>
 extra {
-  color: #aaa;
+  color: #999;
   font-style: italic;
 }
 </style>

@@ -55,10 +55,10 @@ pre = '<i class="material-icons">date_range</i>'
 url = "/syllabus"
 [[menu.main]]
 weight = 5
-identifier = "policies"
-name = "Policies"
-pre = '<i class="material-icons">gavel</i>'
-url = "/policies"
+identifier = "reading"
+name = "Readings"
+pre = '<i class="material-icons">library_books</i>'
+url = "/reading"
 
 [[menu.footer]]
 weight = 1
