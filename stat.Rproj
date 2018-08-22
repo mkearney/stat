@@ -13,6 +13,6 @@ RnwWeave: Sweave
 LaTeX: pdfLaTeX
 
 BuildType: Makefile
-MakefilePath: ~/R/course-website
+MakefilePath: ~/R/stat
 
 QuitChildProcessesOnExit: Yes

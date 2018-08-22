@@ -10,7 +10,7 @@ knitr::opts_chunk$set(
   comment = "#>"
 )
 ```
-# JOURN_8016 <img src="static/favicon.ico" width="160px" align="right" />
+# JOURN_8016 <img src="static/favicon.png" width="180px" align="right" />
 
 > Course website for **Advanced Quantitative Research Methods**
 
@@ -18,7 +18,7 @@ This repository contains the source code used to make the course website of *JOU
 
 ## Website
 
-The course website can be found at [mkearney.github.io/course-website](https://mkearney.github.io/course-website).
+The course website can be found at [stat.mikewk.com](https://stat.mikewk.com).
 
 ## Attribution
 

@@ -1,7 +1,7 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-# JOURN\_8016 <img src="static/favicon.ico" width="160px" align="right" />
+# JOURN\_8016 <img src="static/favicon.png" width="180px" align="right" />
 
 > Course website for **Advanced Quantitative Research Methods**
 
@@ -13,7 +13,7 @@ taught in the School of Journalism at the University of Missouri in Fall
 ## Website
 
 The course website can be found at
-[mkearney.github.io/course-website](https://mkearney.github.io/course-website).
+[stat.mikewk.com](https://stat.mikewk.com).
 
 ## Attribution
 
