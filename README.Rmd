@@ -10,7 +10,7 @@ knitr::opts_chunk$set(
   comment = "#>"
 )
 ```
-# JOURN_8016 <img src="static/img/favicon.ico" width="160px" align="right" />
+# JOURN_8016 <img src="static/favicon.ico" width="160px" align="right" />
 
 > Course website for **Advanced Quantitative Research Methods**
 

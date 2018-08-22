@@ -1,7 +1,7 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-# JOURN\_8016 <img src="static/img/favicon.ico" width="160px" align="right" />
+# JOURN\_8016 <img src="static/favicon.ico" width="160px" align="right" />
 
 > Course website for **Advanced Quantitative Research Methods**
 
