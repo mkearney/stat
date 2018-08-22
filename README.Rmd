@@ -10,18 +10,19 @@ knitr::opts_chunk$set(
   comment = "#>"
 )
 ```
-# course-website
+# JOURN_8016 <img src="static/img/favicon-152.png" align="right" />
 
-Source code for course website for *{COURSE_CODE}* at *{UNIVERSITY}*, *{SEMESTER}* *{YEAR}*.
+> Course website for **Advanced Quantitative Research Methods**
 
-Course website is at *{COURSE_URL}*.
+This repository contains the source code used to make the course website of *JOURN_8016: Advanced Quantitative Research Methods*, which was taught in the School of Journalism at the University of Missouri in Fall 2018.
 
-# Attribution
+## Website
 
-- This website design was forked from [Sta112-F17 by Mine Cetinkaya-Rundel](https://github.com/Sta112-F17/website/commits?author=mine-cetinkaya-rundel), which is based on [ESPM-157 by Carl Boettinger](https://espm-157.carlboettiger.info/).
-- Background image is [here](https://media.licdn.com/mpr/mpr/AAEAAQAAAAAAAAkrAAAAJDI5MmUxNzNiLWNmYjAtNDFiOC04YWRiLTQ2YjhiZGExNzY0Mw.jpg).
+The course website can be found at [mkearney.github.io/course-website](https://mkearney/github.io/course-website).
 
-# Notes for building the website:
+## Attribution
 
-- Colors: Pantone Fall 2017 - Marina - #5388CD
-  - To change, search & replace in `themes/material/static/css/material-kit.css`
+This website design was forked from [Sta112-F17 by Mine Cetinkaya-Rundel](https://github.com/Sta112-F17/website/commits?author=mine-cetinkaya-rundel), which is based on [ESPM-157 by Carl Boettinger](https://espm-157.carlboettiger.info/).
+
+Original background image is [here](https://media.licdn.com/mpr/mpr/AAEAAQAAAAAAAAkrAAAAJDI5MmUxNzNiLWNmYjAtNDFiOC04YWRiLTQ2YjhiZGExNzY0Mw.jpg).
+
