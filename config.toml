@@ -81,6 +81,6 @@ url = "https://github.com/mkearney/journ8016/"
 
 [params]
 dateFormat = "January 2, 2006"
-background = "img/bg2.png"
-favicon = "favicon.ico"
+background = "course-website/img/bg2.png"
+favicon = "course-website/favicon.ico"
 
