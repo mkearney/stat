@@ -1,6 +1,6 @@
 ---
-title: "JOURN 8016: Adv. Quant. Research Methods"
-subtitle: "Day 1"
+title: "Day 1"
+subtitle: "Quantitative research"
 author: "Michael W. Kearney📊<br/>School of Journalism <br/>Informatics Institute <br/>University of Missouri"
 date: "<table style=\"border-style:none;padding-top:30px;\" class=\".table\">
   <tr>
@@ -29,6 +29,11 @@ options(htmltools.dir.version = FALSE)
 htmltools::tagList(rmarkdown::html_dependency_font_awesome())
 ```
 
+
+## Quantitative research
+Review
+
+---
 
 ## Scientific Method  
 1. Research question
