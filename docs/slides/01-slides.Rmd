@@ -31,3 +31,141 @@ htmltools::tagList(rmarkdown::html_dependency_font_awesome())
 
 
 ## Quantitative research
+Review
+
+---
+
+## Scientific Method  
+1. Research question
+1. Theory development
+1. Hypotheses
+1. Design
+1. **Analysis**
+
+---
+
+## What makes for an interesting question?  
+- Important to journalism/media
+- Contribute to scientific understanding/literature  
+- Personally interesting  
+- Unresolved
+
+---
+
+## Three Types of Research Questions
+- Prevalence
+- Types/levels
+- Changes
+- Causal Effects
+
+---
+
+## Research designs
+- Surveys
+- Experiments
+- Content analysis
+
+---
+
+
+## Measuring constructs
+- Conceptual (i.e., definition)
+- Indicators (i.e., operationalization) 
+
+---
+
+## Theory Development
+- Caveat: Not the focus of this course
+- Theories are arguments **and** explanations
+- Theories are causal in nature
+- Often involve claims about mechanisms
+- Rooted in past evidence or observation
+
+---
+
+## From Hypotheses to Design
+- Hypothesis: Expectations about outcomes across levels of two or more variables
+- Design: Selection and arrangement of evidence
+- Design must reveal evidence about our hypotheses
+   - Selection of observations/units
+   - Observation of outcome(s)
+   - Observation of variation on the causal variable
+   - Causal identification
+
+---
+
+## Questions?
+
+---
+
+## Course Objectives
+- Describe journalism/media relevant research questions and hypotheses
+- Evaluate and deduce observable implications from mass media and journalism theories
+    - Explain statistical procedures and their appropriate usages
+- Apply statistical procedures to relevant research problems
+- Synthesize results from statistical analyses into well-written and well-structured essays
+- Demonstrate how to use R for statistical analysis
+
+---
+
+## Why R?
+- SPSS/SAS/stata all cost money
+- R is open source, free, and at cutting edge
+
+---
+
+## Textbooks and Readings
+- All required readings can be found online
+
+---
+
+## Exam
+- Two take-home exams
+- Should take anywhere from 2-5 hours
+- More details as they approach
+
+---
+
+## Homework assignments
+- Assignments/submissions on Canvas
+- All assignments will require use of R
+
+---
+
+## Weekly Activities
+- Various in-class activities
+
+---
+
+## Course Outline
+- Research design
+- Group comparisons
+- Correlations and factors
+- Linear models
+- Advanced models
+- Text analysis
+- Data science
+
+---
+
+## Instructor
+- Office: Lee Hills Hall 314 
+- Email: kearneymw@missouri.edu
+
+---
+
+## Introductions
+- Your full name
+- Where you are in the program?
+- What are your research interests?
+- What stats courses have you taken?
+- What do you hope to learn?
+
+
+<style>
+body {font-size: 20px;}
+ul li {
+margin-top: .75em;
+margin-bottom: .75em;
+}
+</style>
