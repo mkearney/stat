@@ -13,7 +13,7 @@ taught in the School of Journalism at the University of Missouri in Fall
 ## Website
 
 The course website can be found at
-[mkearney.github.io/course-website](https://mkearney/github.io/course-website).
+[mkearney.github.io/course-website](https://mkearney.github.io/course-website).
 
 ## Attribution
 
