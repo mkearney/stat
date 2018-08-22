@@ -25,7 +25,10 @@
     {{ end }}
     <link rel="alternate" href="{{ .RSSLink | default .Site.RSSLink  }}" type="application/rss+xml" title="{{ .Site.Title }}">
     <link rel="feed" href="{{ .RSSLink | default .Site.RSSLink }}" type="application/rss+xml" title="{{ .Site.Title }}">
-    <link rel="icon" type="image/png" href="{{ "/img/favicon.png" | relURL }}">
-    <link rel="icon" type="image/png" href="{{ "/img/favicon.png" | relURL }}">
+    
+  <link rel="apple-touch-icon-precomposed" href="img/favicon-152.png">
+  <meta name="msapplication-TileColor" content="#FFFFFF">
+  <meta name="msapplication-TileImage" content="img/favicon-144.png">
+  
     <link rel="canonical" href="{{ .Permalink }}">
   </head>

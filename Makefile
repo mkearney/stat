@@ -2,7 +2,6 @@
 all:
 	@echo Build all
 	Rscript -e 'blogdown::hugo_build(local = TRUE)'
-	cp favicon.ico docs/
 	Rscript -e 'browseURL("http://localhost:1313/")'
 	hugo server
 clean:
