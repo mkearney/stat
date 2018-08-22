@@ -1,7 +1,7 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-# JOURN\_8016 <img src="static/img/favicon-152.png" align="right" />
+# JOURN\_8016 <img src="static/img/favicon.ico" width="160px" align="right" />
 
 > Course website for **Advanced Quantitative Research Methods**
 
@@ -22,5 +22,6 @@ Cetinkaya-Rundel](https://github.com/Sta112-F17/website/commits?author=mine-ceti
 which is based on [ESPM-157 by Carl
 Boettinger](https://espm-157.carlboettiger.info/).
 
-Original background image is
+Background image created by [Muge
+Cetinkaya](https://dribbble.com/muuuuge). See the original image
 [here](https://media.licdn.com/mpr/mpr/AAEAAQAAAAAAAAkrAAAAJDI5MmUxNzNiLWNmYjAtNDFiOC04YWRiLTQ2YjhiZGExNzY0Mw.jpg).
