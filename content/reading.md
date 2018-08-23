@@ -9,7 +9,7 @@ title: Readings
 
 #### Research design
 
-  - Fox Ch. 1: Statistical models and social science, 1-11
+  - <extra>Fox Ch. 1: Statistical models and social science, 1-11</extra>
   - Babbie Ch. 4: Research design, 90-123
   - Babbie Ch. 5: Conceptualization, operationalization, and
     measurement, 124-159
@@ -24,17 +24,15 @@ title: Readings
 
 #### Descriptives
 
-  - Fox Ch. 3: Examining data, 28-54
-  - Fox Ch. 4: Transforming data, 55-80
-  - <extra>Hayes Ch. 4: Data description and visualization,
-    45-82</extra>
+  - <extra>Fox Ch. 3: Examining data, 28-54</extra>
+  - <extra>Fox Ch. 4: Transforming data, 55-80</extra>
+  - <extra>Hayes Ch. 4: Data description and visualization, 45-82</extra>
 
 #### rstats
 
   - [Wickham & Grolemund Ch. 3: Data visualization with ggplot2](http://r4ds.had.co.nz/data-visualisation.html)
   - [Wickham & Grolemund Ch. 7: Exploratory data analysis](http://r4ds.had.co.nz/exploratory-data-analysis.html)
-  - <extra>Treadwell Ch. 6: Summarizing research results: Data reduction
-    and descriptive statistics, 93-113</extra>
+  - <extra>Treadwell Ch. 6: Summarizing research results: Data reduction and descriptive statistics, 93-113</extra>
 
 <hr>
 
@@ -47,13 +45,11 @@ title: Readings
 
 #### t-tests
 
-  - <extra>Hayes Ch. 10: Comparing two independent groups,
-    210-243</extra>
+  - <extra>Hayes Ch. 10: Comparing two independent groups, 210-243</extra>
 
 #### Chi-square tests
 
-  - <extra>Hayes Ch. 11: Some tests for categorical variables,
-    244-270</extra>
+  - <extra>Hayes Ch. 11: Some tests for categorical variables, 244-270</extra>
 
 <hr>
 
@@ -66,8 +62,7 @@ title: Readings
 
 #### Factors
   - [A beginner's guide to factor analysis](http://www.tqmp.org/RegularArticles/vol09-2/p079/p079.pdf)
-  - <extra>Hayes Ch. 6: Assessing and quantifying reliability,
-    103-129</extra>
+  - <extra>Hayes Ch. 6: Assessing and quantifying reliability, 103-129</extra>
 
 <hr>
 
@@ -80,7 +75,7 @@ title: Readings
   - [Wickham & Grolemund Ch 10: Tibbles](http://r4ds.had.co.nz/tibbles.html)
   - [Wickham & Grolemund Ch 11: Data import](http://r4ds.had.co.nz/data-import.html)
   - [Wickham & Grolemund Ch 12: Tidy data](http://r4ds.had.co.nz/tidy-data.html)
-  -  <extra>[Wickham & Grolemund Ch 13: Relational data](http://r4ds.had.co.nz/relational-data.html) </extra>
+  - <extra>[Wickham & Grolemund Ch 13: Relational data](http://r4ds.had.co.nz/relational-data.html) </extra>
   - <extra>[Wickham & Grolemund Ch 14: Strings](http://r4ds.had.co.nz/strings.html)</extra>
   - [Wickham & Grolemund Ch 12: Factors](http://r4ds.had.co.nz/factors.html)
   - <extra>[Wickham & Grolemund Ch 16: Dates and times lubridate](http://r4ds.had.co.nz/dates-and-times.html)</extra>
@@ -92,13 +87,11 @@ title: Readings
 
 #### Regression
 
-  - Fox Ch. 5: Linear least-squares regression, 81-105
-  - Fox Ch. 6: Statistical inference for regression, 106-127
-  - Fox Ch. 7: Dummy-variable regression, 128-152
-  - <extra>Fox Ch. 9: Statistical theory for linear models,
-    202-244</extra>
-  - <extra>Fox Ch. 10: The vector geometry of linear models,
-    245-264</extra>
+  - <extra>Fox Ch. 5: Linear least-squares regression, 81-105</extra>
+  - <extra>Fox Ch. 6: Statistical inference for regression, 106-127</extra>
+  - <extra>Fox Ch. 7: Dummy-variable regression, 128-152</extra>
+  - <extra>Fox Ch. 9: Statistical theory for linear models, 202-244</extra>
+  - <extra>Fox Ch. 10: The vector geometry of linear models, 245-264</extra>
 
 #### rstats
 
@@ -113,11 +106,9 @@ title: Readings
 
 #### ANOVA
 
-  - Fox Ch. 8: Analysis of variance, 153-201
-  - <extra>Maxwell & Delaney Ch. 3: Introduction to model comparisons,
-    63-128</extra>
-  - <extra>Maxwell & Delaney Ch. 4: Individual comparisons of means,
-    129-169</extra>
+  - <extra>Fox Ch. 8: Analysis of variance, 153-201</extra>
+  - <extra>Maxwell & Delaney Ch. 3: Introduction to model comparisons, 63-128</extra>
+  - <extra>Maxwell & Delaney Ch. 4: Individual comparisons of means, 129-169</extra>
 
 <hr>
 
@@ -126,10 +117,9 @@ title: Readings
 
 #### Diagnostics
 
-  - Fox Ch. 11: Unusual and influential data, 265-295
-  - Fox Ch. 12: Diagnosing non-normality, nononstant error variance, and
-    nonlinearity, 296-340
-  - Fox Ch. 13: Collinearity and its purported remedies, 341-368
+  - <extra>Fox Ch. 11: Unusual and influential data, 265-295</extra>
+  - <extra>Fox Ch. 12: Diagnosing non-normality, nononstant error variance, and nonlinearity, 296-340</extra>
+  - <extra>Fox Ch. 13: Collinearity and its purported remedies, 341-368</extra>
 
 <hr>
 
@@ -137,11 +127,10 @@ title: Readings
 ### 9. Generalized linear models
 
 #### Logistic regression
-  - Fox Ch. 14: Logit and probit models for categorical response
-    variables, 370-417
+  - <extra>Fox Ch. 14: Logit and probit models for categorical response variables, 370-417</extra>
 
 #### Generalized models
-  - Fox Ch. 15: Generalized linear models, 418-472
+  - <extra>Fox Ch. 15: Generalized linear models, 418-472</extra>
 
 <hr>
 
@@ -152,8 +141,7 @@ title: Readings
   - [Cross-lagged panel analysis](https://www.researchgate.net/publication/307963897_Cross-Lagged_Panel_Analysis)
 
 #### Advanced models
-  - <extra>Fox Ch. 23: Linear mixed-effects models for hierarchical and
-    longitudinal data, 700-742</extra>
+  - <extra>Fox Ch. 23: Linear mixed-effects models for hierarchical and longitudinal data, 700-742</extra>
 
 <hr>
 

@@ -62,6 +62,12 @@ h1, .h1, .title, h2, .h2, .title {
   font-weight: 600;
 }
 
+.title {
+  color: #545454;
+}
+h2, h3 {
+  color: #333;
+}
 h3, .h3 {
   font-size: 1.2em;
   font-weight: 600;

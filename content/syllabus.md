@@ -23,3 +23,7 @@ Students who miss a class due to a school-related event, religious holiday, or s
 ### Academic integrity
 
 Academic integrity is fundamental to the activities and principles of a university. All members of the academic community must be confident that each person's work has been responsibly and honorably acquired, developed, and presented. Any effort to gain an advantage not given to all students is dishonest whether or not the effort is successful. The academic community regards breaches of the academic integrity rules as extremely serious matters. Sanctions for such a breach may include academic sanctions from the instructor, including failing the course for any violation, to disciplinary sanctions ranging from probation to expulsion. When in doubt about plagiarism, paraphrasing, quoting, collaboration, or any other form of cheating, consult the course instructor.
+
+### Software
+
+The statistical software we will learn and use in this class is [R](https://cran.r-project.org/), an open-source statistical computing environment. We will interface with R using [Rstudio](https://www.rstudio.com/), a fully featured interactive development environment (IDE) designed specifically for working in the R environment. <a href="/install-rstats">Click here for instructions on how to install R and Rstudio</a>.

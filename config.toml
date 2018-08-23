@@ -37,21 +37,21 @@ pre = '<i class="fas fa-home fa-lg"></i>'
 url = "/"
 [[menu.main]]
 weight = 3
-identifier = "tools"
-name = "Tools"
-pre = '<i class="fas fa-wrench fa-lg"></i>'
-url = "/tools"
-[[menu.main]]
-weight = 4
 identifier = "syllabus"
 name = "Syllabus"
-pre = '<i class="fas fa-calendar-alt fa-lg"></i>'
+pre = '<i class="fas fa-file-alt fa-lg"></i>'
 url = "/syllabus"
+[[menu.main]]
+weight = 4
+identifier = "schedule"
+name = "Schedule"
+pre = '<i class="fas fa-calendar-alt fa-lg"></i>'
+url = "/schedule"
 [[menu.main]]
 weight = 5
 identifier = "reading"
 name = "Readings"
-pre = '<i class="fas fa-book fa-lg"></i>'
+pre = '<i class="fas fa-book-open fa-lg"></i>'
 url = "/reading"
 
 [[menu.footer]]
