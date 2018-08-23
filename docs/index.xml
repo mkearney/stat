@@ -36,8 +36,11 @@ Download R R is the language/environment (the engine).
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>/syllabus/</guid>
-      <description>Course description This course provides an introduction to statistical methods used in journalism/media-related social science research–analytical techniques include simple group comparisons, correlations, factor analysis, and linear models–and previews of several advanced statistical models and tools from data science. An introduction to R, an open source [and free] statistical computing environment used in the examples and assignments in this course, will also be provided.
-Schedule Note: Schedule subject to change at instructor&#39;s discretion.</description>
+      <description>Course info {.table .table-condensed .table-striped .text-left}  |  &amp;mdash;&amp;mdash;&amp;mdash;&amp;ndash;|&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;- When | Tue 3:30 - 6:00pm | Where | Lee Hills Hall 214 |
+Instructor {.table .table-condensed .table-striped .text-left}  |  |  | 
+&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;|&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;-|&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;|&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash; Instructor | Dr. Michael W. Kearney |  &amp;nbsp;  &amp;nbsp;  | Lee Hills Hall 314
+Texts The only required textbook is open source:
+{.table .table-condensed .table-striped .text-left}  |  |  &amp;mdash;&amp;mdash;&amp;mdash;&amp;ndash;|&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;|&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;- R for Data Science | Grolemund, Wickham | O&amp;rsquo;Reilly, 1st edition, 2016</description>
     </item>
     
     <item>

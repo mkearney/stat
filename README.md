@@ -1,19 +1,15 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-# JOURN\_8016 <img src="static/favicon.png" width="180px" align="right" />
+# [stat.mikewk.com](https://stat.mikewk.com) <img src="static/favicon.png" width="180px" align="right" />
 
-> Course website for **Advanced Quantitative Research Methods**
+> Course website for **JOURN 8016: Advanced Quantitative Research
+> Methods**
 
 This repository contains the source code used to make the course website
-of *JOURN\_8016: Advanced Quantitative Research Methods*, which was
-taught in the School of Journalism at the University of Missouri in Fall
-2018.
-
-## Website
-
-The course website can be found at
-[stat.mikewk.com](https://stat.mikewk.com).
+of *JOURN\_8016: Advanced Quantitative Research Methods*, a Fall 2018
+graduate course in the School of Journalism at the University of
+Missouri.
 
 ## Attribution
 
@@ -24,4 +20,4 @@ Boettinger](https://espm-157.carlboettiger.info/).
 
 Background image created by [Muge
 Cetinkaya](https://dribbble.com/muuuuge). See the original image
-[here](https://media.licdn.com/mpr/mpr/AAEAAQAAAAAAAAkrAAAAJDI5MmUxNzNiLWNmYjAtNDFiOC04YWRiLTQ2YjhiZGExNzY0Mw.jpg).
+[here](http://www2.stat.duke.edu/courses/Spring18/Sta199/img/mugesketch.png).

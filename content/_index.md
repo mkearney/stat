@@ -1,33 +1,17 @@
 ---
 title: 'JOURN 8016: Adv Quant'
 description: "This course provides an introduction to statistical methods used in journalism/media-related social science research–analytical techniques include simple group comparisons, correlations, factor analysis, and linear models–and previews of several advanced statistical models and tools from data science. An introduction to R, an open source [and free] statistical computing environment used in the examples and assignments in this course, will also be provided."
-markup: "mmark"
 ---
 
+# stat <img src="/favicon.png" width="180px" align="right" />
 
-### Course info
+> Course website for **JOURN 8016: Advanced Quantitative Research Methods**, a Fall 2018 graduate course in the School of Journalism at the University of Missouri
 
-{.table .table-condensed .table-striped .text-left}
- <span></span>     | <span></span>
------------|----------------------------------
-When       |  Tue 3:30 - 6:00pm        |
-Where      | Lee Hills Hall 214  |   
+The live course website can be found at [stat.mikewk.com](https://stat.mikewk.com). For the source code used to make the site, see [github.com/mkearney/stat](https://github.com/mkearney/stat/).
 
-### Instructor
-{.table .table-condensed .table-striped .text-left}
-<span></span>     | <span></span>     | <span></span>    | <span></span>         
-------------------|-------------------|------------------|------------------
-Instructor        | [Dr. Michael W. Kearney](https://mikewk.com/) | <a href="mailto:kearneymw@missouri.edu" title="email"><i class="fa fa-envelope"></i></a> &nbsp; <a href="https://github.com/mkearney" title="GitHub"><i class="fa fa-github"></i></a> &nbsp; <a href="https://twitter.com/kearneymw" title="Twitter"><i class="fa fa-twitter"></i></a> | Lee Hills Hall 314
+## Attribution
 
-### Texts
+This website design was forked from [Sta112-F17 by Mine Cetinkaya-Rundel](https://github.com/Sta112-F17/website/commits?author=mine-cetinkaya-rundel), which is based on [ESPM-157 by Carl Boettinger](https://espm-157.carlboettiger.info/).
 
-The only required textbook is open source:
+Background image created by [Muge Cetinkaya](https://dribbble.com/muuuuge). See the original image [here](http://www2.stat.duke.edu/courses/Spring18/Sta199/img/mugesketch.png).
 
-{.table .table-condensed .table-striped .text-left}
- <span></span>     | <span></span> | <span></span> 
------------|---------------------------------|----------------------------------
-[R for Data Science](http://r4ds.had.co.nz/) | Grolemund, Wickham | O'Reilly, 1st edition, 2016
-
-### Materials
-
-You should have access to a laptop and bring it to every class, fully charged (or with charging hardware).
