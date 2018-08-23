@@ -48,14 +48,5 @@ Download R R is the language/environment (the engine).
       <description>Course  JOURN 8016: Adv Quant     Tue 3:30 - 6:00pm Lee Hills Hall 214   Instructor  Dr. Michael W. Kearney      Thu 11am - 2:00pm Lee Hills Hall 314   Texts  R for Data Science     O&#39;Reilly Media Wickham &amp; Grolemund   Applied Regression Analysis &amp; Generalized Linear Models (3rd ed.)    CRC Press Hadley Wickham   Course description This course provides an introduction to statistical methods used in journalism/media-related social science research–analytical techniques include simple group comparisons, correlations, factor analysis, and linear models–and previews of several advanced statistical models and tools from data science.</description>
     </item>
     
-    <item>
-      <title>Tools</title>
-      <link>/tools/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>/tools/</guid>
-      <description>  R/RStudio    R is the statistical programming language we will learn in this class. We will interface with R using Rstudio, a fully featured interactive development environment (IDE). For instructions on how to install R and Rstudio, click here.       </description>
-    </item>
-    
   </channel>
 </rss>
