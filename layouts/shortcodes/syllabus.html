@@ -1,3 +1,71 @@
+<h3 id="course-info">Course</h3>
+
+<table class="table" style="max-width:900px;margin-left:auto;margin-right:auto">
+  <tr>
+    <td style="width:30%">JOURN 8016: Adv Quant</td>
+    <td style="width:20%;text-align:center;">
+      <a href="https://stat.mikewk.com" title="site"><i class="fas fa-link"></i></a> 
+      <a href="https://github.com/mkearney/stat" title="Github"><i class="fab fa-github"></i></a> 
+      <a href="https://journalism.missouri.edu"><i class="fas fa-university"></i></a>
+    </td>
+    <td style="width:25%;text-align:center;">Tue 3:30 - 6:00pm</td>
+    <td style="width:25%;text-align:right;">Lee Hills Hall 214</td>
+  </tr>
+</table>
+
+<h3 id="instructor">Instructor</h3>
+
+<table class="table" style="max-width:900px;margin-left:auto;margin-right:auto">
+  <tr>
+    <td style="width:30%">Dr. Michael W. Kearney</td>
+    <td style="width:20%;text-align:center;">
+      <a href="mailto:kearneymw@missouri.edu" title="email"><i class="fas fa-envelope"></i></a>
+      <a href="https://mikewk.com" title="homepage"><i class="fas fa-home"></i></a>
+      <a href="https://github.com/mkearney" title="Github"><i class="fab fa-github"></i></a>
+      <a href="https://twitter.com/kearneymw" title="Twitter"><i class="fab fa-twitter"></i></a>
+    </td>
+    <td style="width:25%;text-align:center;">Thu 11am - 2:00pm</td>
+    <td style="width:25%;text-align:right;">Lee Hills Hall 314</td>
+  </tr>
+</table>
+
+<h3 id="texts">Texts</h3>
+
+<table class="table" style="max-width:900px;margin-left:auto;margin-right:auto">
+  <tr>
+    <td style="width:30%">R for Data Science</td>
+    <td style="width:20%;text-align:center;">
+      <a href="http://r4ds.had.co.nz/" title="link"><i class="fas fa-link"></i></a>
+      <a href="https://github.com/hadley/r4ds" title="Github"><i class="fab fa-github"></i></a>
+      <a href="https://twitter.com/R4DScommunity" title="Twitter"><i class="fab fa-twitter"></i></a>
+    </td>
+    <td style="width:25%;text-align:center;">O'Reilly Media</td>
+    <td style="width:25%;text-align:right;">Wickham & Grolemund</td>
+  </tr>
+  <tr>
+    <td style="width:30%">Applied Regression Analysis & Generalized Linear Models (3rd ed.)</td>
+    <td style="width:20%;text-align:center;">
+      <a href="https://socialsciences.mcmaster.ca/jfox/Books/Applied-Regression-3E/index.html" title="link"><i class="fas fa-link"></i></a>
+      <a href="https://us.sagepub.com/en-us/nam/applied-regression-analysis-and-generalized-linear-models/book237254" title="Github"><i class="fas fa-store"></i></a>
+    </td>
+    <td style="width:25%;text-align:center;">CRC Press</td>
+    <td style="width:25%;text-align:right;">Hadley Wickham</td>
+  </tr>
+<!--  <tr>
+    <td style="width:30%">Advanced R (2nd ed.)</td>
+    <td style="width:20%;text-align:center;">
+      <a href="https://adv-r.hadley.nz/" title="link"><i class="fas fa-link"></i></a>
+      <a href="https://github.com/hadley/adv-r" title="Github"><i class="fab fa-github"></i></a>
+    </td>
+    <td style="width:25%;text-align:center;">SAGE Publications</td>
+    <td style="width:25%;text-align:right;">John Fox</td>
+  </tr> -->
+</table>
+
+<h3 id="course-description">Course description</h3>
+
+<p>This course provides an introduction to statistical methods used in journalism/media-related social science research–analytical techniques include simple group comparisons, correlations, factor analysis, and linear models–and previews of several advanced statistical models and tools from data science. An introduction to R, an open source [and free] statistical computing environment used in the examples and assignments in this course, will also be provided.</p>
+
 <h3>Schedule</h3>
 
 <b>Note:</b> Schedule subject to change at instructor's discretion.
@@ -20,34 +88,34 @@
       
       {{ if .reading }}
       <td align="center"><a href="{{ .Site.baseurl }}/reading/{{ .reading  }}">
-          <i class="fa fa-book fa-lg"></i></a></td>
+          <i class="fas fa-book fa-lg"></i></a></td>
       {{ else }}
-        <td align="center"><font color="f1f1f1">
-          <i class="fa fa-book fa-lg"></i></font></td>
+        <td align="center"><font color="#f1f1f1">
+          <i class="fas fa-book fa-lg"></i></font></td>
       {{ end }}
 
       {{ if .assignment }}
       <td align="center"><a href="{{ .Site.baseurl }}/assignment/{{ .assignment }}">
-          <i class="fa fa-keyboard-o fa-lg"></i></a></td>
+          <i class="fas fa-file-signature fa-lg"></i></a></td>
       {{ else }}
-        <td align="center"><font color="f1f1f1">
-          <i class="fa fa-keyboard-o fa-lg"></i></font></td>
+        <td align="center"><font color="#f1f1f1">
+          <i class="fas fa-file-signature fa-lg"></i></font></td>
       {{ end }}
       
       {{ if .slides }}
       <td align="center"><a href="{{ .Site.baseurl }}/slides/{{ .slides  }}">
-          <i class="fa fa-file-image-o  fa-lg"></i></a></td>
+          <i class="fas fa-film fa-lg"></i></a></td>
       {{ else }}
-        <td align="center"><font color="f1f1f1">
-          <i class="fa fa-file-image-o  fa-lg"></i></font></td>
+        <td align="center"><font color="#f1f1f1">
+          <i class="fas fa-film fa-lg"></i></font></td>
       {{ end }}
       
       {{ if .exam }}
       <td align="center"><a href="{{ .Site.baseurl }}/exam/{{ .assignment }}">
-          <i class="fa fa-check-circle fa-lg"></i></a></td>
+          <i class="fas fa-check-circle fa-lg"></i></a></td>
       {{ else }}
-        <td align="center"><font color="f1f1f1">
-          <i class="fa fa-check-circle fa-lg"></i></font></td>
+        <td align="center"><font color="#f1f1f1">
+          <i class="fas fa-check-circle fa-lg"></i></font></td>
       {{ end }}
     </tr>
     {{ end }}

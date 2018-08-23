@@ -125,3 +125,17 @@ h1.ref {
   content: none;
   display: none;
 }
+
+
+table a .fas, table a .fab {
+  padding: 0 1px;
+}
+
+.col-md-offset-4 {
+    margin-left: 20%;
+    text-align: justify;
+}
+
+.col-md-4 {
+  width: 60%;
+}
