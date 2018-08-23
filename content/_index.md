@@ -1,5 +1,5 @@
 ---
-title: "JOURN 8016: Adv. Quant."
+title: 'JOURN 8016: Adv Quant'
 description: "This course provides an introduction to statistical methods used in journalism/media-related social science research–analytical techniques include simple group comparisons, correlations, factor analysis, and linear models–and previews of several advanced statistical models and tools from data science. An introduction to R, an open source [and free] statistical computing environment used in the examples and assignments in this course, will also be provided."
 markup: "mmark"
 ---

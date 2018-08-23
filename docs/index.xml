@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>JOURN 8016: Adv. Quant. on JOURN 8016</title>
+    <title>JOURN 8016: Adv Quant on JOURN 8016</title>
     <link>/</link>
-    <description>Recent content in JOURN 8016: Adv. Quant. on JOURN 8016</description>
+    <description>Recent content in JOURN 8016: Adv Quant on JOURN 8016</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-US</language>
     
@@ -46,7 +46,7 @@ Schedule Note: Schedule subject to change at instructor&#39;s discretion.</descr
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>/tools/</guid>
-      <description>R/RStudio     GitHub    R is the statistical programming language we will learn in this class. We will interface with R using Rstudio, a fully featured interactive development environment (IDE). For instructions on how to install R and Rstudio, click here.    GitHub is a web-based version control repository and internet hosting service. We will not be using Github, but it&#39;s a useful site know about and a great place to search for all kinds of source code.</description>
+      <description>  R/RStudio    R is the statistical programming language we will learn in this class. We will interface with R using Rstudio, a fully featured interactive development environment (IDE). For instructions on how to install R and Rstudio, click here.       </description>
     </item>
     
   </channel>

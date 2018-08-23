@@ -1,7 +1,7 @@
 body {
-  font-size: 24px;
+  font-size: 20px;
 }
 ul li, ol li {
-  margin-top: .8em;
-  margin-bottom: .8em;
+  margin-top: .75em;
+  margin-bottom: .75em;
 }
