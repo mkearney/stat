@@ -17,7 +17,7 @@ Where      | Lee Hills Hall 214  |
 {.table .table-condensed .table-striped .text-left}
 <span></span>     | <span></span>     | <span></span>    | <span></span>         
 ------------------|-------------------|------------------|------------------
-Instructor        | [Dr. Mike Kearney](https://mikewk.com/) | <a href="mailto:kearneymw@missouri.edu" title="email"><i class="fa fa-envelope"></i></a> &nbsp; <a href="https://github.com/mkearney" title="GitHub"><i class="fa fa-github"></i></a> &nbsp; <a href="https://twitter.com/kearneymw" title="Twitter"><i class="fa fa-twitter"></i></a> | Lee Hills Hall 314
+Instructor        | [Dr. Michael W. Kearney](https://mikewk.com/) | <a href="mailto:kearneymw@missouri.edu" title="email"><i class="fa fa-envelope"></i></a> &nbsp; <a href="https://github.com/mkearney" title="GitHub"><i class="fa fa-github"></i></a> &nbsp; <a href="https://twitter.com/kearneymw" title="Twitter"><i class="fa fa-twitter"></i></a> | Lee Hills Hall 314
 
 ### Texts
 
