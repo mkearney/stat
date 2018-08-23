@@ -1,15 +1,16 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-# [stat.mikewk.com](https://stat.mikewk.com) <img src="static/favicon.png" width="180px" align="right" />
+# stat <img src="static/favicon.png" width="180px" align="right" />
 
 > Course website for **JOURN 8016: Advanced Quantitative Research
-> Methods**
+> Methods**, a Fall 2018 graduate course in the School of Journalism at
+> the University of Missouri
 
-This repository contains the source code used to make the course website
-of *JOURN\_8016: Advanced Quantitative Research Methods*, a Fall 2018
-graduate course in the School of Journalism at the University of
-Missouri.
+The live course website can be found at
+[stat.mikewk.com](https://stat.mikewk.com). For the source code used to
+make the site, see
+[github.com/mkearney/stat](https://github.com/mkearney/stat/).
 
 ## Attribution
 
