@@ -3,7 +3,7 @@ title: 'JOURN 8016: Adv Quant'
 description: "This course provides an introduction to statistical methods used in journalism/media-related social science research–analytical techniques include simple group comparisons, correlations, factor analysis, and linear models–and previews of several advanced statistical models and tools from data science. An introduction to R, an open source [and free] statistical computing environment used in the examples and assignments in this course, will also be provided."
 ---
 
-# stat <img src="/favicon.png" width="180px" align="right" />
+# stat.mikewk.com <img src="/favicon.png" width="180px" align="right" />
 
 > Course website for **JOURN 8016: Advanced Quantitative Research Methods**, a Fall 2018 graduate course in the School of Journalism at the University of Missouri
 

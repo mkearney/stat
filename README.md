@@ -1,7 +1,7 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-# stat <img src="static/favicon.png" width="180px" align="right" />
+# stat.mikewk.com <img src="static/favicon.png" width="180px" align="right" />
 
 > Course website for **JOURN 8016: Advanced Quantitative Research
 > Methods**, a Fall 2018 graduate course in the School of Journalism at
