@@ -10,11 +10,9 @@ title: Readings
 #### Research design
 
   - <extra>Fox Ch. 1: Statistical models and social science, 1-11</extra>
-  - Babbie Ch. 4: Research design, 90-123
-  - Babbie Ch. 5: Conceptualization, operationalization, and
-    measurement, 124-159
-  - <extra>Hayes Ch. 1: Statistics and communication science,
-    1-15</extra>
+  - <extra>Babbie Ch. 4: Research design, 90-123</extra>
+  - <extra>Babbie Ch. 5: Conceptualization, operationalization, and measurement, 124-159</extra>
+  - <extra>Hayes Ch. 1: Statistics and communication science, 1-15</extra>
   - <extra>Hayes Ch. 2: Fundamentals of measurement, 16-30</extra>
 
 <hr>
@@ -24,6 +22,8 @@ title: Readings
 
 #### Descriptives
 
+  - [Carey Ch. 3: Measurement and Transformations](http://psych.colorado.edu/~carey/qmin/qminchapters/chapter03a.pdf)
+  - [Carey Ch. 4: Descriptive Statistics & Terminology](http://psych.colorado.edu/~carey/qmin/qminchapters/chapter04a.pdf)
   - <extra>Fox Ch. 3: Examining data, 28-54</extra>
   - <extra>Fox Ch. 4: Transforming data, 55-80</extra>
   - <extra>Hayes Ch. 4: Data description and visualization, 45-82</extra>
@@ -41,6 +41,9 @@ title: Readings
 
 #### Hypothesis testing
 
+  - [Ismay & Kim Ch. 10: Hypothesis Testing](https://moderndive.com/10-hypothesis-testing.html)
+  - [Carey Ch. 7: Inferential Statistics (Hypothesis Testing)](http://psych.colorado.edu/~carey/qmin/qminchapters/chapter07a.pdf)
+  - [Carey Ch. 8: Elementary Hypothesis Testing](http://psych.colorado.edu/~carey/qmin/qminChapters/QMIN08-ElementaryHypTesting.pdf)
   - <extra>Hayes Ch. 8: Hypothesis testing, 158-182</extra>
 
 #### t-tests
@@ -69,16 +72,17 @@ title: Readings
 
 ### 5. Data wrangling
 
-#### rstats
-
+#### Transformations
   - [Wickham & Grolemund Ch 5: Data transformation](http://r4ds.had.co.nz/transform.html)
-  - [Wickham & Grolemund Ch 10: Tibbles](http://r4ds.had.co.nz/tibbles.html)
+  - [Wickham & Grolemund Ch 12: Factors](http://r4ds.had.co.nz/factors.html)
+  - <extra>[Wickham & Grolemund Ch 14: Strings](http://r4ds.had.co.nz/strings.html)</extra>
+  - <extra>[Wickham & Grolemund Ch 16: Dates and times lubridate](http://r4ds.had.co.nz/dates-and-times.html)</extra>
+
+#### Importing and organizing data
   - [Wickham & Grolemund Ch 11: Data import](http://r4ds.had.co.nz/data-import.html)
   - [Wickham & Grolemund Ch 12: Tidy data](http://r4ds.had.co.nz/tidy-data.html)
-  - <extra>[Wickham & Grolemund Ch 13: Relational data](http://r4ds.had.co.nz/relational-data.html) </extra>
-  - <extra>[Wickham & Grolemund Ch 14: Strings](http://r4ds.had.co.nz/strings.html)</extra>
-  - [Wickham & Grolemund Ch 12: Factors](http://r4ds.had.co.nz/factors.html)
-  - <extra>[Wickham & Grolemund Ch 16: Dates and times lubridate](http://r4ds.had.co.nz/dates-and-times.html)</extra>
+  - <extra>[Wickham & Grolemund Ch 13: Relational data](http://r4ds.had.co.nz/relational-data.html)</extra>
+  - <extra>[Wickham & Grolemund Ch 10: Tibbles](http://r4ds.had.co.nz/tibbles.html)</extra>
 
 <hr>
 
@@ -86,7 +90,9 @@ title: Readings
 ### 6. Linear model - regression
 
 #### Regression
-
+  - [Carey Ch. 9: The General Linear Model: A gentle introduction](http://psych.colorado.edu/~carey/qmin/qminChapters/QMIN09-GLMIntro.pdf)
+  - [Carey Ch. 10: GLM: Single Predictors](http://psych.colorado.edu/~carey/qmin/qminChapters/QMIN10-GLM_Single_Predictor.pdf)
+  - [Carey Ch. 11: GLM: Multiple Predictors](http://psych.colorado.edu/~carey/qmin/qminChapters/QMIN11-GLM_Multiple_Predictors.pdf)
   - <extra>Fox Ch. 5: Linear least-squares regression, 81-105</extra>
   - <extra>Fox Ch. 6: Statistical inference for regression, 106-127</extra>
   - <extra>Fox Ch. 7: Dummy-variable regression, 128-152</extra>
@@ -94,10 +100,11 @@ title: Readings
   - <extra>Fox Ch. 10: The vector geometry of linear models, 245-264</extra>
 
 #### rstats
-
   - [Wickham & Grolemund Ch 18: Model basics](http://r4ds.had.co.nz/model-basics.html)
   - [Wickham & Grolemund Ch 19: Model building](http://r4ds.had.co.nz/model-building.html)
   - [Wickham & Grolemund Ch 20: Many models](http://r4ds.had.co.nz/many-models.html)
+  - [Ismay & Kim Ch. 6: Basic Regression](https://moderndive.com/6-regression.html)
+  - [Ismay & Kim Ch. 7: Multiple Regression](https://moderndive.com/7-multiple-regression.html)
 
 <hr>
 
@@ -105,7 +112,6 @@ title: Readings
 ### 7. Linear model - ANOVA
 
 #### ANOVA
-
   - <extra>Fox Ch. 8: Analysis of variance, 153-201</extra>
   - <extra>Maxwell & Delaney Ch. 3: Introduction to model comparisons, 63-128</extra>
   - <extra>Maxwell & Delaney Ch. 4: Individual comparisons of means, 129-169</extra>
@@ -116,7 +122,6 @@ title: Readings
 ### 8. Linear model - diagnostics
 
 #### Diagnostics
-
   - <extra>Fox Ch. 11: Unusual and influential data, 265-295</extra>
   - <extra>Fox Ch. 12: Diagnosing non-normality, nononstant error variance, and nonlinearity, 296-340</extra>
   - <extra>Fox Ch. 13: Collinearity and its purported remedies, 341-368</extra>
@@ -138,7 +143,8 @@ title: Readings
 ### 10. Longitudinal models
 
 #### Panel models
-  - [Cross-lagged panel analysis](https://www.researchgate.net/publication/307963897_Cross-Lagged_Panel_Analysis)
+  - [Carey Ch. 9: Multivariate (Repeated Measures)](http://psych.colorado.edu/~carey/qmin/qminChapters/QMIN13-GLM_Multivariate.pdf)
+  - [Kearney, Cross-lagged panel analysis](https://www.researchgate.net/publication/307963897_Cross-Lagged_Panel_Analysis)
 
 #### Advanced models
   - <extra>Fox Ch. 23: Linear mixed-effects models for hierarchical and longitudinal data, 700-742</extra>
@@ -149,21 +155,33 @@ title: Readings
 ### 11. Text mining
 
 #### Tools/resources
-  - [Text mining with R](https://www.tidytextmining.com/)
-  - [Quanteda: Quantitative analysis of textual data](https://tutorials.quanteda.io/)
+  - [Silge & Robinson, Text mining with R](https://www.tidytextmining.com/)
+  - [Benoit, Quanteda: Quantitative analysis of textual data](https://quanteda.io/)
+  - [Watanabe & Müller, Quanteda Tutorials](https://tutorials.quanteda.io/)
 
 <hr>
 
 
 ### 12. Data science
 
-#### Importing data
-  - [Getting started with httr](https://cran.r-project.org/web/packages/httr/vignettes/quickstart.html)
-  - [rtweet: Collecting Twitter data](https://rtweet.info)
+#### Web APIs
+  - [Cooksey Ch. 1: Introduction](https://zapier.com/learn/apis/chapter-1-introduction-to-apis/)
+  - [Cooksey Ch. 2: Protocols](https://zapier.com/learn/apis/chapter-2-protocols/)
+  - [Cooksey Ch. 3: Data Formats](https://zapier.com/learn/apis/chapter-3-data-formats/)
+  - <extra>[Cooksey Ch. 4: Authentication, Part 1](https://zapier.com/learn/apis/chapter-4-authentication-part-1/)</extra>
+  - <extra>[Cooksey Ch. 5: Authentication, Part 2](https://zapier.com/learn/apis/chapter-5-authentication-part-2/)</extra>
+  - <extra>[Cooksey Ch. 6: Introduction](https://zapier.com/learn/apis/chapter-1-introduction-to-apis/)</extra>
+  - [Wickham, Getting started with httr](http://httr.r-lib.org/articles/quickstart.html)
+  - [Reitz, Requests: Quickstart](http://docs.python-requests.org/en/latest/user/quickstart/)
+  - [Marshall, HTTP Made Really Easy](http://www.jmarshall.com/easy/http/)
+  - [Kearney, rtweet: Collecting Twitter data](https://rtweet.info)
+  - [Kearney, nytimes: Interacting with New York TImes APIs ](https://github.com/mkearney/nytimes)
 
 #### Neural networks
-  - [TensorFlow](https://www.tensorflow.org/)
-  - [Keras](https://keras.io/)
   - [Keras in R](https://keras.rstudio.com/)
-
+  - <extra>[Keras](https://keras.io/)</extra>
+  - <extra>[TensorFlow](https://www.tensorflow.org/)</extra>
+  - <extra>[Li, Johnson, & Yeung, CS231n: Convolutional Neural Networks for Visual Recognition](http://cs231n.stanford.edu/)</extra>
+  - <extra>[Li, Johnson, & Yeung, Lectures from CS231n](https://www.youtube.com/watch?v=vT1JzLTH4G4&list=PL3FW7Lu3i5JvHM8ljYj-zLfQRF3EO8sYv)</extra>
+  
 <hr>
