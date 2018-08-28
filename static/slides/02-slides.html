@@ -529,11 +529,11 @@ x &lt;- rnorm(10, mean = 0)
 
 ## calculate mean
 sum(x) / length(x)
-#&gt; [1] 0.0275736
+#&gt; [1] -0.523909
 
 ## use mean function
 mean(x)
-#&gt; [1] 0.0275736
+#&gt; [1] -0.523909
 ```
 
 ---
@@ -548,12 +548,12 @@ x &lt;- sort(x)
 
 ## print and find the middle values (5th and 6th)
 x
-#&gt;  [1] -1.2254388 -1.0013227 -0.9992221  0.0826989  0.1011283  0.1483069
-#&gt;  [7]  0.4097378  0.5681513  0.9288491  1.2628477
+#&gt;  [1] -3.003892 -1.494294 -1.164791 -0.502857 -0.401837 -0.299097 -0.277658
+#&gt;  [8]  0.167901  0.747199  0.990236
 
 ## use median function
 median(x)
-#&gt; [1] 0.124718
+#&gt; [1] -0.350467
 ```
 
 ---
@@ -572,8 +572,8 @@ y_freq &lt;- table(y)
 ## sort and print table
 sort(y_freq, decreasing = TRUE)
 #&gt; y
-#&gt;  1  4 10  5  7  8  2  3  9  6 
-#&gt; 15 15 12 11 10 10  8  7  7  5
+#&gt;  6  3  8  1  4  5  9 10  2  7 
+#&gt; 17 13 13 10  9  9  9  8  6  6
 ```
 
 ---
@@ -602,7 +602,7 @@ mean(x)
 
 ## returns the mean we want
 mean(x, na.rm = TRUE)
-#&gt; [1] 0.0275736
+#&gt; [1] -0.523909
 ```
 
 ---
@@ -643,11 +643,11 @@ range(y)
 ```r
 ## calculate variance
 sum((y - mean(y))^2) / (length(y) - 1)
-#&gt; [1] 9.0202
+#&gt; [1] 7.58576
 
 ## use the var function
 var(y)
-#&gt; [1] 9.0202
+#&gt; [1] 7.58576
 ```
 
 ---
@@ -662,11 +662,11 @@ yvar &lt;- var(y)
 
 ## square root of variance
 sqrt(yvar)
-#&gt; [1] 3.00337
+#&gt; [1] 2.75423
 
 ## use sd function
 sd(y)
-#&gt; [1] 3.00337
+#&gt; [1] 2.75423
 ```
 
 &lt;!-- ############################################# --&gt;
@@ -736,6 +736,8 @@ if (!requireNamespace("readxl", quietly = TRUE)) {
 }
 ## read an excel file
 d &lt;- readxl::read_excel("data/xlsx.xlsx")
+#&gt; Warning: The `validate` argument to `as_tibble()` is deprecated. Please use
+#&gt; `.tidy_names` to control column names.
 d
 #&gt; # A tibble: 4 x 2
 #&gt;   name                 value    
@@ -771,7 +773,7 @@ d
 #&gt;  8    18     4
 #&gt;  9    18     4
 #&gt; 10    17     4
-#&gt; # ... with 22 more rows
+#&gt; # … with 22 more rows
 ```
 
 ---
@@ -791,7 +793,7 @@ d
 #&gt;   &lt;dttm&gt;              &lt;dttm&gt;              &lt;date&gt;           &lt;dbl&gt;
 #&gt; 1 2006-11-19 23:13:20 2006-11-19 22:57:03 2010-01-20        2601
 #&gt; 2 1959-12-31 20:03:20 1959-12-31 23:35:21 1953-10-02        -601
-#&gt; # ... with 4 more variables: monthly_date &lt;dbl&gt;, quarterly_date &lt;dbl&gt;,
+#&gt; # … with 4 more variables: monthly_date &lt;dbl&gt;, quarterly_date &lt;dbl&gt;,
 #&gt; #   half_yearly_date &lt;dbl&gt;, yearly_date &lt;dbl&gt;
 ```
 
@@ -816,7 +818,7 @@ d
 #&gt;  8 data vis…  0.99     0     0     0     0     0     0     0     0     0
 #&gt;  9 data-dri…  0.99     0     0     0     0     0     0     0     0     0
 #&gt; 10 data jou…  0.99     0     0     0     0     0     0     0     0     0
-#&gt; # ... with 78 more rows, and 7 more variables: MR13 &lt;dbl&gt;, MR11 &lt;dbl&gt;,
+#&gt; # … with 78 more rows, and 7 more variables: MR13 &lt;dbl&gt;, MR11 &lt;dbl&gt;,
 #&gt; #   MR14 &lt;dbl&gt;, MR12 &lt;dbl&gt;, MR15 &lt;dbl&gt;, MR16 &lt;dbl&gt;, var &lt;fct&gt;
 ```
 
@@ -877,8 +879,58 @@ class: center, middle, inverse
 
 ---
 
+class: center, middle, inverse
+
+# Assignment
+
+---
 ## Assignment
 + We'll work through this one together
+
+
+---
+class: center, middle, inverse
+
+# Rmarkdown
+
+---
+
+## Rmarkdown
++ The **{rmarkdown}** package provides a simple front-end framework that (a) is well integrated into R uses and functions and (b) plays well with others front-end frameworks (html, PDF, even Word docs)
++ **Rstudio**, in particular, makes it easy to access cool rmarkdown features
++ Thus, this presentation provides a brief introduction to **rmarkdown**
+
+
+---
+
+## What is markdown?
++ **Markdown** is a simple markup language written in plain text. It's how I make all these slides and write papers
++ **Rmarkdown** is a version of markdown that integrates the R environment (code and output) via **code chunks**
+
+
+---
+
+## How do I use it?
++ In **Rstudio** select the new file dropdown (or `File &gt; New File`) and then select **R Markdown**.
+
+![](img/rmd.png)
+
+
+---
+
+## Render
++ To render the `.Rmd` file, click the **knit** button on the top pane of the script file. 
+
+![](img/rmd_rstudio.png)
+
+
+---
+
+## Very simple rules:
++ R code exists inside of **code chunks**
+    - Every time you click `knit`, the file [and the code] is executed
++ Everything outside of code chunks gets converted to HTML text (similar to Word).
+    - There are lots of good examples and tutorials online, just google "Rmarkdown tutorials"
     </textarea>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
 <script>var slideshow = remark.create({
