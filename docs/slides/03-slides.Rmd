@@ -13,8 +13,8 @@ date: "<table style=\"border-style:none;padding-top:30px;\" class=\".table\">
   </tr></table>"
 output:
   xaringan::moon_reader:
-    lib_dir: 03-slides
-    css: ["robot", "robot-fonts"]
+    lib_dir: lib
+    css: ["robot", "robot-fonts", "css/slides.css"]
     nature:
       highlightStyle: github
       highlightLines: true
@@ -30,4 +30,19 @@ htmltools::tagList(rmarkdown::html_dependency_font_awesome())
 ```
 
 
-## Hypothesis tests and group comparisons
+## Overview
+1. Hypothesis testing
+   - Null hypothesis
+   - Alternative hypothesis
+   - Model comparison
+1. Simple group comparisons
+   - t-tests
+   - chi-square test
+
+---
+
+## Hypothesis testing
+
+---
+
+## Group comparisons
