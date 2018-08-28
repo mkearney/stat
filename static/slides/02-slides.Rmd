@@ -691,4 +691,8 @@ class: center, middle, inverse
     - `skimr::skim()`
     - `summarize()`
 
+---
+
+## Assignment
++ We'll work through this one together
 

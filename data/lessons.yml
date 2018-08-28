@@ -6,7 +6,7 @@ lessons:
   - date: "2018-08-28"
     title: "Descriptive statistics"
     reading: "#2-descriptive-statistics"
-    assignment: "#"
+    assignment: "01-hw.Rmd"
     slides: "02-slides.html"
   - date: "2018-09-04"
     title: "Hypothesis tests and group comparisons"
