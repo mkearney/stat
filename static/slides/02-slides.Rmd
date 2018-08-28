@@ -23,79 +23,111 @@ output:
 
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE, eval = FALSE,
-  collapse = TRUE, comment = "#>")
+knitr::opts_chunk$set(echo = TRUE, eval = TRUE, collapse = TRUE, comment = "#>")
 options(htmltools.dir.version = FALSE)
 htmltools::tagList(rmarkdown::html_dependency_font_awesome())
 ```
 
-## Recap
+## Overview
++ Review
+   - Sampling
+   - Variables
+   - Object classes in R
++ Descriptives
+   - Central tendency
+   - Dispersion
+
+---
+class: inverse, center, middle
+
+# But first, some admin...
 
 ---
 
-## Scientific method
-
-- Try to be "objective"
-- Theories should be falsifiable
-- Research should be reproducible
-- Knowledge is cumulative and provisional
+## Qualtrics
++ Access your Mizzou Qualtrics account: [https://missouri.qualtrics.com/](missouri.qualtrics.com)
+  + You should have a survey, `JOURN_8016_FA18`, shared with you
+  + Browse the questions or click *preview* to view the survey
++ The survey will include at least the following...
 
 ---
+
+## Health comm experiment
+
+Effect of **source ideology** and **message direction** in vaccine-related articles shared on Twitter
+
++ Design: 3 (conservative/liberal/moderate) X 3 (pro/anti/neutral)
++ Nine conditions
+   - Conservative source + pro/anti/neutral-vaccine
+   - Liberal source + pro/anti/neutral-vaccine
+   - Moderate source + pro/anti/neutral-vaccine
+
+---
+
+## Outcome variables
++ Perceived source credibility
++ Perceived political bias
+
+---
+
+## Other variables
++ Media diet
++ Demographics
++ What else? (doesn't have to be related to experiment)
+
+---
+class: inverse, center, middle
 
 # Sampling
 
 ---
 
-## Random sample
-
-- Technically, it should be a "uniform" random sample
+## Random\* sample
++ \* Technically, there are multiple kinds of random distributions
+   - We typically assume a "uniform" random sample
 - Everyone in a sampling frame (all possible data points) has an equal probability of being selected
 - Best method for making inferences but expensive and difficult to do
 
 ---
 
 ## Quasi-random sample
-
 - Samples that use mathematical rules but lack access to the full population
 - One common technique is **probability matching**, which is when you match the demographics in a sample with the desired population
 
 ---
 
 ## Snowball sample
-
-- When you use one to recruit more into the sample
+- When you use one/some to recruit more into the sample
 - Not very representative, but useful for getting access to niche or hard-to-reach groups
 
 ---
 
 ## Convenience sample
-
 - A sample that is not random but selected largely due to convenience (low cost, ease of access, etc.)
 
 ---
 
 ## Why care about sampling?
-
 - The sampling method and study design has a direct effect on one's ability to make **inferences** from data
-- **Inferences** are conclusions drawn from a sample and applied to a population
+- **Inferential statistics** are conclusions drawn from a sample and applied to a population
+- **Descriptive statistics** are conclusions drawn about a population
 
 ---
+class: inverse, center, middle
 
 # Variables
 
 ---
 
 ## Variable
-
-- A **constant** is a fixed value that never changes.
+- A **constant** is a fixed value that never changes
     - e.g., pi, the number 1, etc.
-- A **variable** is a value that differs across observations.
+- A **variable** is a value that differs across observations
     - can often be thought of as features or characteristics
 
 ---
 
 ## Variable values
-
 - **Values** are measurements (observations) on a given variable
     - e.g., Tracy's height (variable) is `6'6''` (value)
     - e.g., Avery's final race position (variable) is `1` (value)
@@ -118,7 +150,6 @@ Values represent different categories [or named things]
 
 - Can be used to operationalize anything
 - This is often done using *dummy codes*
-
 
 ---
 
@@ -155,6 +186,14 @@ Values represent real numbers
 
 ---
 
+## Fahrenheit
+What if we convert the Farenheit values to Celsius
+
+- `100 F == 38 C`
+- `50 F == 10 C`
+
+---
+
 ## Celsius
 **Do the statements below add up?**
 
@@ -164,51 +203,154 @@ Values represent real numbers
 
 ---
 
+## Zero degrees
+**Does your scale have a meaningful zero?**
+
++ In theory, `0` should mean a complete lack or absence of the variable
++ For temperature, this is called a Kelvin scale
+
+---
+
+## Kelvin scale
+What if we convert the values to Kelvin
+
+- `100 F == 38 C == 311 K`
+- `050 F == 10 C == 283 K`
+
+---
+
 ## Kelvin
 **Do the statements below add up?**
 
-- The temperature today is 311 degrees Celsius
+- The temperature today is 311 degrees Kelvin
 - The temperature yesterday was 283 degrees Kelvin
 - Today is twice as hot as yesterday
 
 ---
 
 ## Actual temperature ratios
-**Fahrenheit** 
+**Fahrenheit** (2x)
 ```{r}
 100/50
 ```
 
-**Celcius**
+**Celcius** (3.8x)
 ```{r}
 38/10
 ```
 
-**Kelvin**
+**Kelvin** (1.1x)
 ```{r}
 311/283
 ```
 
+
+
 ---
+class: inverse, center, middle
 
-## Categorical/character
+# R packages
 
-- I will tend to refer to nominal variables as categorical variables
-- Categorical variables are represented in R as `character` and `factor` variables
+---
+## Install packages
++ Install the [tidyverse](https://tidyverse.org) set of packages (dplyr, tibble, purrr, ggplot2, readr, tidyr, etc.)
+
+```{r, eval = FALSE}
+## tidyverse actaully consists of several packages
+install.packages("tidyverse")
+```
+
+---
+## Load packages
++ Load packages with `library()`
+
+```{r, eval = FALSE}
+## note: you don't need to quote the package name
+library(tidyverse)
+```
+
++ Or specify the package directly when using a function
 
 ```{r}
+## select cyl and mpg columns in built-in mtcars data
+dplyr::select(mtcars, cyl, mpg)
+```
+
+---
+class: inverse, center, middle
+
+# Object classes in R
+
+---
+
+## Character/Factor
+- I will refer to nominal variables as categorical variables
+   + Variables with only two categories, we call *dichotomous*
+- Categorical variables are represented in R as `character` and `factor`
+
+```{r}
+## character vector containing values a, b, and c
 x <- c('a', 'b', 'c')
+x
 class(x)
 
-x <- as.factor(x)
+## factor vector containing [finite] values a, b, and c
+x <- factor(c('a', 'b', 'c'))
+x
 class(x)
 ```
 
 ---
+## Character
++ Character vectors can be any textual representations
+   - Unlike factors, characters are not limited to a finite set of possibilities
+
+```{r}
+## character vector
+x <- c("a", "a", "a", "b", "b", "c")
+
+## table function returns frequency count
+table(x)
+
+## convert character to factor
+f <- as.factor(x)
+f
+```
+
+
+---
+## Factor
++ Factor vectors are labelled integers representing a finite number of categories
+
+```{r}
+## try to convert character (x) to numeric
+x <- c("a", "a", "a", "b", "b", "c")
+try(as.numeric(x))
+
+## convert factor (f) to numeric
+f <- as.factor(x)
+as.numeric(f)
+```
+
+---
+## Factor
++ Factors can preserve information about levels/categories even if they are not observed
+
+```{r}
+## likert-type observations
+x <- c("Agree", "Neither", "Agree", "Agree")
+table(x)
+
+## convert factor (f) to numeric
+x <- factor(x, levels = c("Agree", "Neither", "Disagree"))
+table(x)
+```
+
+
+---
 
 ## Integer
-
-- In R, we will refer to **discrete** numbers as `integer` values.
+- In R, we refer to **discrete** numbers as `integer`
 
 ```{r}
 ## R assumes numbers are continuous (numeric)
@@ -224,8 +366,7 @@ class(x)
 ---
 
 ## Numeric
-
-- In R, we will refer to **continuous** interval and ratio variables as `numeric` values.
+- In R, we refer to **continuous** interval and ratio variables as `numeric`
 - Values are continuous if they don't only exist as discrete units
 
 ```{r}
@@ -236,215 +377,318 @@ class(x)
 
 ---
 
-## Defining variables
+## Data frames
++ Tabular data (like in Excel) is called a `data.frame`
+   - Tibbles (`tbl_df`) are special cases of data frames
++ Data frames contain rows (observations) and columns (variables)
+   - Variables can be of different classes
 
-**Conceptual definition**
+```{r}
+## dplyr data_frame is a useful version of base data.frame()
+df <- dplyr::data_frame(
+  cat = c("a", "b", "c", "a"),
+  int = c(1L, 2L, 1L, 3L),
+  num = c(-4.3, 3.14, 2, 0.10)
+)
+df
+```
 
-- A description of a variable's **theoretical** meaning.
+---
+class: inverse, center, middle
 
-**Operational definition**
-
-- A description of a variable's **observable** meaning.
+# Descriptive statistics
 
 ---
 
-## Example
-
-- Let's walk through an example of defining variable(s) and thinking about it in more practical terms
-
----
-
-## Class size
-
-Define the construct *class size*
-
-- **Class size** refers to the...
-    - Physical dimensions of the classroom
-    - The number of students
-    - The mass of the students
+## "Statistics"
++ **Descriptive** statistics (AKA *parametrics*)
+    - Describing the population of data
+    - Not a lot of probability theory required
++ **Inferential** statistics (AKA *statistics*)
+    - Describing the population using a sample of data
+    - Probability theory is key
 
 ---
 
-## Comparing classes sizes
-
-Let's say we want to compare two observed class sizes
-
-- **CLASS 1**: 30' x 30' room with 5 students weighing 1500 total lbs
-- **CLASS 2**: 20' x 20' room with 10 students weighing 1250 total lbs
-
----
-
-## Defining "class size"
-
-- **CLASS 1**: 30' x 30' room with 5 students weighing 1500 total lbs
-- **CLASS 2**: 20' x 20' room with 10 students weighing 1250 total lbs
-- If we define class size **physical space**, class 1 is biggest
-- If we define class size as **number of students**, class 2 is biggest
-- If we define class size as **mass of students**, class 1 is biggest
-
-Is any definition right or wrong?
-
+## Descriptive statistics
++ Measures of **central tendency**
+    - Describes the **middle** of the data
++ Measures of dispersion
+    - Describes the **spread** of the data
 
 ---
 
-## Practice
-
-- Let's practice conceptually and operationally defining variables
-
----
-
-## Media exposure
-
-- Conceptual definition:
-- Operational definition:
+## Central tendency
++ **Mean**: the expected value (often called "average")
++ **Median**: the mid-point of the data
++ **Mode**: the most common data point
 
 ---
 
-## Views on climate change
+## Mean
++ Calculate the mean `mean()` by summing `sum()` all values and dividing `/` by the number of values `length()`
 
-- Conceptual definition:
-- Operational definition:
+```{r}
+## 10 numbers from random distribution with mean of 0
+x <- rnorm(10, mean = 0)
 
----
+## calculate mean
+sum(x) / length(x)
 
-## Coverage of environmental issues
-
-- Conceptual definition:
-- Operational definition:
-
----
-
-## Accuracy in reporting
-
-- Conceptual definition:
-- Operational definition:
+## use mean function
+mean(x)
+```
 
 ---
 
-## Fake news
+## Median
++ Calculate the median `median()` by arranging `sort()` all values and find the middle (or values *tied* for the middle) observation.
 
-- Conceptual definition:
-- Operational definition:
+```{r}
+## sort the numbers by magnitude
+x <- sort(x)
 
+## print and find the middle values (5th and 6th)
+x
 
----
-
-## Social media use
-
-- Conceptual definition:
-- Operational definition:
-
-
----
-
-## Political ideology
-
-- Conceptual definition:
-- Operational definition:
+## use median function
+median(x)
+```
 
 ---
 
-## Perceived role of journalists
+## Mode
++ Calculate the mode by creating a frequency table `table()` and sorting `sort()` in descending order (biggest to smallest)
 
-- Conceptual definition:
-- Operational definition:
+```{r}
+## sample 100 values from the series of numbers 1:10 (1, 2, 3, 4, 5, 6, 7, 8, 9, 10)
+y <- sample(1:10, 100, replace = TRUE)
 
----
+## create frequency table
+y_freq <- table(y)
 
-# IVs and DVs
-
----
-
-## Classifying variables
-
-- Variables can be classified according to their status in a theoretical and/or statistical model
-- There are several different labels applied toward this end, but for the most part they all do the same thing
-    - Variables that represent the *cause*
-    - Variables that represent the *effect*
+## sort and print table
+sort(y_freq, decreasing = TRUE)
+```
 
 ---
 
-## Terminology
+## Important R note
++ In R missing values are coded as `NA`
++ Inputs containing `NA` will return `NA` for these functions:
+    - `sum()`, `mean()`, `median()`, `min()`, `max()`, `range()`, `var()`, `sd()`
++ To avoid this, include the argument `na.rm = TRUE`
 
-- The cause is the **independent** variable
-- The effect is the **dependent** variable
-- There's also exogeneous and endogenous, predictors and outcomes, and probably some other synonyms
+<br>
+
+<p class="note">Assuming you are **aware** of missing data, it is usually (though not always) desirable to omit `NA` values via `na.rm = TRUE`.</p>
+
+---
+## `na.rm = TRUE`
++ Example of finding mean when `x` contains a missing value (`NA`)
+```{r}
+## add missing value ot x
+x <- c(NA, x)
+
+## returns NA
+mean(x)
+
+## returns the mean we want
+mean(x, na.rm = TRUE)
+```
 
 ---
 
-## Cause `!=` cause
-
-- Although we use the cause/effect heuristic when modeling the relationship between two variables, we usually acknowledge multiple, reinforcing, or some underlying "root" causes
-- As long as we all know that, the cause/effect heuristic is still helpful for organizing our theoretical and statistical models
-    - Bad reporting of scientific research happens when we take cause/effect terminology too literally
-
----
-
-## Practice
-
-- Let's practice identifying independent and dependent variables
+## Dispersion
++ **Range**: the minimum and maximum values. Often expressed as a distance between the two.
++ **Variance**: distance from the mean
++ **Standard deviation**: distance from the mean expressed in standardized units
 
 ---
 
-## IV or DV?
+## Range
++ Calculate the range `range()` by finding the maximum `max()` and minimum `min()` values.
 
-- Sun
-- Surface temperature
+```{r}
+## min and max values of y
+min(y)
+max(y)
 
----
+## calculate distance between the two
+max(y) - min(y)
 
-## IV or DV?
-
-- Reading
-- Knowledge
-
----
-
-## IV or DV?
-
-- Public perceptions of an event
-- Reporting information about an event
+## use the range function
+range(y)
+```
 
 ---
 
-## Independent or dependent?
+## Variance
++ Calculate the variance `var()` by summing `sum()` the squared `^2` distance `-` from the mean `mean()` and dividing `/` by the number of observations `length(x) - 1`
 
-- Breakfast
-- Health
+```{r}
+## calculate variance
+sum((y - mean(y))^2) / (length(y) - 1)
 
----
-
-## Independent or dependent?
-
-- Exercise
-- Health
-
----
-
-## Independent or dependent?
-
-- Social media
-- Face-to-face interaction
+## use the var function
+var(y)
+```
 
 ---
 
-# Hypotheses/research questions
+## Standard deviation
++ Calculate the standard deviation `sd()` by taking the square root `sqrt()` of the variance `var()`.
+
+```{r}
+## calculate variance
+yvar <- var(y)
+
+## square root of variance
+sqrt(yvar)
+
+## use sd function
+sd(y)
+```
+
+<!-- ############################################# -->
+<!-- ##         GETTING DATA INTO R             ## -->
+<!-- ############################################# -->
+
+---
+class: inverse, center, middle
+
+# Getting data into R
 
 ---
 
-## Relationships between variables
-
-- Research questions ask about the relationship between two or more variables
-    - These questions can guess direction (e.g., positive vs negative) but I think that kind of defeats the purpose
-- Hypotheses predict the relationship between two or more variables
-    - Hypotheses can either predict **whether** there is a relationship or what **direction** the relationship is in
-
-> Hypotheses allow for more definitive inferences
+## CSV
++ **CSV**: comma separated value
+```{r}
+## readr is in the tidyverse
+d <- readr::read_csv("data/csv.csv")
+d
+```
 
 ---
 
-## RQs/Hs
+## \*SV/delimited
+```{r}
+## uncomment following line for help documentation
+#?read.table
+d <- read.delim("data/tsv.tsv")
+d
+```
 
-- Use **research questions** when there isn't a lot of research in an area and the theory isn't clear about what exactly to expect
-- Otherwise, use **hypotheses**
+---
+
+## dat
++ Wikipedia describes `.dat` as
+
+> not [a] specific file type, often generic extension for "data" files for a variety of applications
+
++ Often associated with Mplus (statistical software program)
++ See: \*SV methods, i.e., `read.table()`
+
+---
+
+## xlsx (Excel)
+```{r}
+## install readxl package if not already
+if (!requireNamespace("readxl", quietly = TRUE)) {
+  install.packages("readxl")
+}
+## read an excel file
+d <- readxl::read_excel("data/xlsx.xlsx")
+d
+```
+
+---
+
+## .sav (SPSS)
+```{r}
+## install readxl package if not already
+if (!requireNamespace("haven", quietly = TRUE)) {
+  install.packages("haven")
+}
+## read spss (sav) file
+d <- haven::read_spss("data/sav.sav")
+d
+```
+
+---
+
+## dta (Stata)
+```{r}
+## install readxl package if not already
+if (!requireNamespace("haven", quietly = TRUE)) {
+  install.packages("haven")
+}
+## read stata (dta) file
+d <- haven::read_stata("data/dta.dta")
+d
+```
+
+---
+
+## rds (R)
+```{r}
+## my favorite
+d <- readRDS("data/rds.rds")
+d
+```
+
+---
+
+## rda/Rdata
+```{r, eval = FALSE}
+## try to avoid this one
+load("data/rds.rda")
+```
+
+
+<!-- ############################################# -->
+<!-- ##           DESCRIPTIVES IN R             ## -->
+<!-- ############################################# -->
+
+---
+class: center, middle, inverse
+
+# Write up
+
+---
+
+## Data
++ After data collection and prior to analysis, research projects should describe, or summarize, the data
++ This should be included in the **methods** section of your paper
++ Descriptives for:
+    - Participants
+    - Variables
+
+---
+
+## Participants
++ Descriptives in the data summary typically include the following
+    - Number of observations (total number `N = 345`)
+    - Demographic (age, sex, race, education, etc.) breakdowns (numbers and percents *15.3% were female* (`n = 23`))
+        - For age, usually a range and the mean
+
+---
+
+## Variables
++ Study variable information: 
+    - min
+    - max
+    - mean
+    - sd
++ Correlation table (don't worry about that yet)
+
+---
+
+## Useful functions/packages
++ Fortunately, there are lots of good functions and packages to choose from
+    - `summary()` (base R)
+    - `psych::describe()`
+    - `skimr::skim()`
+    - `summarize()`
+
 
