@@ -1,0 +1,9 @@
+body {
+  font-size: 20px;
+  font-weight: 400;
+  font-family: 'Avenir Next LT Pro', 'Avenir Next', Roboto, 'Helvetica Neue', sans-serif;
+}
+ul li, ol li {
+  margin-top: .5em;
+  margin-bottom: .5em;
+}
