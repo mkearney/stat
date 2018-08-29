@@ -7,28 +7,38 @@ output: github_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-## Data
+## Data and packages
 
 ```{r}
+## install tidyverse if not alrady
+if (!requireNamespace("tidyverse", quietly = TRUE)) {
+  install.packages("tidyverse")
+}
+
+## load tidyverse
+library(tidyverse)
+
 ## read-in functions for reading/wrangling qualtrics data
 source("https://github.com/mkearney/stat/raw/master/static/slides/R/read_qualtrics.R")
+#source("~/R/stat/static/slides/R/read_qualtrics.R")
 
 ## read in qualtrics data
-d <- read_qualtrics("https://github.com/mkearney/stat/raw/master/static/slides/data/elect16data.csv")
+d <- suppressMessages(
+  readr::read_csv("https://github.com/mkearney/stat/raw/master/static/slides/data/elect16data2.csv"))
 ```
 
 ## 1. How many observations (rows)?
 
 ```{r}
 ## your code goes in here. it should output the correct number of rows
-
+nrow(d)
 ```
 
 
 ## 2. How many variables (columns)?
 ```{r}
 ## your code goes in here. it should output the correct number of variables=
-
+ncol(d)
 ```
 
 
@@ -36,7 +46,7 @@ d <- read_qualtrics("https://github.com/mkearney/stat/raw/master/static/slides/d
 
 ```{r}
 ## your code goes in here. it should output the a frequency table for the correct variable
-
+table(d$ambiv_sexism_7)
 ```
 
 
@@ -47,46 +57,65 @@ d <- read_qualtrics("https://github.com/mkearney/stat/raw/master/static/slides/d
 d <- recode_likerts(d)
 ```
 
-## 5. Calculate the mean of `ambiv_sexism` totals
+## 5. Calculate the mean of `ambiv_sexism` row means
 
 ```{r}
-## your code goes in here. first, add up totals (for ambiv_sexism items) for each row
+## your code goes in here. first, calculate means (for ambiv_sexism items) for each row
+d$ambiv_sexism <- rowMeans(dplyr::select(d, ambiv_sexism_1:ambiv_sexism_22), na.rm = TRUE)
 
 ## second, calculate the mean from the totals
-
+mean(d$ambiv_sexism, na.rm = TRUE)
 ```
 
-## 6. Calculate the standard deviation of `ambiv_sexism` totals
+## 6. Calculate the standard deviation of `ambiv_sexism` means
 
 ```{r}
-## hint: use the sums you calculated in the previous question
-
+## hint: use the means you calculated in the previous question
+sd(d$ambiv_sexism, na.rm = TRUE)
 ```
 
 ## 7. How many respondents were there in each of the observed race categories?
 
 ```{r}
 ## your code goes in here. it should output a frequency table of the race variable
-
+table(d$race)
 ```
 
 ## 8. What is the median age of the respondents?
 
 ```{r}
 ## your code goes in here. it should output the median of the age variable
-
+median(d$age, na.rm = TRUE)
 ```
 
-## 9. Use psych::describe to summarize the entire data set
+## 9. Use psych::describe to summarize `ambiv_sexism`, `therm_1`, `therm_2`, `therm_3`, `therm_4`, `therm_5`
 
 ```{r}
 ## your code goes in here. it should output the summary data from pscyh::describe
-
+psych::describe(d[, c("ambiv_sexism", "therm_1", "therm_2", "therm_3", "therm_4", "therm_5")])
 ```
 
-## 10. Plot histograms of `therm_1` and `therm_2`
+## 10. Plot histograms of `therm_1`, `therm_2`, `therm_3`, `therm_4`
 
 ```{r}
-## your code goes in here. it should output 2 histogram plots
+## histograms with base R
+hist(d$therm_1, col = "#3366ff")
+hist(d$therm_2, col = "#dd3333")
+hist(d$therm_3, col = "gray")
+hist(d$therm_4, col = "hotpink")
 
+## histograms with ggplot2
+d %>%
+  select(therm_1:therm_4) %>%
+  gather(var, val) %>%
+  ggplot(aes(x = val, fill = var)) +
+  geom_histogram(bins = 20, na.rm = TRUE) +
+  facet_wrap(~ var, scales = "free") + 
+  theme_bw() + 
+  theme(legend.position = "none", 
+        plot.title = element_text(face = "bold"), 
+        axis.title = element_text(hjust = .95, face = "italic")) + 
+  labs(title = "Feeling thermometer distributions", 
+       subtitle = "Histograms of responses (N = 254) to political feeling thermometers", 
+       x = "Temperature", y = "Observations")
 ```
