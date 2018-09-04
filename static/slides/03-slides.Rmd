@@ -20,7 +20,7 @@ output:
       highlightLines: true
       countIncrementalSlides: false
 ---
-
+class: inverse, center, middle
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE, eval = TRUE,
@@ -28,9 +28,6 @@ knitr::opts_chunk$set(echo = TRUE, eval = TRUE,
 options(htmltools.dir.version = FALSE)
 htmltools::tagList(rmarkdown::html_dependency_font_awesome())
 ```
-
----
-class: inverse, center, middle
 
 ## Agenda
 
@@ -384,8 +381,12 @@ Compare the number of news website visits for Facebook versus Twitter users.
 |        1|       10|
 |        3|        7|
 
++ Open the [practice notebook](../assignment/02-practice.Rmd)
 
+---
+class: inverse, center, middle
 
+## Chi-square tests
 
 ---
 
