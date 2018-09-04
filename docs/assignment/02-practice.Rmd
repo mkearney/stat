@@ -1,0 +1,75 @@
+---
+title: "Group comparisons"
+output: html_notebook
+---
+
+The data set `nwv`, entered below, provides the number of news website visits logged for six Facebook users and six different Twitter users.
+
+```{r}
+## news website visits (counts) of facebook and twitter users
+nwv <- data.frame(
+  fb_users = c(10, 1, 6, 3, 1, 3),
+  tw_users = c(3, 8, 1, 0, 10, 7)
+)
+```
+
+1. Calculate (and store) the mean `x1` `x2`, variance `s1` `s2`, and size `n1` `n2` of each group.
+
+```{r}
+## I started this for you; complete the rest of the code
+
+## group means
+x1 <- 
+x2 <- 
+
+## group variances
+s1 <- 
+s2 <- 
+
+## group sizes
+n1 <- 
+n2 <- 
+```
+
+2. Using the objects created for the previous question, calculate (and store as `num` and `denom`) the numerator and denominator based on the independent samples t-test formula
+
+```{r}
+## your code goes here
+```
+
+3. Using `num` and `denom`, calculate (and store as `tstat`) the t statistic
+
+```{r}
+## your code goes here
+```
+
+4. Calculate (and store as `df`) the degrees of freedom (you can assume equal variances)
+
+```{r}
+## your code goes here
+```
+
+5. Use `tstat` and `df` to calculate the p-value for a two-sided hypothesis
+
+```{r}
+## your code goes here
+```
+
+6. Visualize the means or distributions of the two groups. Make sure the values associated with each group are clearly marked.
+
+```{r}
+## load tidyverse
+library(tidyverse)
+
+## gather data long-wise and then construct boxplot
+nwv %>%
+  gather(group, visits) %>%
+  ggplot(aes(x = group, y = visits, fill = group)) + 
+  geom_boxplot() + 
+  theme_minimal() + 
+  labs(x = "User group", y = "Number of news website visits", 
+    title = "Comparing news website visits for Twitter versus Facebook users", 
+    subtitle = "Estimates based on browser histories of twelve total users") + 
+  theme(plot.title = element_text(face = "bold"), 
+    legend.position = "none")
+```

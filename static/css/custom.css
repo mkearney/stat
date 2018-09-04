@@ -189,3 +189,6 @@ table a .fas, table a .fab {
 .col-md-4 {
   width: 60%;
 }
+
+
+table { display: inline-block; }

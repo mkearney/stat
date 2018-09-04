@@ -20,7 +20,7 @@ output:
       highlightLines: true
       countIncrementalSlides: false
 ---
-
+class: inverse, center, middle
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE, eval = FALSE,
@@ -31,3 +31,63 @@ htmltools::tagList(rmarkdown::html_dependency_font_awesome())
 
 
 ## Data wrangling
+
+
+
+---
+class: inverse, center, middle
+
+## Computing basics
+
+---
+
+## File/directory awareness
+- Every computer has a file/directory system
+- There's a default or home folder
+    - On PCs this might be the "C" folder. On Macs, this is your username.
+- It's organized like a tree
+    - You can move from one branch to another
+    - Moving from one folder to another is a linear process–meaning, you can go forward and backward
+
+---
+
+## Don't fall asleep yet!
+Why do you need to know about your computer's file directory system?
+
+- Because you need to know where things are to interact with them!
+- Because you want to be able to replicate your work!
+
+---
+
+## tl;dr
+Open your file browser. See how the files are organized? Yeah? Good!
+
+---
+
+## Don't let these terms confuse you
+- `File` is the **name**/location of a file
+- `Path` is the name/**location** of a file
+- `Folder` is the **name**/location of a file folder
+- `Directory` is the name/**location** of a file folder
+
+<p class="note">file == path & folder == directory</p>
+
+---
+class: inverse, center, middle
+
+## Do unto <huge>future you</huge> </br> as you would have future you </br> do unto <huge> you</huge>.
+
+---
+
+## FutuRe you
+
++ Using scripts and writing clear code will make your life easier
++ It's like writing down a routine of pointing and clicking that you don't have to memorize
++ The internet is full of routines/scripts that you can edit and customize to your liking
++ With some notes and some extra attention paid to make sure things are clear, future you will be very happy with current you!
+
+
+
+<style>
+huge {font-size:1.7em;}
+</style>

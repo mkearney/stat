@@ -23,25 +23,118 @@ output:
 
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE, eval = FALSE,
+knitr::opts_chunk$set(echo = TRUE, eval = TRUE,
   collapse = TRUE, comment = "#>")
 options(htmltools.dir.version = FALSE)
 htmltools::tagList(rmarkdown::html_dependency_font_awesome())
 ```
 
+---
+class: inverse, center, middle
 
-## Overview
+## Agenda
+
+---
+
+## Agenda
 1. Hypothesis testing
-   - Null hypothesis
    - Alternative hypothesis
-   - Model comparison
+   - Null hypothesis
+   - Model comparisons
 1. Simple group comparisons
    - t-tests
    - chi-square test
 
 ---
+class: inverse, center, middle
 
 ## Hypothesis testing
+
+---
+
+## Alternative hypothesis
++ Also referred to as **research hypothesis**, this hypothesis formally states a **theorized relationship or difference**
+   - Relationship between two or more **variables**
+   - Difference between two or more **groups**
++ Research hypotheses describe **patterns**, not a lack of patterns
+   - Every research hypothesis has a null hypothesis
++ Alternative/research hypotheses are typically represented as $H_{1}$:...
+
+
+---
+
+## Null hypothesis
++ The **null hypothesis** is the version of the research hypothesis that assumes **no relationship or difference**
+   - **No relationship** between two or more variables
+   - **No difference** between two or more groups
++ Null hypotheses are typically represented as $H_{0}$:...
+
+> In other words, a null hypothesis restates the research hypothesis as though everything in the world **only varies at random**
+
+---
+
+## Hypothesis example #1
++ **Research hypothesis**:
+   - $H_{1}$: Journalists subscribe to more newspapers than do non-journalists.
++ **Null hypothesis**:
+   - $H_{0}$: Journalists subscribe to the same number of newspapers as do non-journalists.
+
+---
+
+## Hypothesis example #2
++ **Research hypothesis**:
+   - $H_{1}$: Exposure to health information is positively related to health knowledge.
++ **Null hypothesis**:
+   - $H_{0}$: Exposure to health information is not related to health knowledge.
+
+
+---
+
+## NHST
+**Null Hypothesis Significance Testing** (NHST) is the leading research paradigm
+
+1. Theorize a relationship or difference ( $H_{1}$ )
+1. Operationalize study with testable hypothesis ( $H_{0}$ )
+1. Collect data
+1. Conduct statistical test of $H_{0}$
+1. Report whether test rejected or failed to reject $H_{0}$
+1. Discuss findings as evidence (or a lack of evidence) supporting $H_{1}$
+
+---
+
+## Testing the null
++ We may ultimately be interested in a difference or relationship, but **we technically test the absence** of a difference or relationship
++ Positive (or significant) results **do not prove** the research hypothesis; they **only provisionally**...
+   - disprove the null (i.e., *reject the null*)
+   - provide evidence in support of the research hypothesis
+
+> Scientific knowledge accumulates over time and through multiple iterations
+
+---
+
+## Model comparison
++ An alternative to the NHST is **model comparisons**
++ Instead of comparing a model (theorized relationship or difference) to the null, this approach compares one model to another model
+   - The other model could be the null model
+   - The other model could also be a simplified or theoretically-driven model
++ Use cases
+   - When the null model isn't realistic
+   - When comparing two or more theories
+
+
+---
+class: inverse, center, middle
+
+## Group comparisons
+
+---
+
+## Comparing two groups
+
+A hypothesis can theorize about...
+
++ relationship between two ordinal/interval/ratio-level **variables** (next week)
++ difference in one variable between two **groups** (today)
 
 ---
 
@@ -53,3 +146,276 @@ htmltools::tagList(rmarkdown::html_dependency_font_awesome())
 + [t-tests with small Ns](https://pareonline.net/pdf/v18n10.pdf)
 + [Five-point likert items t-test vs Wilcoxon-Mann-Whitney](https://www.pareonline.net/getvn.asp?v=15&n=11)
 + [Unequal variance t-test is underused alternative to Student's t-test and WMW test](https://academic.oup.com/beheco/article/17/4/688/215960)
+
+
+
+---
+class: inverse, middle, center
+
+## t-tests
+
+---
+
+## t-test
+- *t-tests* are statistical techniques that test for differences between two groups
+- There are multiple types of t-tests:
+  - One sample
+  - Paired sample
+  - Independent sample
+
+---
+
+## t-test assumptions
+- All t-tests assume the dependent variable, or the variable on which
+  groups may differ, is numeric (interval or ratio)
+- All t-tests assume the independent variable, or grouping variable,
+  is categorical (nominal or dicthomous)
+
+
+---
+
+## One sample t-test
+- Compare sample mean versus population mean using a **one sample
+  t-test**
+$$H_{1}: \mu \neq \bar{x}$$
+
+
+---
+
+## Paired sample t-test
+- Compare the means of one group at different times using **paired
+    sample t-test**
+$$H_{1}: \bar{x_{t1}} \neq \bar{x_{t2}}$$
+
+
+---
+
+## Independent sample t-test
+  - ***Most common***: Compare the means of two [independent] groups
+    using an **independent samples t-test**
+$$H_{1}: \bar{x_{1}} \neq \bar{x_{2}}$$
+
+
+---
+
+## Independent samples t-test
+- To calculate an independent samples t statistic
+
+$$t = \frac{\bar{x}_{1} - \bar{x}_{2}}{\sqrt{
+\frac{s_{1}^2}{n_{1}} +
+\frac{s_{2}^2}{n_{2}}}}$$
+
+
+---
+
+## t-test example
+- Say we conduct an experiment with two groups and we're interested in
+what causes people to actually read news articles.
+
+- One group is given a 30 min lecture about the importance of civic
+  awareness.
+- The other group is told they will be debating one another on topics
+  related to current events.
+- Each person in both groups is given a newspaper. And then
+  researchers record how much each person read.
+
+---
+
+## t-test example
+- Our research hypothesis is that competitive goals are better drivers
+  of news use than informed citizen values.
+$$H_{1}: x_{debate} > x_{informed}$$
+
+- The null hypothesis assumes there is no difference.
+$$H_{0}: x_{debate} = x_{informed}$$
+
+
+---
+
+## t-test
+- The output of a t-test is the t- statistic.
+- Once the t statistic is computed, you can find the corresponding p
+  value using the appropriate degrees of freedom and a t-table.
+
+---
+
+## Example t-test
+
+A researcher wants to find out if people are happier reading about local or national human interest stories. They have 6 people read a local human interest story, and 6 different people read a national human interest story and then ask all 12 people to rate how happy they are on a scale of 1-10, with 10 being the highest rating possible.
+
+---
+
+## Hypothesis: two-tail
+
+**Research hypothesis**: people reading local human interest stories experience different levels of happiness compared to people reading national human interest stories.
+
+$$H_{1}:~~happy_{~local }~\neq~happy_{~national}$$
+
+**Null hypothesis**: people reading local human interest stories do **not** experience different levels of happiness compared to people reading national human interest stories.
+
+$$H_{0}:~~happy_{~local }~=~happy_{~national}$$
+
+
+---
+
+## Hypothesis: one-tail
+
+**Research hypothesis**: people reading local human interest stories are happier than people reading national human interest stories.
+
+$$H_{1}:~~happy_{~local }~>~happy_{~national}$$
+**Null hypothesis**: people reading local human interest stories are **not** happier than people reading national human interest stories.
+
+$$H_{0}:~~happy_{~local }~=~happy_{~national}$$
+
+---
+
+## Data
+
+```{r}
+## create data frame with happiness scores
+d <- data.frame(
+  local    = c(5, 6, 8, 4, 6, 9),
+  national = c(2, 4, 3, 2, 3, 2)
+)
+```
+
+| local| national|
+|-----:|--------:|
+|     5|        2|
+|     6|        4|
+|     8|        3|
+|     4|        2|
+|     6|        3|
+|     9|        2|
+
+
+---
+
+## Calculating `t`
+
+$$t = \frac{\bar{x}_{1} - \bar{x}_{2}}{\sqrt{
+\frac{s_{1}^2}{n_{1}} +
+\frac{s_{2}^2}{n_{2}}}}$$
+
+
+```{r}
+## group means (outermost parens added for printing)
+(x1 <- mean(d$local))
+(x2 <- mean(d$national))
+
+## variances (s^2 = variance. s = sd)
+(s1 <- var(d$local))
+(s2 <- var(d$national))
+
+## group lengths (should be same)
+(n1 <- length(d$local))
+(n2 <- length(d$national))
+```
+
+---
+
+$$t = \frac{\bar{x}_{1} - \bar{x}_{2}}{\sqrt{
+\frac{s_{1}^2}{n_{1}} +
+\frac{s_{2}^2}{n_{2}}}}$$
+
+
+```{r}
+## calculate numerator
+(num <- mean(x1) - mean(x2))
+
+## calculate denominator
+(denom <- sqrt((s1 / n1) + (s2 / n2)))
+
+## t is equal to num divided by denom
+(tstat <- num / denom)
+```
+
+---
+
+## p-value(s)
+
+Calculate the p-value for `tstat` using `pt()`
+
+```{r}
+## calculate degrees of freedom
+(df <- n1 + n2 - 2)
+```
+
+Two-tailed
+
+```{r}
+## p-value for two-tailed (sided) test
+2 * pt(-abs(tstat), df)
+```
+
+One-tailed (greater than)
+
+```{r}
+## p-value for one-tailed (sided) greater than test
+pt(tstat, df, lower.tail = FALSE)
+```
+
+---
+
+## `t.test()`
+
+Compare with output from `t.test()`
+
+```{r}
+## t-test from stats pkg
+t.test(d$local, d$national, alternative = "two.sided", var.equal = TRUE)
+```
+
+> *Note: We assume equal variances; this isn't always the case (see: `var.equal` documentation for `?t.test`)*
+
+
+---
+
+## Your turn
+
+Compare the number of news website visits for Facebook versus Twitter users.
+
+| fb_users| tw_users|
+|--------:|--------:|
+|       10|        3|
+|        1|        8|
+|        6|        1|
+|        3|        0|
+|        1|       10|
+|        3|        7|
+
+
+
+
+---
+
+## Chi-square test
+
+The t-test is only appropriate when the outcome/variable of interest is ordinal/interval/ratio.
+
+To compare categorical responses between two groups, use **chi-square tests**.
+
++ Chi-square tests compare the expected frequencies (assuming uniform random distribution) with the observed frequencies (actually observed counts)
+
+---
+
+## `chisq.test()`
+
+In R, this is done by constructing a matrix where rows represent one variable dimensions and columns represent another variable's dimensions.
+
+```{r}
+## create frequency table
+x <- matrix(c(12, 5, 2, 8, 6, 4, 10, 7), ncol = 2)
+
+## row names
+row.names(x) <- c("Democrat", "Lean Democrat", "Republican", "Lean Republican")
+
+## column names
+colnames(x) <- c("cnn", "fox")
+
+## print matrix
+x
+
+## conduct chi-square test
+chisq.test(x)
+```

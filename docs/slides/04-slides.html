@@ -39,12 +39,277 @@ class: center, middle, inverse, title-slide
 
 ---
 
-
-
+class: inverse, center, middle
 
 
 
 ## Correlations and factor analysis
+
+---
+
+## Correlation
+
+A **correlation** describes how variation in one variable relates to variation in another variable. 
+
+In statistics, correlations describe the **magnitude** and **direction** of a relationship between two variables. 
+
+---
+
+
+```r
+## 20 observations from random normal distribution
+x &lt;- rnorm(20)
+## x + 20 observations from random normal distribution
+y &lt;- rnorm(20) + x
+## data frame
+df &lt;- data.frame(x, y)
+## scatter plot
+ggplot(df, aes(x, y)) + 
+  geom_point() + 
+  labs(title = "Scatter plot of y by x")
+```
+
+---
+
+## Correlation coefficient: `r`
+
+**`r`** (correlation coefficient): a statistic that describes the magnitude (size) and direction (order) of a relationship
+
+There are several types of correlation coefficients, but all assume following:
+
++ The **range of possible values** goes from -1 to +1
++ **Direction** is described by the sign of the coefficient (negative = negative relationship and vice versa)
++ **Magnitude** is described by the coefficient's distance from zero
+    + A correlation of zero indicates an absence of correlation (no relationship)
+
+.footnote[In statistics, a **coefficient** refers to the multiplicative factor (a numeric estimate) for one variable in relation to another variable.]
+
+---
+
+## Types of correlations
+
+**Pearson product-moment**: linear relationship between two variables 
+`$$x\sim\sim y$$`
+
+**Spearman's rho**: relationship between rankings of two variables 
+`$$x\sim\sim y$$`
+
+**Intraclass**: relationship between paired observations 
+`$$x_{t1}\sim\sim x_{t2}$$`
+
+---
+
+## Semester
+
+All of the correlations are similar, but you can assume when I talk about correlations I'm talking about the Pearson product-moment correlation.
+
+When your variables are ordinal (ordered categories), it's important to remember there's a better way to estimate the correlation coefficient.
+
+---
+
+## Interval/ratio data
+
+
+```r
+## 20 observations from random normal distribution
+x &lt;- rnorm(20)
+## x + 20 observations from random normal distribution
+y &lt;- rnorm(20) + x
+## create data frame
+df &lt;- data.frame(x, y)
+
+## print
+head(df)
+```
+
+
+
+---
+
+## Ordinal data
+
+
+```r
+## sample twenty values from numbers 1,2,3,4,5,6
+x &lt;- sample(c(1, 2, 3, 4, 5, 6), 20, replace = TRUE)
+## sample twenty more, add them with x, and then divide by 2
+y &lt;- round((x + sample(c(1, 2, 3, 4, 5, 6), 20, replace = TRUE)) / 2, 0)
+## create data frame
+df_ordered &lt;- data.frame(x, y)
+
+## print
+head(df_ordered)
+```
+
+
+---
+
+## `cor(method = "pearson")`
+
+By default, `cor()` returns the Pearson product-moment correlation.
+
+
+```r
+## using cor defaults
+cor(df$x, df$y)
+```
+
+Use `method` to specify the type of correlation and `use` to deal with missing data
+
+
+```r
+## pearson product-moment correlation
+cor(df$x, df$y, method = "pearson", use = "complete.obs")
+```
+
+---
+
+## `cor(method = ` "spearman"`)`
+
+Pearson product moment correlation coefficient.
+
+
+```r
+## pearson product-moment correlation
+cor(df_ordered$x, df_ordered$y, method = "pearson")
+```
+
+And Spearman's rho (rank) correlation coefficient.
+
+
+```r
+## spearman rho correlation
+cor(df_ordered$x, df_ordered$y, method = "spearman")
+```
+
+
+---
+
+## Hypothesis testing
+
+To conduct a signficiance test of a correlation using R, use `cor.test()`. 
+
+
+```r
+## correlation test
+cor.test(df$x, df$y)
+```
+
+.footnote[To convert the output to a more usable data frame, use `tidy()` from the **{broom}** package.]
+
+---
+
+## `method =` "pearson"
+
+Correlation test of interval/ratio data
+
+```r
+## correlation sig test
+cor.test(df$x, df$y, method = "pearson") %&gt;%
+  broom::tidy() %&gt;% head()
+```
+
+---
+
+## `method =` "spearman"
+ 
+Correlation test of ordinal data
+
+```r
+## correlation sig test
+cor.test(df$x, df$y, method = "spearman") %&gt;%
+  broom::tidy() %&gt;% head()
+```
+
+
+---
+
+## Correlation tool
+
+Visualize correlations of different values (-1 to 1):
+
++ https://mikewk.shinyapps.io/correlation/
+
+---
+
+## Practice
+
+Guess the correlation coefficient (the game):
+
++ http://guessthecorrelation.com/
+
+
+
+
+---
+class: inverse, center, middle
+
+## Factors and factor analysis
+
+---
+
+## Factor
+
+A **factor** is a psychometric term for variable. 
+
+In statistics, factors describe the **latent** variables which we are attempting to measure. 
+
+
+---
+
+## Items
+
+An **item** refers to a single question/prompt/response-provoking stimulus in a questionnaire.
+
+In the context of a study, a **variable** refers to a construct (or factor) to be examined.
+
+Variables can consist of one or more items from a questionnaire.
+
+
+---
+
+## Multi-item variables
+
+When a variable (or factor) is measured using multiple items, we still want to represent it with one number.
+
+**How can we represent a variable measured with 5 likert-type items using one number per observation (respondent)?**
+
+
+---
+
+## Example
+
+Our variable of interest is extraversion/introversion. We measure it using four likert-type items:
+
++ I like talking to lots of people
++ I like attending events where I meet knew people
++ I am comfortable at a party where I don't know anyone else
++ Meeting my friends' friends makes me nervous
+
+
+---
+
+## Example responses
+
+
+```r
+## first person's responses
+person1 &lt;- c(1, 2, 1, 7)
+
+## second person's responses
+person2 &lt;- c(6, 6, 5, 2)
+```
+
+
+---
+
+## Factor analysis
+
+To make sure we have **reliable** measures, we use factor analysis.
+
+**Factor analysis** essentially finds the correlation between responses for similar items. 
+
+There are lots of details and variations, but knowing this much will help you in the future!
     </textarea>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
 <script>var slideshow = remark.create({

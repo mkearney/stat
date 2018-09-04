@@ -11,7 +11,7 @@ lessons:
   - date: "2018-09-04"
     title: "Hypothesis tests and group comparisons"
     reading: "#3-hypothesis-tests-and-group-comparisons"
-    assignment: "#"
+    assignment: "02-hw.Rmd"
     slides: "03-slides.html"
   - date: "2018-09-11"
     title: "Correlations and factor analysis"
