@@ -2,15 +2,7 @@
 title: "Day 2"
 subtitle: "Descriptive statistics"
 author: "Michael W. Kearney📊<br/>School of Journalism <br/>Informatics Institute <br/>University of Missouri"
-date: "<table style=\"border-style:none;padding-top:30px;\" class=\".table\">
-  <tr>
-    <th style=\"padding-right:75px!important\"><a href=\"https://twitter.com/kearneymw\"> <i class=\"fa fa-twitter\"></i> </a></th>
-    <th style=\"padding-left:75px!important\"><a href=\"https://github.com/mkearney\"> <i class=\"fa fa-github\"></i> </a></th>
-  </tr>
-  <tr style=\"background-color:#fff\">
-    <th style=\"padding-right:75px!important\"><a href=\"https://github.com/mkearney\"> @kearneymw </a></th>
-    <th style=\"padding-left:75px!important\"><a href=\"https://github.com/mkearney\"> @mkearney </a></th>
-  </tr></table>"
+date: '`r rmdees::title_icons("kearneymw", "mkearney")`'
 output:
   xaringan::moon_reader:
     lib_dir: lib
@@ -565,7 +557,7 @@ class: inverse, center, middle
 + **CSV**: comma separated value
 ```{r}
 ## readr is in the tidyverse
-d <- readr::read_csv("data/csv.csv")
+d <- readr::read_csv("../data/csv.csv")
 d
 ```
 
@@ -575,7 +567,7 @@ d
 ```{r}
 ## uncomment following line for help documentation
 #?read.table
-d <- read.delim("data/tsv.tsv")
+d <- read.delim("../data/tsv.tsv")
 d
 ```
 
@@ -598,7 +590,7 @@ if (!requireNamespace("readxl", quietly = TRUE)) {
   install.packages("readxl")
 }
 ## read an excel file
-d <- readxl::read_excel("data/xlsx.xlsx")
+d <- readxl::read_excel("../data/xlsx.xlsx")
 d
 ```
 
@@ -611,7 +603,7 @@ if (!requireNamespace("haven", quietly = TRUE)) {
   install.packages("haven")
 }
 ## read spss (sav) file
-d <- haven::read_spss("data/sav.sav")
+d <- haven::read_spss("../data/sav.sav")
 d
 ```
 
@@ -624,7 +616,7 @@ if (!requireNamespace("haven", quietly = TRUE)) {
   install.packages("haven")
 }
 ## read stata (dta) file
-d <- haven::read_stata("data/dta.dta")
+d <- haven::read_stata("../data/dta.dta")
 d
 ```
 
@@ -633,7 +625,7 @@ d
 ## rds (R)
 ```{r}
 ## my favorite
-d <- readRDS("data/rds.rds")
+d <- readRDS("../data/rds.rds")
 d
 ```
 
@@ -642,7 +634,7 @@ d
 ## rda/Rdata
 ```{r, eval = FALSE}
 ## try to avoid this one
-load("data/rds.rda")
+load("../data/rds.rda")
 ```
 
 

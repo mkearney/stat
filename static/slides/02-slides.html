@@ -29,7 +29,7 @@ class: center, middle, inverse, title-slide
 </tr>
 <tr style="background-color:#fff">
 <th style="padding-right:75px!important">
-<a href="https://github.com/mkearney"> <span class="citation">@kearneymw</span> </a>
+<a href="https://twitter.com/kearneymw"> <span class="citation">@kearneymw</span> </a>
 </th>
 <th style="padding-left:75px!important">
 <a href="https://github.com/mkearney"> <span class="citation">@mkearney</span> </a>
@@ -529,11 +529,11 @@ x &lt;- rnorm(10, mean = 0)
 
 ## calculate mean
 sum(x) / length(x)
-#&gt; [1] -0.523909
+#&gt; [1] 0.231287
 
 ## use mean function
 mean(x)
-#&gt; [1] -0.523909
+#&gt; [1] 0.231287
 ```
 
 ---
@@ -548,12 +548,12 @@ x &lt;- sort(x)
 
 ## print and find the middle values (5th and 6th)
 x
-#&gt;  [1] -3.003892 -1.494294 -1.164791 -0.502857 -0.401837 -0.299097 -0.277658
-#&gt;  [8]  0.167901  0.747199  0.990236
+#&gt;  [1] -1.940891 -0.253218 -0.245883  0.144930  0.277135  0.381728  0.476142
+#&gt;  [8]  0.647991  1.325149  1.499791
 
 ## use median function
 median(x)
-#&gt; [1] -0.350467
+#&gt; [1] 0.329431
 ```
 
 ---
@@ -572,8 +572,8 @@ y_freq &lt;- table(y)
 ## sort and print table
 sort(y_freq, decreasing = TRUE)
 #&gt; y
-#&gt;  6  3  8  1  4  5  9 10  2  7 
-#&gt; 17 13 13 10  9  9  9  8  6  6
+#&gt;  1  8  4  2  6  3  5  9  7 10 
+#&gt; 16 12 11 10 10  9  9  9  7  7
 ```
 
 ---
@@ -602,7 +602,7 @@ mean(x)
 
 ## returns the mean we want
 mean(x, na.rm = TRUE)
-#&gt; [1] -0.523909
+#&gt; [1] 0.231287
 ```
 
 ---
@@ -643,11 +643,11 @@ range(y)
 ```r
 ## calculate variance
 sum((y - mean(y))^2) / (length(y) - 1)
-#&gt; [1] 7.58576
+#&gt; [1] 8.6602
 
 ## use the var function
 var(y)
-#&gt; [1] 7.58576
+#&gt; [1] 8.6602
 ```
 
 ---
@@ -662,11 +662,11 @@ yvar &lt;- var(y)
 
 ## square root of variance
 sqrt(yvar)
-#&gt; [1] 2.75423
+#&gt; [1] 2.94282
 
 ## use sd function
 sd(y)
-#&gt; [1] 2.75423
+#&gt; [1] 2.94282
 ```
 
 &lt;!-- ############################################# --&gt;
@@ -685,7 +685,7 @@ class: inverse, center, middle
 
 ```r
 ## readr is in the tidyverse
-d &lt;- readr::read_csv("data/csv.csv")
+d &lt;- readr::read_csv("../data/csv.csv")
 #&gt; Parsed with column specification:
 #&gt; cols(
 #&gt;   id = col_integer(),
@@ -707,7 +707,7 @@ d
 ```r
 ## uncomment following line for help documentation
 #?read.table
-d &lt;- read.delim("data/tsv.tsv")
+d &lt;- read.delim("../data/tsv.tsv")
 d
 #&gt;        x1   x2   x3 x4
 #&gt; 1 234.000 10.0  1.5  a
@@ -735,7 +735,7 @@ if (!requireNamespace("readxl", quietly = TRUE)) {
   install.packages("readxl")
 }
 ## read an excel file
-d &lt;- readxl::read_excel("data/xlsx.xlsx")
+d &lt;- readxl::read_excel("../data/xlsx.xlsx")
 #&gt; Warning: The `validate` argument to `as_tibble()` is deprecated. Please use
 #&gt; `.tidy_names` to control column names.
 d
@@ -758,7 +758,7 @@ if (!requireNamespace("haven", quietly = TRUE)) {
   install.packages("haven")
 }
 ## read spss (sav) file
-d &lt;- haven::read_spss("data/sav.sav")
+d &lt;- haven::read_spss("../data/sav.sav")
 d
 #&gt; # A tibble: 32 x 2
 #&gt;    toxin yield
@@ -786,7 +786,7 @@ if (!requireNamespace("haven", quietly = TRUE)) {
   install.packages("haven")
 }
 ## read stata (dta) file
-d &lt;- haven::read_stata("data/dta.dta")
+d &lt;- haven::read_stata("../data/dta.dta")
 d
 #&gt; # A tibble: 2 x 8
 #&gt;   datetime_c          datetime_big_c      date       weekly_date
@@ -803,7 +803,7 @@ d
 
 ```r
 ## my favorite
-d &lt;- readRDS("data/rds.rds")
+d &lt;- readRDS("../data/rds.rds")
 d
 #&gt; # A tibble: 88 x 18
 #&gt;    expertise   MR1   MR2   MR3   MR4   MR6   MR7   MR8   MR9   MR5  MR10
@@ -828,7 +828,7 @@ d
 
 ```r
 ## try to avoid this one
-load("data/rds.rda")
+load("../data/rds.rda")
 ```
 
 
