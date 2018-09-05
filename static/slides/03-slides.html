@@ -444,7 +444,7 @@ To compare categorical responses between two groups, use **chi-square tests**.
 
 ---
 
-## `chisq.test()`
+## Frequency matrix
 
 In R, this is done by constructing a matrix where rows represent one variable dimensions and columns represent another variable's dimensions.
 
@@ -466,7 +466,16 @@ x
 #&gt; Lean Democrat     5   4
 #&gt; Republican        2  10
 #&gt; Lean Republican   8   7
+```
 
+---
+
+## `chisq.test()`
+
+Conducting a chi-square test is simple:
+
+
+```r
 ## conduct chi-square test
 chisq.test(x)
 #&gt; Warning in chisq.test(x): Chi-squared approximation may be incorrect

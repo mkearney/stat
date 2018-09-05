@@ -2,15 +2,7 @@
 title: "Day 3"
 subtitle: "Hypothesis tests and group comparisons"
 author: "Michael W. Kearney📊<br/>School of Journalism <br/>Informatics Institute <br/>University of Missouri"
-date: "<table style=\"border-style:none;padding-top:30px;\" class=\".table\">
-  <tr>
-    <th style=\"padding-right:75px!important\"><a href=\"https://twitter.com/kearneymw\"> <i class=\"fa fa-twitter\"></i> </a></th>
-    <th style=\"padding-left:75px!important\"><a href=\"https://github.com/mkearney\"> <i class=\"fa fa-github\"></i> </a></th>
-  </tr>
-  <tr style=\"background-color:#fff\">
-    <th style=\"padding-right:75px!important\"><a href=\"https://github.com/mkearney\"> @kearneymw </a></th>
-    <th style=\"padding-left:75px!important\"><a href=\"https://github.com/mkearney\"> @mkearney </a></th>
-  </tr></table>"
+date: '`r rmdees::title_icons("kearneymw", "mkearney")`'
 output:
   xaringan::moon_reader:
     lib_dir: lib
@@ -400,7 +392,7 @@ To compare categorical responses between two groups, use **chi-square tests**.
 
 ---
 
-## `chisq.test()`
+## Frequency matrix
 
 In R, this is done by constructing a matrix where rows represent one variable dimensions and columns represent another variable's dimensions.
 
@@ -416,7 +408,16 @@ colnames(x) <- c("cnn", "fox")
 
 ## print matrix
 x
+```
 
+---
+
+## `chisq.test()`
+
+Conducting a chi-square test is simple:
+
+```{r}
 ## conduct chi-square test
 chisq.test(x)
 ```
+

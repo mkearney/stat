@@ -22,11 +22,11 @@ if (!requireNamespace("tidyverse", quietly = TRUE)) {
 library(tidyverse)
 
 ## read-in functions for reading/wrangling qualtrics data
-source("https://github.com/mkearney/stat/raw/master/static/slides/R/read_qualtrics.R")
+source("https://raw.githubusercontent.com/mkearney/stat/master/static/R/read_qualtrics.R")
 
 ## read in qualtrics data
 d <- suppressMessages(
-  readr::read_csv("https://github.com/mkearney/stat/raw/master/static/slides/data/elect16data2.csv"))
+  readr::read_csv("https://raw.githubusercontent.com/mkearney/stat/master/static/data/elect16data2.csv"))
 ```
 
 ## 1. How many observations (rows)?
