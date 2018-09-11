@@ -239,8 +239,8 @@ df <- data_frame(
 ```{r, fig.show = 'hide', fig.keep = 'none'}
 ggplot(df, aes(x = x, y = y, fill = data)) + 
   geom_point(shape = 21, size = 8, alpha = .8) + 
-  labs(title = "Scatter plot of observed and rank-order values") + 
-  scale_fill_manual(values = c(raw = "#F1B82D", rank = "#999999")) + 
+  labs(title = "Scatter plot of raw and rank-order values") + 
+  scale_fill_manual(values = c(raw = "#F1B82D", rank = "#222222")) + 
   ggsave("img/scatter_plot-xy.png", width = 8, height = 4.5, units = "in")
 ```
 
