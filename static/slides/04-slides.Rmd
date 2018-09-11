@@ -50,6 +50,17 @@ print <- function(x, n = NULL, align = "c", digits = 3) {
 ---
 class: inverse, center, middle
 
+## Test
+
+Try this out:
+
+```{r, eval = FALSE}
+source("https://raw.githubusercontent.com/mkearney/stat/master/static/build.R")
+```
+
+---
+class: inverse, center, middle
+
 ## Co-variance
 
 ---
