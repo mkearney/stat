@@ -54,7 +54,7 @@ class: inverse, center, middle
 
 ## Cov
 
-$$cov(x, y) = (x-\mu_{x})(y-\mu_{y})$$
+$$cov(x, y) = \frac{\Sigma{(x-\bar{x}_{x})(y-\bar{y}_{y})}}{n - 1}$$
 
 Where $\mu$ is actually the sample mean
 
