@@ -39,11 +39,15 @@ class: center, middle, inverse, title-slide
 
 ---
 
+class: inverse, center, middle
 
 
 
+## Agenda
 
-## Overview
+---
+
+## Agenda
 + Review
    - Sampling
    - Variables
@@ -529,11 +533,11 @@ x &lt;- rnorm(10, mean = 0)
 
 ## calculate mean
 sum(x) / length(x)
-#&gt; [1] 0.231287
+#&gt; [1] -0.233381
 
 ## use mean function
 mean(x)
-#&gt; [1] 0.231287
+#&gt; [1] -0.233381
 ```
 
 ---
@@ -548,12 +552,12 @@ x &lt;- sort(x)
 
 ## print and find the middle values (5th and 6th)
 x
-#&gt;  [1] -1.940891 -0.253218 -0.245883  0.144930  0.277135  0.381728  0.476142
-#&gt;  [8]  0.647991  1.325149  1.499791
+#&gt;  [1] -1.705462 -1.056126 -1.055676 -0.942334 -0.371727 -0.124027  0.206300
+#&gt;  [8]  0.278116  0.750452  1.686672
 
 ## use median function
 median(x)
-#&gt; [1] 0.329431
+#&gt; [1] -0.247877
 ```
 
 ---
@@ -572,8 +576,8 @@ y_freq &lt;- table(y)
 ## sort and print table
 sort(y_freq, decreasing = TRUE)
 #&gt; y
-#&gt;  1  8  4  2  6  3  5  9  7 10 
-#&gt; 16 12 11 10 10  9  9  9  7  7
+#&gt;  3  4 10  1  9  8  2  5  7  6 
+#&gt; 14 14 13 12 11 10  8  8  6  4
 ```
 
 ---
@@ -602,7 +606,7 @@ mean(x)
 
 ## returns the mean we want
 mean(x, na.rm = TRUE)
-#&gt; [1] 0.231287
+#&gt; [1] -0.233381
 ```
 
 ---
@@ -643,11 +647,11 @@ range(y)
 ```r
 ## calculate variance
 sum((y - mean(y))^2) / (length(y) - 1)
-#&gt; [1] 8.6602
+#&gt; [1] 9.45646
 
 ## use the var function
 var(y)
-#&gt; [1] 8.6602
+#&gt; [1] 9.45646
 ```
 
 ---
@@ -662,11 +666,11 @@ yvar &lt;- var(y)
 
 ## square root of variance
 sqrt(yvar)
-#&gt; [1] 2.94282
+#&gt; [1] 3.07514
 
 ## use sd function
 sd(y)
-#&gt; [1] 2.94282
+#&gt; [1] 3.07514
 ```
 
 &lt;!-- ############################################# --&gt;
@@ -736,8 +740,6 @@ if (!requireNamespace("readxl", quietly = TRUE)) {
 }
 ## read an excel file
 d &lt;- readxl::read_excel("../data/xlsx.xlsx")
-#&gt; Warning: The `validate` argument to `as_tibble()` is deprecated. Please use
-#&gt; `.tidy_names` to control column names.
 d
 #&gt; # A tibble: 4 x 2
 #&gt;   name                 value    
@@ -773,7 +775,7 @@ d
 #&gt;  8    18     4
 #&gt;  9    18     4
 #&gt; 10    17     4
-#&gt; # … with 22 more rows
+#&gt; # ... with 22 more rows
 ```
 
 ---
@@ -793,7 +795,7 @@ d
 #&gt;   &lt;dttm&gt;              &lt;dttm&gt;              &lt;date&gt;           &lt;dbl&gt;
 #&gt; 1 2006-11-19 23:13:20 2006-11-19 22:57:03 2010-01-20        2601
 #&gt; 2 1959-12-31 20:03:20 1959-12-31 23:35:21 1953-10-02        -601
-#&gt; # … with 4 more variables: monthly_date &lt;dbl&gt;, quarterly_date &lt;dbl&gt;,
+#&gt; # ... with 4 more variables: monthly_date &lt;dbl&gt;, quarterly_date &lt;dbl&gt;,
 #&gt; #   half_yearly_date &lt;dbl&gt;, yearly_date &lt;dbl&gt;
 ```
 
@@ -818,7 +820,7 @@ d
 #&gt;  8 data vis…  0.99     0     0     0     0     0     0     0     0     0
 #&gt;  9 data-dri…  0.99     0     0     0     0     0     0     0     0     0
 #&gt; 10 data jou…  0.99     0     0     0     0     0     0     0     0     0
-#&gt; # … with 78 more rows, and 7 more variables: MR13 &lt;dbl&gt;, MR11 &lt;dbl&gt;,
+#&gt; # ... with 78 more rows, and 7 more variables: MR13 &lt;dbl&gt;, MR11 &lt;dbl&gt;,
 #&gt; #   MR14 &lt;dbl&gt;, MR12 &lt;dbl&gt;, MR15 &lt;dbl&gt;, MR16 &lt;dbl&gt;, var &lt;fct&gt;
 ```
 
