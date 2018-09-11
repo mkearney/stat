@@ -1,16 +1,8 @@
 ---
 title: "Day 4"
 subtitle: "Correlations and factor analysis"
-author: "Michael W. Kearney📊<br/>School of Journalism <br/>Informatics Institute <br/>University of Missouri"
-date: "<table style=\"border-style:none;padding-top:30px;\" class=\".table\">
-  <tr>
-    <th style=\"padding-right:75px!important\"><a href=\"https://twitter.com/kearneymw\"> <i class=\"fa fa-twitter\"></i> </a></th>
-    <th style=\"padding-left:75px!important\"><a href=\"https://github.com/mkearney\"> <i class=\"fa fa-github\"></i> </a></th>
-  </tr>
-  <tr style=\"background-color:#fff\">
-    <th style=\"padding-right:75px!important\"><a href=\"https://github.com/mkearney\"> @kearneymw </a></th>
-    <th style=\"padding-left:75px!important\"><a href=\"https://github.com/mkearney\"> @mkearney </a></th>
-  </tr></table>"
+author: '`r rmdees::title_author()`'
+date: '`r rmdees::title_icons()`'
 output:
   xaringan::moon_reader:
     lib_dir: lib
@@ -23,13 +15,62 @@ output:
 class: inverse, center, middle
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE, eval = FALSE,
-  collapse = TRUE, comment = "#>")
+knitr::opts_chunk$set(echo = TRUE, eval = TRUE, collapse = TRUE, comment = "#>")
 options(htmltools.dir.version = FALSE)
 htmltools::tagList(rmarkdown::html_dependency_font_awesome())
+library(tidyverse)
 ```
 
-## Correlations and factor analysis
+## Agenda
+
+---
+
+## Agenda
+1. Co-variance
+   - What is covariance?
+   - Calculating covariance
+1. Correlations
+   - Bivariate correlations
+   - Correlation matrices
+1. Factor analysis
+   - What is a factor?
+   - Calculating scores
+   - Reliability
+---
+class: inverse, center, middle
+
+## Co-variance
+
+---
+
+## Covariance
+
+**Variance**: average distance from the mean
+
+**Co-variance**: average
+
+
+---
+
+## Cov
+
+$$cov(x, y) = (x-\mu_{x})(y-\mu_{y})$$
+
+Where $\mu$ is actually the sample mean
+
+---
+
+## Cor
+
+Correlation is the covariation divided by the total variation
+
+$$cor(x, y) = \frac{cov(x, y)}{s_{x}s_{y}}$$
+
+Which simplifies down to...
+
+$$= \frac{{s_{xy}}}{\sqrt{s^2_{x}s^2_{y}}}$$
+
+Where $s^2$ is variance and $s$ is standard deviation.
 
 ---
 

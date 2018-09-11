@@ -29,7 +29,7 @@ class: center, middle, inverse, title-slide
 </tr>
 <tr style="background-color:#fff">
 <th style="padding-right:75px!important">
-<a href="https://github.com/mkearney"> <span class="citation">@kearneymw</span> </a>
+<a href="https://twitter.com/kearneymw"> <span class="citation">@kearneymw</span> </a>
 </th>
 <th style="padding-left:75px!important">
 <a href="https://github.com/mkearney"> <span class="citation">@mkearney</span> </a>
@@ -43,7 +43,56 @@ class: inverse, center, middle
 
 
 
-## Correlations and factor analysis
+## Agenda
+
+---
+
+## Agenda
+1. Co-variance
+   - What is covariance?
+   - Calculating covariance
+1. Correlations
+   - Bivariate correlations
+   - Correlation matrices
+1. Factor analysis
+   - What is a factor?
+   - Calculating scores
+   - Reliability
+---
+class: inverse, center, middle
+
+## Co-variance
+
+---
+
+## Covariance
+
+**Variance**: average distance from the mean
+
+**Co-variance**: average
+
+
+---
+
+## Cov
+
+`$$cov(x, y) = (x-\mu_{x})(y-\mu_{y})$$`
+
+Where `\(\mu\)` is actually the sample mean
+
+---
+
+## Cor
+
+Correlation is the covariation divided by the total variation
+
+`$$cor(x, y) = \frac{cov(x, y)}{s_{x}s_{y}}$$`
+
+Which simplifies down to...
+
+`$$= \frac{{s_{xy}}}{\sqrt{s^2_{x}s^2_{y}}}$$`
+
+Where `\(s^2\)` is variance and `\(s\)` is standard deviation.
 
 ---
 
@@ -68,6 +117,8 @@ ggplot(df, aes(x, y)) +
   geom_point() + 
   labs(title = "Scatter plot of y by x")
 ```
+
+![](04-slides_files/figure-html/unnamed-chunk-1-1.png)&lt;!-- --&gt;
 
 ---
 
@@ -120,6 +171,13 @@ df &lt;- data.frame(x, y)
 
 ## print
 head(df)
+#&gt;           x         y
+#&gt; 1 -0.072709  0.120588
+#&gt; 2 -1.726501 -2.307502
+#&gt; 3 -0.892095 -1.561235
+#&gt; 4 -1.084475 -2.104129
+#&gt; 5 -0.770063  0.250071
+#&gt; 6 -0.733369 -0.935729
 ```
 
 
@@ -139,6 +197,13 @@ df_ordered &lt;- data.frame(x, y)
 
 ## print
 head(df_ordered)
+#&gt;   x y
+#&gt; 1 2 3
+#&gt; 2 4 5
+#&gt; 3 2 3
+#&gt; 4 2 2
+#&gt; 5 5 6
+#&gt; 6 5 6
 ```
 
 
@@ -152,6 +217,7 @@ By default, `cor()` returns the Pearson product-moment correlation.
 ```r
 ## using cor defaults
 cor(df$x, df$y)
+#&gt; [1] 0.849156
 ```
 
 Use `method` to specify the type of correlation and `use` to deal with missing data
@@ -160,6 +226,7 @@ Use `method` to specify the type of correlation and `use` to deal with missing d
 ```r
 ## pearson product-moment correlation
 cor(df$x, df$y, method = "pearson", use = "complete.obs")
+#&gt; [1] 0.849156
 ```
 
 ---
@@ -172,6 +239,7 @@ Pearson product moment correlation coefficient.
 ```r
 ## pearson product-moment correlation
 cor(df_ordered$x, df_ordered$y, method = "pearson")
+#&gt; [1] 0.697711
 ```
 
 And Spearman's rho (rank) correlation coefficient.
@@ -180,6 +248,7 @@ And Spearman's rho (rank) correlation coefficient.
 ```r
 ## spearman rho correlation
 cor(df_ordered$x, df_ordered$y, method = "spearman")
+#&gt; [1] 0.687546
 ```
 
 
@@ -193,6 +262,17 @@ To conduct a signficiance test of a correlation using R, use `cor.test()`.
 ```r
 ## correlation test
 cor.test(df$x, df$y)
+#&gt; 
+#&gt; 	Pearson's product-moment correlation
+#&gt; 
+#&gt; data:  df$x and df$y
+#&gt; t = 6.821, df = 18, p-value = 0.00000219
+#&gt; alternative hypothesis: true correlation is not equal to 0
+#&gt; 95 percent confidence interval:
+#&gt;  0.651418 0.938876
+#&gt; sample estimates:
+#&gt;      cor 
+#&gt; 0.849156
 ```
 
 .footnote[To convert the output to a more usable data frame, use `tidy()` from the **{broom}** package.]
@@ -207,6 +287,11 @@ Correlation test of interval/ratio data
 ## correlation sig test
 cor.test(df$x, df$y, method = "pearson") %&gt;%
   broom::tidy() %&gt;% head()
+#&gt; # A tibble: 1 x 8
+#&gt;   estimate statistic p.value parameter conf.low conf.high method
+#&gt;      &lt;dbl&gt;     &lt;dbl&gt;   &lt;dbl&gt;     &lt;int&gt;    &lt;dbl&gt;     &lt;dbl&gt; &lt;chr&gt; 
+#&gt; 1    0.849      6.82 2.19e-6        18    0.651     0.939 Pears…
+#&gt; # … with 1 more variable: alternative &lt;chr&gt;
 ```
 
 ---
@@ -219,6 +304,10 @@ Correlation test of ordinal data
 ## correlation sig test
 cor.test(df$x, df$y, method = "spearman") %&gt;%
   broom::tidy() %&gt;% head()
+#&gt; # A tibble: 1 x 5
+#&gt;   estimate statistic   p.value method                          alternative
+#&gt;      &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt; &lt;chr&gt;                           &lt;chr&gt;      
+#&gt; 1    0.782      290. 0.0000672 Spearman's rank correlation rho two.sided
 ```
 
 

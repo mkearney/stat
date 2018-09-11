@@ -1,8 +1,8 @@
 ---
 title: "Day 2"
 subtitle: "Descriptive statistics"
-author: "Michael W. Kearney📊<br/>School of Journalism <br/>Informatics Institute <br/>University of Missouri"
-date: '`r rmdees::title_icons("kearneymw", "mkearney")`'
+author: '`r rmdees::title_author()`'
+date: '`r rmdees::title_icons(`'
 output:
   xaringan::moon_reader:
     lib_dir: lib

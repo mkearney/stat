@@ -1,8 +1,8 @@
 ---
 title: "Day 1"
 subtitle: "Quantitative research"
-author: "Michael W. Kearney📊<br/>School of Journalism <br/>Informatics Institute <br/>University of Missouri"
-date: '`r rmdees::title_icons("kearneymw", "mkearney")`'
+author: '`r rmdees::title_author()`'
+date: '`r rmdees::title_icons(`'
 output:
   xaringan::moon_reader:
     lib_dir: lib
@@ -15,8 +15,7 @@ output:
 
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE, eval = FALSE,
-  collapse = TRUE, comment = "#>")
+knitr::opts_chunk$set(echo = TRUE, eval = TRUE, collapse = TRUE, comment = "#>")
 options(htmltools.dir.version = FALSE)
 htmltools::tagList(rmarkdown::html_dependency_font_awesome())
 ```

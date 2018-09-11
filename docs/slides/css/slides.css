@@ -5,3 +5,6 @@ ul li, ol li {
   margin-top: .6em;
   margin-bottom: .6em;
 }
+.mjx-chtml {
+  font-size: 150%;
+}
