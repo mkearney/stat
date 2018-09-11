@@ -19,6 +19,11 @@ knitr::opts_chunk$set(echo = TRUE, eval = TRUE, collapse = TRUE, comment = "#>")
 options(htmltools.dir.version = FALSE)
 htmltools::tagList(rmarkdown::html_dependency_font_awesome())
 library(tidyverse)
+theme_set(tfse::theme_mwk(base_size = 18))
+p <- function(x, n = 5) {
+  DT::datatable(head(x, n), style = "bootstrap", autoHideNavigation = TRUE,
+  fillContainer = FALSE, options = list(pageLength = n))
+}
 ```
 
 ## Agenda
@@ -43,34 +48,40 @@ class: inverse, center, middle
 
 ---
 
-## Covariance
+## Variation (review)
 
 **Variance**: average distance from the mean
 
-**Co-variance**: average
+$$s^2=\frac{\sum (x - \bar{x})^2}{n - 1}$$
+
++ Single variable: $x$
++ Always positive: $(x - \bar{x})^2$
 
 
 ---
 
-## Cov
+## Co-variation
 
-$$cov(x, y) = (x-\mu_{x})(y-\mu_{y})$$
+**Covariance**: average *related* distance**s** from the mean
 
-Where $\mu$ is actually the sample mean
+$$cov_{(x, y)} = \frac{\sum (x-\bar{x})(y-\bar{y})}{n - 1}$$
+
++ Two variables: $x$ and $y$
++ Can be positive or negative
+   - Positive means vary [above/below mean] together
+   - Negative means vary [above/below mean] inversely
 
 ---
 
-## Cor
+## Notable:
 
-Correlation is the covariation divided by the total variation
+When a variable covaries with itself...
 
-$$cor(x, y) = \frac{cov(x, y)}{s_{x}s_{y}}$$
+$$cov_{(x, x)} = \frac{\sum (x-\bar{x})(x-\bar{x})}{n - 1}$$
 
-Which simplifies down to...
+it's actually just representing the variance:
 
-$$= \frac{{s_{xy}}}{\sqrt{s^2_{x}s^2_{y}}}$$
-
-Where $s^2$ is variance and $s$ is standard deviation.
+$$s^2=\frac{\sum (x - \bar{x})^2}{n - 1}$$
 
 ---
 
@@ -80,20 +91,21 @@ A **correlation** describes how variation in one variable relates to variation i
 
 In statistics, correlations describe the **magnitude** and **direction** of a relationship between two variables. 
 
+
 ---
 
-```{r fig.height=5.5, fig.width=10}
-## 20 observations from random normal distribution
-x <- rnorm(20)
-## x + 20 observations from random normal distribution
-y <- rnorm(20) + x
-## data frame
-df <- data.frame(x, y)
+```{r, fig.show = 'hide', fig.keep = 'none'}
+## create data frame with x and y coming from random normal draws
+df <- data_frame(x = rnorm(20), y = x + rnorm(20))
+
 ## scatter plot
 ggplot(df, aes(x, y)) + 
   geom_point() + 
-  labs(title = "Scatter plot of y by x")
+  labs(title = "Scatter plot of y by x") + 
+  ggsave("img/scatter_plot.png", width = 8, height = 4.75, units = "in")
 ```
+
+<p style="align:center"> <img src="img/scatter_plot.png" /> </p>
 
 ---
 
@@ -125,26 +137,49 @@ $$x_{t1}\sim\sim x_{t2}$$
 
 ---
 
-## Semester
+## Calculating `r`
 
-All of the correlations are similar, but you can assume when I talk about correlations I'm talking about the Pearson product-moment correlation.
+**Correlation**: the covariation divided by the total variation
 
-When your variables are ordinal (ordered categories), it's important to remember there's a better way to estimate the correlation coefficient.
+$$r_{(x, y)} = \frac{cov_{(x, y)}}{s_{x}s_{y}}$$
+
++ $s_{x}$ and $s_{y}$ are the sample standard deviations of $x$ and $y$ 
+   - *Note*: the square root of the variance, i.e., $\sqrt{s^2}$
+
+---
+
+## Notable (proof)
+
+A single variable $x$ correlates perfectly with itself
+
+$$r_{(x, x)} = \frac{cov_{(x, x)}}{s_{x}s_{x}}$$
+
++ We know from earlier $cov_{(x,x)}$ is equal to $s_{x}^2$ (variance)
++ And $s_{x}s_{x}$ can be rewritten to $s_{x}^2$, so...
+
+$$r_{(x, x)} = \frac{s_{x}^2}{s_{x}^2} = 1.0$$
+
+
+---
+
+## Rank order correlation
+
+Calculate **Spearman's rho** the same way, only convert the observations to ranked values first.
+
++ **Example**: converting observations 
++ `c(7, 3, 5, 1)` to `c(4, 2, 3, 1)`
+
 
 ---
 
 ## Interval/ratio data
 
 ```{r}
-## 20 observations from random normal distribution
-x <- rnorm(20)
-## x + 20 observations from random normal distribution
-y <- rnorm(20) + x
-## create data frame
-df <- data.frame(x, y)
+## create data frame with x and y coming from random normal draws
+df <- data_frame(x = rnorm(20), y = x + rnorm(20))
 
 ## print
-head(df)
+knitr::kable(df)
 ```
 
 
@@ -153,16 +188,14 @@ head(df)
 
 ## Ordinal data
 
-```{r}
-## sample twenty values from numbers 1,2,3,4,5,6
-x <- sample(c(1, 2, 3, 4, 5, 6), 20, replace = TRUE)
-## sample twenty more, add them with x, and then divide by 2
-y <- round((x + sample(c(1, 2, 3, 4, 5, 6), 20, replace = TRUE)) / 2, 0)
-## create data frame
-df_ordered <- data.frame(x, y)
+```{r, results='markup'}
+## create data frame with rank (integer) data
+df_ordered <- data_frame(
+  x = sample(1:6, 20, replace = TRUE),
+  y = round((x + sample(1:6, 20, replace = TRUE)) / 2, 0))
 
 ## print
-head(df_ordered)
+p(df_ordered)
 ```
 
 

@@ -9,6 +9,16 @@
     <link href="lib/font-awesome/css/fa-svg-with-js.css" rel="stylesheet" />
     <script src="lib/font-awesome/js/fontawesome-all.min.js"></script>
     <script src="lib/font-awesome/js/fa-v4-shims.min.js"></script>
+    <script src="lib/htmlwidgets/htmlwidgets.js"></script>
+    <script src="lib/jquery/jquery.min.js"></script>
+    <link href="lib/datatables-css/datatables-crosstalk.css" rel="stylesheet" />
+    <script src="lib/datatables-binding/datatables.js"></script>
+    <link href="lib/dt-core-bootstrap/css/dataTables.bootstrap.min.css" rel="stylesheet" />
+    <link href="lib/dt-core-bootstrap/css/dataTables.bootstrap.extra.css" rel="stylesheet" />
+    <script src="lib/dt-core-bootstrap/js/jquery.dataTables.min.js"></script>
+    <script src="lib/dt-core-bootstrap/js/dataTables.bootstrap.min.js"></script>
+    <link href="lib/crosstalk/css/crosstalk.css" rel="stylesheet" />
+    <script src="lib/crosstalk/js/crosstalk.min.js"></script>
     <link rel="stylesheet" href="css/slides.css" type="text/css" />
   </head>
   <body>
@@ -65,34 +75,40 @@ class: inverse, center, middle
 
 ---
 
-## Covariance
+## Variation (review)
 
 **Variance**: average distance from the mean
 
-**Co-variance**: average
+`$$s^2=\frac{\sum (x - \bar{x})^2}{n - 1}$$`
+
++ Single variable: `\(x\)`
++ Always positive: `\((x - \bar{x})^2\)`
 
 
 ---
 
-## Cov
+## Co-variation
 
-`$$cov(x, y) = (x-\mu_{x})(y-\mu_{y})$$`
+**Covariance**: average *related* distance**s** from the mean
 
-Where `\(\mu\)` is actually the sample mean
+`$$cov_{(x, y)} = \frac{\sum (x-\bar{x})(y-\bar{y})}{n - 1}$$`
+
++ Two variables: `\(x\)` and `\(y\)`
++ Can be positive or negative
+   - Positive means vary [above/below mean] together
+   - Negative means vary [above/below mean] inversely
 
 ---
 
-## Cor
+## Notable:
 
-Correlation is the covariation divided by the total variation
+When a variable covaries with itself...
 
-`$$cor(x, y) = \frac{cov(x, y)}{s_{x}s_{y}}$$`
+`$$cov_{(x, x)} = \frac{\sum (x-\bar{x})(x-\bar{x})}{n - 1}$$`
 
-Which simplifies down to...
+it's actually just representing the variance:
 
-`$$= \frac{{s_{xy}}}{\sqrt{s^2_{x}s^2_{y}}}$$`
-
-Where `\(s^2\)` is variance and `\(s\)` is standard deviation.
+`$$s^2=\frac{\sum (x - \bar{x})^2}{n - 1}$$`
 
 ---
 
@@ -102,23 +118,22 @@ A **correlation** describes how variation in one variable relates to variation i
 
 In statistics, correlations describe the **magnitude** and **direction** of a relationship between two variables. 
 
+
 ---
 
 
 ```r
-## 20 observations from random normal distribution
-x &lt;- rnorm(20)
-## x + 20 observations from random normal distribution
-y &lt;- rnorm(20) + x
-## data frame
-df &lt;- data.frame(x, y)
+## create data frame with x and y coming from random normal draws
+df &lt;- data_frame(x = rnorm(20), y = x + rnorm(20))
+
 ## scatter plot
 ggplot(df, aes(x, y)) + 
   geom_point() + 
-  labs(title = "Scatter plot of y by x")
+  labs(title = "Scatter plot of y by x") + 
+  ggsave("img/scatter_plot.png", width = 8, height = 4.75, units = "in")
 ```
 
-![](04-slides_files/figure-html/unnamed-chunk-1-1.png)&lt;!-- --&gt;
+&lt;p style="align:center"&gt; &lt;img src="img/scatter_plot.png" /&gt; &lt;/p&gt;
 
 ---
 
@@ -150,11 +165,38 @@ There are several types of correlation coefficients, but all assume following:
 
 ---
 
-## Semester
+## Calculating `r`
 
-All of the correlations are similar, but you can assume when I talk about correlations I'm talking about the Pearson product-moment correlation.
+**Correlation**: the covariation divided by the total variation
 
-When your variables are ordinal (ordered categories), it's important to remember there's a better way to estimate the correlation coefficient.
+`$$r_{(x, y)} = \frac{cov_{(x, y)}}{s_{x}s_{y}}$$`
+
++ `\(s_{x}\)` and `\(s_{y}\)` are the sample standard deviations of `\(x\)` and `\(y\)` 
+   - *Note*: the square root of the variance, i.e., `\(\sqrt{s^2}\)`
+
+---
+
+## Notable (proof)
+
+A single variable `\(x\)` correlates perfectly with itself
+
+`$$r_{(x, x)} = \frac{cov_{(x, x)}}{s_{x}s_{x}}$$`
+
++ We know from earlier `\(cov_{(x,x)}\)` is equal to `\(s_{x}^2\)` (variance)
++ And `\(s_{x}s_{x}\)` can be rewritten to `\(s_{x}^2\)`, so...
+
+`$$r_{(x, x)} = \frac{s_{x}^2}{s_{x}^2} = 1.0$$`
+
+
+---
+
+## Rank order correlation
+
+Calculate **Spearman's rho** the same way, only convert the observations to ranked values first.
+
++ **Example**: converting observations 
++ `c(7, 3, 5, 1)` to `c(4, 2, 3, 1)`
+
 
 ---
 
@@ -162,23 +204,35 @@ When your variables are ordinal (ordered categories), it's important to remember
 
 
 ```r
-## 20 observations from random normal distribution
-x &lt;- rnorm(20)
-## x + 20 observations from random normal distribution
-y &lt;- rnorm(20) + x
-## create data frame
-df &lt;- data.frame(x, y)
+## create data frame with x and y coming from random normal draws
+df &lt;- data_frame(x = rnorm(20), y = x + rnorm(20))
 
 ## print
-head(df)
-#&gt;           x         y
-#&gt; 1 -0.072709  0.120588
-#&gt; 2 -1.726501 -2.307502
-#&gt; 3 -0.892095 -1.561235
-#&gt; 4 -1.084475 -2.104129
-#&gt; 5 -0.770063  0.250071
-#&gt; 6 -0.733369 -0.935729
+knitr::kable(df)
 ```
+
+         x           y
+----------  ----------
+  0.271461   -1.331905
+  0.608092    0.006541
+  0.653852    0.031665
+  0.696851    0.500203
+  0.529267    1.503338
+ -0.261362   -0.266860
+ -0.599992   -1.320760
+  0.287184   -0.383627
+ -1.259698   -0.994054
+  1.221563    3.059558
+  0.975848    1.243411
+ -0.714551   -2.100387
+ -0.049158   -0.997602
+  0.099992    1.540003
+ -1.477704   -1.602380
+ -0.602215   -0.574384
+ -0.930704   -1.478507
+  0.713037    2.169078
+  0.060395    0.868732
+  1.726288    1.588984
 
 
 
@@ -188,23 +242,17 @@ head(df)
 
 
 ```r
-## sample twenty values from numbers 1,2,3,4,5,6
-x &lt;- sample(c(1, 2, 3, 4, 5, 6), 20, replace = TRUE)
-## sample twenty more, add them with x, and then divide by 2
-y &lt;- round((x + sample(c(1, 2, 3, 4, 5, 6), 20, replace = TRUE)) / 2, 0)
-## create data frame
-df_ordered &lt;- data.frame(x, y)
+## create data frame with rank (integer) data
+df_ordered &lt;- data_frame(
+  x = sample(1:6, 20, replace = TRUE),
+  y = round((x + sample(1:6, 20, replace = TRUE)) / 2, 0))
 
 ## print
-head(df_ordered)
-#&gt;   x y
-#&gt; 1 2 3
-#&gt; 2 4 5
-#&gt; 3 2 3
-#&gt; 4 2 2
-#&gt; 5 5 6
-#&gt; 6 5 6
+p(df_ordered)
 ```
+
+<div id="htmlwidget-9863d4adfb9fec2527a4" style="width:100%;height:auto;" class="datatables html-widget"></div>
+<script type="application/json" data-for="htmlwidget-9863d4adfb9fec2527a4">{"x":{"style":"bootstrap","filter":"none","fillContainer":false,"autoHideNavigation":true,"data":[["1","2","3","4","5"],[4,3,3,1,3],[2,3,4,2,4]],"container":"<table class=\"table table-striped table-hover\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>x<\/th>\n      <th>y<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":5,"columnDefs":[{"className":"dt-right","targets":[1,2]},{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false,"lengthMenu":[5,10,25,50,100]}},"evals":[],"jsHooks":[]}</script>
 
 
 ---
@@ -217,7 +265,7 @@ By default, `cor()` returns the Pearson product-moment correlation.
 ```r
 ## using cor defaults
 cor(df$x, df$y)
-#&gt; [1] 0.849156
+#&gt; [1] 0.777394
 ```
 
 Use `method` to specify the type of correlation and `use` to deal with missing data
@@ -226,7 +274,7 @@ Use `method` to specify the type of correlation and `use` to deal with missing d
 ```r
 ## pearson product-moment correlation
 cor(df$x, df$y, method = "pearson", use = "complete.obs")
-#&gt; [1] 0.849156
+#&gt; [1] 0.777394
 ```
 
 ---
@@ -239,7 +287,7 @@ Pearson product moment correlation coefficient.
 ```r
 ## pearson product-moment correlation
 cor(df_ordered$x, df_ordered$y, method = "pearson")
-#&gt; [1] 0.697711
+#&gt; [1] 0.615002
 ```
 
 And Spearman's rho (rank) correlation coefficient.
@@ -248,7 +296,7 @@ And Spearman's rho (rank) correlation coefficient.
 ```r
 ## spearman rho correlation
 cor(df_ordered$x, df_ordered$y, method = "spearman")
-#&gt; [1] 0.687546
+#&gt; [1] 0.563789
 ```
 
 
@@ -266,13 +314,13 @@ cor.test(df$x, df$y)
 #&gt; 	Pearson's product-moment correlation
 #&gt; 
 #&gt; data:  df$x and df$y
-#&gt; t = 6.821, df = 18, p-value = 0.00000219
+#&gt; t = 5.243, df = 18, p-value = 0.000055
 #&gt; alternative hypothesis: true correlation is not equal to 0
 #&gt; 95 percent confidence interval:
-#&gt;  0.651418 0.938876
+#&gt;  0.510488 0.907666
 #&gt; sample estimates:
 #&gt;      cor 
-#&gt; 0.849156
+#&gt; 0.777394
 ```
 
 .footnote[To convert the output to a more usable data frame, use `tidy()` from the **{broom}** package.]
@@ -290,7 +338,7 @@ cor.test(df$x, df$y, method = "pearson") %&gt;%
 #&gt; # A tibble: 1 x 8
 #&gt;   estimate statistic p.value parameter conf.low conf.high method
 #&gt;      &lt;dbl&gt;     &lt;dbl&gt;   &lt;dbl&gt;     &lt;int&gt;    &lt;dbl&gt;     &lt;dbl&gt; &lt;chr&gt; 
-#&gt; 1    0.849      6.82 2.19e-6        18    0.651     0.939 Pears…
+#&gt; 1    0.777      5.24 5.50e-5        18    0.510     0.908 Pears…
 #&gt; # … with 1 more variable: alternative &lt;chr&gt;
 ```
 
@@ -305,9 +353,9 @@ Correlation test of ordinal data
 cor.test(df$x, df$y, method = "spearman") %&gt;%
   broom::tidy() %&gt;% head()
 #&gt; # A tibble: 1 x 5
-#&gt;   estimate statistic   p.value method                          alternative
-#&gt;      &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt; &lt;chr&gt;                           &lt;chr&gt;      
-#&gt; 1    0.782      290. 0.0000672 Spearman's rank correlation rho two.sided
+#&gt;   estimate statistic    p.value method                          alternative
+#&gt;      &lt;dbl&gt;     &lt;dbl&gt;      &lt;dbl&gt; &lt;chr&gt;                           &lt;chr&gt;      
+#&gt; 1    0.817      244. 0.00000903 Spearman's rank correlation rho two.sided
 ```
 
 
