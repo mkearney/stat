@@ -46,6 +46,7 @@ print <- function(x, n = NULL, align = "c", digits = 3) {
    - What is a factor?
    - Calculating scores
    - Reliability
+
 ---
 class: inverse, center, middle
 
@@ -122,42 +123,56 @@ ggplot(df, aes(x, y)) +
 
 ---
 
-## Correlation coef
+## Correlation coefficient
 
-**`r`**: statistic that describes the magnitude (size) and direction (order) of a relationship
+**`r`**: describes the magnitude (size) and direction (order) of a relationship
 
-There are several types of correlation coefficients, but all assume following:
+There are several types of correlation coefficients, but typically they all...
 
-+ The **range of possible values** goes from -1 to +1
-+ **Direction** is described by the **sign** of coefficient
-+ **Magnitude** is described by **absolute value** of coefficient
-    - Zero indicates no correlation
-    - 1.0 indicates perfect correlation
++ have a **range of possible values** from -1.0 to +1.0
++ **describe** the magnitude (size) and direction (order) of an association
+   - **Direction** by **sign** (positive or negative)
+   - **Magnitude** by **absolute value** (distance from zero)
+
+---
+
+## Note(s) on "coefficients"
+
+> Throughout statistics, a *coefficient* refers to the multiplicative factor (a numeric estimate) for one variable in relation to another variable. 
+
+> In **regression**, coefficients are often referred to as "beta coefficients" or "beta weights"
+
+> In **machine learning**, coefficients are often referred to as [simply] "weights"
 
 ---
 
-## Note
+## Note(s) on notation
 
-**"Coefficients"**
+In many statistical modeling frameworks, a correlation is often indicated (by convention) by connecting two variables [names] with a double tilde `~~` symbol.
 
-> In statistics, a **coefficient** refers to the multiplicative factor (a numeric estimate) for one variable in relation to another variable.
+I'll occasionally use this kind of syntax to mean **correlation**
+
+```
+x ~~ y
+```
 
 ---
+
 
 ## Types of correlations
 
 **Pearson product-moment**: linear relationship between two variables 
-$$x\sim\sim y$$
+$$r_{(x,y)} = x\sim\sim y$$
 
 **Spearman's rho**: relationship between rankings of two variables 
-$$x\sim\sim y$$
+$$\rho_{(x,y)} = x\sim\sim y$$
 
 **Intraclass**: relationship between paired observations 
-$$x_{t1}\sim\sim x_{t2}$$
+$$\varrho_{(x_{t1},x_{t2})} = x_{t1}\sim\sim x_{t2}$$
 
 ---
 
-## Calculating `r`
+## Pearson's `r`
 
 **Correlation**: the covariation divided by the total variation
 
@@ -168,7 +183,7 @@ $$r_{(x, y)} = \frac{cov_{(x, y)}}{s_{x}s_{y}}$$
 
 ---
 
-## Note
+## Note(s) on `x ~~ x`
 
 A single variable $x$ correlates perfectly with itself...
 
@@ -178,6 +193,62 @@ $$r_{(x, x)} = \frac{cov_{(x, x)}}{s_{x}s_{x}}$$
 + And $s_{x}s_{x}$ can be rewritten as $s_{x}^2$, so...
 
 $$r_{(x, x)} = \frac{s_{x}^2}{s_{x}^2} = 1.0$$
+
+
+---
+
+## Numeric and rank-order data
+
+```{r results='asis'}
+## create data frame with x and y coming from random normal draws
+df <- data_frame(x = rnorm(20), y = x + rnorm(20))
+
+## convert to ranks
+dfo <- map_df(df, factor) %>% mutate_all(as.numeric)
+
+## print
+print(df, n = 6)
+```
+
+---
+
+## `cor(method = "pearson")`
+
+By default, `cor()` returns the Pearson product-moment correlation.
+
+```{r}
+## using cor defaults
+cor(df$x, df$y)
+
+## same thing as
+cor(df$x, df$y, method = "pearson")
+```
+
+Use `method` to specify the type of correlation and `use` to deal with missing data
+
+```{r}
+## pearson product-moment correlation
+cor(df$x, df$y, method = "pearson", use = "pairwise.complete.obs")
+```
+
+---
+
+## `cor(method = ` "spearman"`)`
+
+Get Spearman Rho rank-order correlation.
+
+```{r}
+## spearman rho correlation of df
+cor(df$x, df$y, method = "spearman")
+```
+
+This should be equal to Pearson correlation of the rank order data set
+
+```{r}
+## spearman rho correlation
+cor(dfo$x, dfo$y, method = "pearson")
+```
+
 
 
 ---
@@ -192,9 +263,10 @@ Calculate **Spearman's rho** the same way, only convert observations to ranked v
 + `c(7.2, 3.0, 5.25, 1.9)` converts to `c(4, 2, 3, 1)`
 
 
+
 ---
 
-## Example
+## Basic example
 
 Let's say we have four values of x and y, and we want to estimate Pearson's R
 
@@ -248,76 +320,13 @@ ggplot(df, aes(x = x, y = y, fill = data)) +
 
 ---
 
-## Interval/ratio data
-
-```{r results='asis'}
-## create data frame with x and y coming from random normal draws
-df <- data_frame(x = rnorm(20), y = x + rnorm(20))
-
-## print
-print(df, n = 6)
-```
-
----
-
-## Ordinal data
-
-```{r results='asis'}
-## create data frame with rank (integer) data
-df_ordered <- data_frame(
-  x = sample(1:6, 20, replace = TRUE),
-  y = round((x + sample(1:6, 20, replace = TRUE)) / 2, 0))
-
-## print
-print(df_ordered, n = 6)
-```
-
----
-
-## `cor(method = "pearson")`
-
-By default, `cor()` returns the Pearson product-moment correlation.
-
-```{r}
-## using cor defaults
-cor(df$x, df$y)
-```
-
-Use `method` to specify the type of correlation and `use` to deal with missing data
-
-```{r}
-## pearson product-moment correlation
-cor(df$x, df$y, method = "pearson", use = "complete.obs")
-```
-
----
-
-## `cor(method = ` "spearman"`)`
-
-Pearson product moment correlation coefficient.
-
-```{r}
-## pearson product-moment correlation
-cor(df_ordered$x, df_ordered$y, method = "pearson")
-```
-
-And Spearman's rho (rank) correlation coefficient.
-
-```{r}
-## spearman rho correlation
-cor(df_ordered$x, df_ordered$y, method = "spearman")
-```
-
-
----
-
 ## Hypothesis testing
 
 To conduct a signficiance test of a correlation using R, use `cor.test()`. 
 
 ```{r}
 ## correlation test
-cor.test(df$x, df$y)
+cor.test(df$x, df$y, method = "pearson", alternative = "two.sided")
 ```
 
 .footnote[To convert the output to a more usable data frame, use `tidy()` from the **{broom}** package.]
@@ -416,10 +425,41 @@ Our variable of interest is extraversion/introversion. We measure it using four 
 
 ```{r}
 ## first person's responses
-person1 <- c(1, 2, 1, 7)
+person1 <- c(1, 2, 6, 7)
+person2 <- c(1, 1, 6, 7)
+person3 <- c(2, 1, 6, 6)
+person4 <- c(2, 1, 7, 7)
+person5 <- c(2, 1, 6, 6)
 
-## second person's responses
-person2 <- c(6, 6, 5, 2)
+## convert to data frame with four columns
+peeps <- c(person1, person2, person3, person4, person5) %>% 
+  matrix(nrow = 5, byrow = TRUE) %>%
+  as.data.frame()
+
+## view data
+print(peeps)
+```
+
+---
+
+## Correlation matrix
+
+View multiple bivariate correlations in a matrix.
+
+```{r}
+## view correlation matrix
+cor(peeps, method = "pearson")
+```
+
+
+---
+
+## Reliability
+
+Cronbach's alpha is typically used to summarize correlations between the measurement items using a single estimate
+
+```{r}
+suppressWarnings(psych::alpha(peeps, keys = c("V1", "V2"), warnings = FALSE))
 ```
 
 
@@ -432,4 +472,3 @@ To make sure we have **reliable** measures, we use factor analysis.
 **Factor analysis** essentially finds the correlation between responses for similar items. 
 
 There are lots of details and variations, but knowing this much will help you in the future!
-
