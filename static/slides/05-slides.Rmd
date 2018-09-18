@@ -34,6 +34,10 @@ print <- function(x, n = NULL, align = "c", digits = 3) {
 
 
 ## Agenda
+
+---
+
+## Agenda
 + Computing basics
 + Tidyverse
    - Visualizing
@@ -58,19 +62,25 @@ class: inverse, center, middle
 + Files are organized like a tree
    - You can move from one branch to another
    - Moving from one folder to another is linear
-+ Bash shortcuts
-   - Use `..` to go back a folder or `../..` to go back two folders
-   - Use `~/` as a shortcut for home
+
+---
+
+## Bash shortcuts
++ Most popular conventions from bash/terminal found in R scripts
+   - **`..`** to go back a folder or **`../..`** to go back two folders
+   - **`~`** as a shortcut for home, e.g., **`~/R/stat`**
 
 ---
 
 ## Don't fall asleep yet!
-Why do you need to know about your computer's file directory system?
+Why should you care?
 
 + Because you need to know where things are to interact with them!
 + Because you want to be able to replicate your work!
 
-> **tl;dr**: open your file browser. See how they're organized? Yeah? Good!
+> **tl;dr**: Open your file browser.
+> **tl;dr**: See how they're organized?
+> **tl;dr**: Yeah? Good!
 
 ---
 
@@ -80,7 +90,7 @@ Why do you need to know about your computer's file directory system?
 + `Folder` is the **name**/location of a file folder
 + `Directory` is the name/**location** of a file folder
 
-<p class="note">`file == path & folder == directory`</p>
+<p class="note">file == path & folder == directory</p>
 
 ---
 class: inverse, center, middle
@@ -91,12 +101,32 @@ class: inverse, center, middle
 
 ## FutuRe you
 
-+ Using scripts and writing clear code will make your life easier
-+ It's like writing down a routine of pointing and clicking that you don't have to memorize
-+ The internet is full of routines/scripts that you can edit and customize to your liking
-+ With some notes and some extra attention paid to make sure things are clear, future you will be very happy with current you!
++ Using scripts and writing clear code makes life easier
++ It's like writing down a routine of pointing/clicking you don't have to memorize
++ The internet is full of routines/scripts you can edit and customize to your liking
++ With some notes and extra attention, future you will be very happy with current you!
 
+---
+class: inverse, center, middle
 
+## Tidyverse
+
+---
+
+## Cheatsheets
+
++ Check out these [Rstudio cheatsheets](https://www.rstudio.com/resources/cheatsheets/)
+
+<p style="align:center"> <img src="img/cheatsheets.png" </img> </p>
+
+---
+
+## Notebooks
+
+1. [Visualizing](../tidyverse/01-visualize.Rmd)
+1. [Wrangling (basics)](../tidyverse/02-wrangle.Rmd)
+1. [Merging & Joining](../tidyverse/03-merge-and-join.Rmd)
+1. [Transforming & Cleaning](../tidyverse/04-transform-and-clean.Rmd)
 
 <style>
 huge {font-size:1.7em;}
