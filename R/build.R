@@ -51,17 +51,25 @@ ustatic <- filter(fi, since_modified < 24)
 udocs <- filter(fi, since_modified < .5 |
     (since_html > 0 & !is.na(since_html)) | 
     (since_rmd > 0 & !is.na(since_rmd)), 
-  yesupdate)
+  yesupdate, !is.na(since_html), !is.na(since_rmd))
 
 
-for (i in seq_len(length(unique(udocs)))) {
-  input <- normalizePath(sprintf("static/slides/%s.Rmd", unique(udocs$base_name)[i]))
-  output1 <- normalizePath(sprintf("static/slides/%s.html", unique(udocs$base_name)[i]), mustWork = FALSE)
-  output2 <- normalizePath(sprintf("docs/slides/%s.html", unique(udocs$base_name)[i]))
-  rmarkdown::render(input)
-  file.copy(output1, output2)
+
+for (i in seq_len(length(unique(udocs$base_name)))) {
+  input1 <- normalizePath(sprintf("static/slides/%s.Rmd", unique(udocs$base_name)[i]))
+  input2 <- normalizePath(sprintf("docs/slides/%s.Rmd", unique(udocs$base_name)[i]), mustWork = FALSE)
+  #output1 <- normalizePath(sprintf("static/slides/%s.html", unique(udocs$base_name)[i]), mustWork = FALSE)
+  #output2 <- normalizePath(sprintf("docs/slides/%s.html", unique(udocs$base_name)[i]))
+  file.copy(input1, input2)
+  rmarkdown::render(input2)
 }
-file.copy("static/slides/lib", "docs/slides", recursive = TRUE)
+#file.copy("static/slides/lib", "docs/slides", recursive = TRUE)
+file.copy("static/slides/css", "docs/slides", recursive = TRUE)
 unlink(sprintf("static/slides/%s.html", unique(fi$base_name)))
+unlink(sprintf("docs/slides/%s.Rmd", unique(fi$base_name)))
 unlink("static/slides/lib", recursive = TRUE)
-
+unlink("docs/slides/data", recursive = TRUE)
+#unlink("docs/data", recursive = TRUE)
+#unlink("docs/archives", recursive = TRUE)
+#unlink("docs/categories", recursive = TRUE)
+#unlink("docs/tags", recursive = TRUE)

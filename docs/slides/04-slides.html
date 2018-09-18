@@ -6,8 +6,9 @@
     <meta name="author" content="Michael W. Kearney📊 School of Journalism  Informatics Institute  University of Missouri" />
     <link href="lib/remark-css/robot.css" rel="stylesheet" />
     <link href="lib/remark-css/robot-fonts.css" rel="stylesheet" />
-    <link href="lib/font-awesome/css/all.css" rel="stylesheet" />
-    <link href="lib/font-awesome/css/v4-shims.css" rel="stylesheet" />
+    <link href="lib/font-awesome/css/fa-svg-with-js.css" rel="stylesheet" />
+    <script src="lib/font-awesome/js/fontawesome-all.min.js"></script>
+    <script src="lib/font-awesome/js/fa-v4-shims.min.js"></script>
     <link rel="stylesheet" href="css/slides.css" type="text/css" />
   </head>
   <body>
@@ -19,20 +20,10 @@ class: center, middle, inverse, title-slide
 ### Michael W. Kearney📊<br/>School of Journalism <br/>Informatics Institute <br/>University of Missouri
 ### <table style="border-style:none;padding-top:30px;" class=".table">
 <tr>
-<th style="padding-right:75px!important">
-<a href="https://twitter.com/kearneymw"> <i class="fa fa-twitter"></i> </a>
-</th>
-<th style="padding-left:75px!important">
-<a href="https://github.com/mkearney"> <i class="fa fa-github"></i> </a>
-</th>
+NANA
 </tr>
 <tr style="background-color:#fff">
-<th style="padding-right:75px!important">
-<a href="https://twitter.com/kearneymw"> <span class="citation">@kearneymw</span> </a>
-</th>
-<th style="padding-left:75px!important">
-<a href="https://github.com/mkearney"> <span class="citation">@mkearney</span> </a>
-</th>
+NANA
 </tr>
 </table>
 
@@ -237,12 +228,12 @@ print(df, n = 6)
 
 |   x    |   y    |
 |:------:|:------:|
-| 0.139  | 1.290  |
-| -1.517 | 0.075  |
-| 1.827  | 3.271  |
-| 1.549  | 0.934  |
-| 1.383  | 0.842  |
-| -0.808 | -0.953 |
+| 1.698  | 1.325  |
+| 0.570  | -0.131 |
+| 0.051  | -0.075 |
+| -0.027 | 1.236  |
+| 0.679  | 1.089  |
+| -0.583 | -0.178 |
 
 ---
 
@@ -254,11 +245,11 @@ By default, `cor()` returns the Pearson product-moment correlation.
 ```r
 ## using cor defaults
 cor(df$x, df$y)
-#&gt; [1] 0.670893
+#&gt; [1] 0.624567
 
 ## same thing as
 cor(df$x, df$y, method = "pearson")
-#&gt; [1] 0.670893
+#&gt; [1] 0.624567
 ```
 
 Use `method` to specify the type of correlation and `use` to deal with missing data
@@ -267,7 +258,7 @@ Use `method` to specify the type of correlation and `use` to deal with missing d
 ```r
 ## pearson product-moment correlation
 cor(df$x, df$y, method = "pearson", use = "pairwise.complete.obs")
-#&gt; [1] 0.670893
+#&gt; [1] 0.624567
 ```
 
 ---
@@ -280,7 +271,7 @@ Get Spearman Rho rank-order correlation.
 ```r
 ## spearman rho correlation of df
 cor(df$x, df$y, method = "spearman")
-#&gt; [1] 0.568421
+#&gt; [1] 0.578947
 ```
 
 This should be equal to Pearson correlation of the rank order data set
@@ -289,7 +280,7 @@ This should be equal to Pearson correlation of the rank order data set
 ```r
 ## spearman rho correlation
 cor(dfo$x, dfo$y, method = "pearson")
-#&gt; [1] 0.568421
+#&gt; [1] 0.578947
 ```
 
 
