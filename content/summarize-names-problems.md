@@ -211,7 +211,7 @@ mtcars %>%
 #> Warning: Removed 3 rows containing missing values (geom_path).
 ```
 
-<img src="tickvarnameggplot_files/figure-html/unnamed-chunk-7-1.png" width="100%" />
+<img src="summarize-names-problems_files/figure-html/unnamed-chunk-7-1.png" width="100%" />
 
 The result is a handful of warnings and an empty plot. The above code fails 
 because it tries to calculate mean of `mpg`, which, again, doesn't exist in the 
@@ -234,7 +234,7 @@ mtcars %>%
   my_labs()
 ```
 
-<img src="tickvarnameggplot_files/figure-html/unnamed-chunk-8-1.png" width="100%" />
+<img src="summarize-names-problems_files/figure-html/unnamed-chunk-8-1.png" width="100%" />
 
 This time we get a plot and no warnings, but it's clearly not right. It shows 
 every `y` value is exactly the same, but it seems far fetched to think the 
@@ -271,8 +271,8 @@ x <- rnorm(10)
 
 ## print x wrapped in tick marks
 `x`
-#>  [1]  1.182656  0.124761 -0.571954  0.625281  0.839700 -1.814136  1.271081
-#>  [8] -0.904857  0.833569  2.745342
+#>  [1]  1.500933 -0.374477  0.584313 -1.896013 -0.099927 -0.448693  0.173796
+#>  [8]  1.399240 -0.483059 -1.387695
 ```
 
 So, really, tick marks are used to distinguish symbols that contain one or more
@@ -295,7 +295,7 @@ mtcars %>%
   my_labs()
 ```
 
-<img src="tickvarnameggplot_files/figure-html/unnamed-chunk-10-1.png" width="100%" />
+<img src="summarize-names-problems_files/figure-html/unnamed-chunk-10-1.png" width="100%" />
 
 
 ## Notes

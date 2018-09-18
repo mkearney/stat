@@ -146,18 +146,178 @@ huge {font-size:1.7em;}
 </style>
 
 
-<!--
-## Data wrangling
-+ Computing basics
-+ Data frames
-   - Wrangle: `select()`, `filter()`, `arrange()`, `mutate()`, `transmute()`
-   - Bind: `bind_rows()`, `bind_cols()`
-   - Join: `left_join()`, `full_join()`, `right_join()`
-+ Text
-   - Capitalize: `to_upper()`, `to_lower()`
-   - RegEx: `str_replace()`, `str_remove()`, `str_extract()`, `str_detect()`
-   - Split: `str_split()`
-+ Numbers
-   - Numbers (dollar sign, commas, etc.)
-   - Dates/Times
--->
+---
+class: inverse, center, middle
+
+## Visualize
+
+---
+
+## Setup
+
+```{r, eval = FALSE}
+## load tidyverse
+library(tidyverse)
+```
+
+
+```{r, results='asis'}
+## preview data
+print(mpg, n = 6)
+```
+
+---
+
+## Your Turn 1
+
+```{r, eval = FALSE}
+ggplot(data = mpg) +
+  geom_point(mapping = aes(x = displ, y = hwy))
+```
+
+
+```{r, include = FALSE}
+theme_set(theme_gray())
+ggplot(data = mpg) +
+  geom_point(mapping = aes(x = displ, y = hwy)) + 
+  ggsave("img/05-1.png", width = 6, height = 4, units = "in")
+
+ggplot(mpg) + geom_point(aes(x = displ, y = hwy, color = class)) + 
+  ggsave("img/05-2.png", width = 6, height = 4, units = "in")
+
+ggplot(mpg) + geom_point(aes(x = displ, y = hwy), color = "blue") + 
+  ggsave("img/05-3.png", width = 6, height = 4, units = "in")
+
+```
+
+<p style="align:center"> <img src="img/05-1.png"</img> </p>
+
+---
+
+## Breakdown
+
+1. "Initialize" a plot with `ggplot()`
+1. Add layers with `geom_` functions
+
+
+**Template**:
+
+``` r
+ggplot(data = <DATA>) +
+  <GEOM_FUNCTION>(mapping = aes(<MAPPINGS>))
+
+ggplot(data = mpg) +
+  geom_point(mapping = aes(x = displ, y = hwy))
+```
+
+---
+
+## Your Turn 2
+
+In the next chunk, add color, size, alpha, and shape aesthetics to your graph. Experiment.
+
++ Do different things happen when you map aesthetics to discrete and continuous variables?
++ What happens when you use more than one aesthetic?
+
+
+---
+
+Inside of `aes()`: maps an aesthetic to a variable
+
+```{r, eval = FALSE}
+ggplot(mpg) + geom_point(aes(x = displ, y = hwy, color = class))
+```
+
+<p style="align:center"> <img src="img/05-2.png"</img> </p>
+
+---
+
+Outside of `aes()`: sets an aesthetic to a value
+
+```{r, eval = FALSE}
+ggplot(mpg) + geom_point(aes(x = displ, y = hwy), color = "blue")
+```
+
+<p style="align:center"> <img src="img/05-3.png"</img> </p>
+
+## Geoms
+
+```{r, include = FALSE}
+library(patchwork)
+p1 <- ggplot(mpg, aes(displ, hwy)) + geom_point()
+p2 <- ggplot(mpg, aes(displ, hwy)) + geom_smooth(method = "loess")
+
+p1 + p2 + ggsave("img/05-04.png", width = 6, height = 4, units = "in")
+```
+
+<p style="align:center"> <img src="img/05-4.png"</img> </p>
+
+## Geoms
+
+The previous plots differ by geom.
+
+```
+ggplot(data = <DATA>) +
+  <GEOM_FUNCTION>(mapping = aes(<MAPPINGS>))
+```
+
+
+---
+
+## Your Turn 3
+
+With your partner, decide how to replace this scatterplot with one that draws boxplots? Use the cheatsheet. Try your best guess.
+
+``` r
+ggplot(mpg) + geom_point(aes(class, hwy))
+```
+
+```{r, include = FALSE}
+p1 <- ggplot(mpg) + geom_point(aes(class, hwy))
+p2 <- ggplot(mpg) + geom_boxplot(aes(class, hwy), binwidth = 2)
+
+p1 + p2 + ggsave("img/05-05.png", width = 6, height = 4, units = "in")
+```
+
+<p style="align:center"> <img src="img/05-5.png"</img> </p>
+
+
+---
+
+## Your Turn 4
+
+With your partner, make the histogram of hwy below. Use the cheatsheet. Hint: do not supply a y variable.
+
+```{r, include = FALSE}
+p1 <- ggplot(mpg) + geom_histogram(aes(hwy))
+
+p1 + p2 + ggsave("img/05-06.png", width = 6, height = 4, units = "in")
+```
+
+<p style="align:center"> <img src="img/05-6.png"</img> </p>
+
+
+---
+class: inverse, center, middle
+
+Wrangling
+
+---
+
+---
+class: inverse, center, middle
+
+Merging and joining
+
+---
+
+
+---
+class: inverse, center, middle
+
+Transforming and cleaning
+
+---
+
+
+
