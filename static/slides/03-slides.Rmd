@@ -19,6 +19,17 @@ class: inverse, center, middle
 knitr::opts_chunk$set(echo = TRUE, eval = TRUE, collapse = TRUE, comment = "#>")
 options(htmltools.dir.version = FALSE)
 htmltools::tagList(rmarkdown::html_dependency_font_awesome())
+
+## load libraries, set ggplot2 theme, and create datatable function
+library(tidyverse)
+theme_set(tfse::theme_mwk(base_size = 18))
+set.seed(20180902)
+print <- function(x, n = NULL, align = "c", digits = 3) {
+  if (is.null(n)) n <- nrow(x)
+  if (nrow(x) < n) n <- nrow(x)
+  cat(paste(knitr::kable(x[seq_len(n), ], format = "markdown", 
+    align = align, digits = digits), collapse = "\n"))
+}
 ```
 
 ## Agenda

@@ -36,14 +36,10 @@ print <- function(x, n = NULL, align = "c", digits = 3) {
 ## Agenda
 + Computing basics
 + Tidyverse
-   - [Visualize](../tidyverse/01-Visualize.Rmd)
-   - [Transform](../tidyverse/01-Visualize.Rmd)
-   - [Tidy](../tidyverse/01-Visualize.Rmd)
-   - [Data types](../tidyverse/01-Visualize.Rmd)
-   - [Iterate](../tidyverse/01-Visualize.Rmd)
-   - [Model](../tidyverse/01-Visualize.Rmd)
-   - [Organize](../tidyverse/01-Visualize.Rmd)
-
+   - Visualizing
+   - Wrangling Basics
+   - Merging & Joining
+   - Transforming & Cleaning
 
 ---
 class: inverse, center, middle
@@ -53,35 +49,38 @@ class: inverse, center, middle
 ---
 
 ## File/directory awareness
-- Every computer has a file/directory system
-- There's a default or home folder
-    - On PCs this might be the "C" folder. On Macs, this is your username.
-- It's organized like a tree
-    - You can move from one branch to another
-    - Moving from one folder to another is a linear process–meaning, you can go forward and backward
++ Every computer has a file/directory system
++ There's a default or home folder
+   ```{r}
+   ## use this to see your home folder
+   normalizePath("~")
+   ```
++ Files are organized like a tree
+   - You can move from one branch to another
+   - Moving from one folder to another is linear
++ Bash shortcuts
+   - Use `..` to go back a folder or `../..` to go back two folders
+   - Use `~/` as a shortcut for home
 
 ---
 
 ## Don't fall asleep yet!
 Why do you need to know about your computer's file directory system?
 
-- Because you need to know where things are to interact with them!
-- Because you want to be able to replicate your work!
++ Because you need to know where things are to interact with them!
++ Because you want to be able to replicate your work!
 
----
-
-## tl;dr
-Open your file browser. See how the files are organized? Yeah? Good!
+> **tl;dr**: open your file browser. See how they're organized? Yeah? Good!
 
 ---
 
 ## Don't let these terms confuse you
-- `File` is the **name**/location of a file
-- `Path` is the name/**location** of a file
-- `Folder` is the **name**/location of a file folder
-- `Directory` is the name/**location** of a file folder
++ `File` is the **name**/location of a file
++ `Path` is the name/**location** of a file
++ `Folder` is the **name**/location of a file folder
++ `Directory` is the name/**location** of a file folder
 
-<p class="note">file == path & folder == directory</p>
+<p class="note">`file == path & folder == directory`</p>
 
 ---
 class: inverse, center, middle
