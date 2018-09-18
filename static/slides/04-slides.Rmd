@@ -2,11 +2,12 @@
 title: "Day 4"
 subtitle: "Correlations and factor analysis"
 author: '`r rmdees::title_author()`'
-date: '`r rmdees::title_icons()`'
+date: '`r rmdees::title_icons_fa5()`'
 output:
   xaringan::moon_reader:
     lib_dir: lib
     css: ["robot", "robot-fonts", "css/slides.css"]
+    self_contained: true
     nature:
       highlightStyle: github
       highlightLines: true

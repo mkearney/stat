@@ -1,32 +1,35 @@
 ---
 title: "Day 12"
 subtitle: "Data science"
-author: "Michael W. Kearney📊<br/>School of Journalism <br/>Informatics Institute <br/>University of Missouri"
-date: "<table style=\"border-style:none;padding-top:30px;\" class=\".table\">
-  <tr>
-    <th style=\"padding-right:75px!important\"><a href=\"https://twitter.com/kearneymw\"> <i class=\"fa fa-twitter\"></i> </a></th>
-    <th style=\"padding-left:75px!important\"><a href=\"https://github.com/mkearney\"> <i class=\"fa fa-github\"></i> </a></th>
-  </tr>
-  <tr style=\"background-color:#fff\">
-    <th style=\"padding-right:75px!important\"><a href=\"https://github.com/mkearney\"> @kearneymw </a></th>
-    <th style=\"padding-left:75px!important\"><a href=\"https://github.com/mkearney\"> @mkearney </a></th>
-  </tr></table>"
+author: '`r rmdees::title_author()`'
+date: '`r rmdees::title_icons_fa5()`'
 output:
   xaringan::moon_reader:
     lib_dir: lib
     css: ["robot", "robot-fonts", "css/slides.css"]
+    self_contained: true
     nature:
       highlightStyle: github
       highlightLines: true
       countIncrementalSlides: false
 ---
-
+class: inverse, center, middle
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE, eval = FALSE,
-  collapse = TRUE, comment = "#>")
+knitr::opts_chunk$set(echo = TRUE, eval = TRUE, collapse = TRUE, comment = "#>")
 options(htmltools.dir.version = FALSE)
 htmltools::tagList(rmarkdown::html_dependency_font_awesome())
+
+## load libraries, set ggplot2 theme, and create datatable function
+library(tidyverse)
+theme_set(tfse::theme_mwk(base_size = 18))
+set.seed(20180911)
+print <- function(x, n = NULL, align = "c", digits = 3) {
+  if (is.null(n)) n <- nrow(x)
+  if (nrow(x) < n) n <- nrow(x)
+  cat(paste(knitr::kable(x[seq_len(n), ], format = "markdown", 
+    align = align, digits = digits), collapse = "\n"))
+}
 ```
 
 

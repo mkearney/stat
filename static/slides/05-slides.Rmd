@@ -2,11 +2,12 @@
 title: "Day 5"
 subtitle: "Data wrangling"
 author: '`r rmdees::title_author()`'
-date: '`r rmdees::title_icons()`'
+date: '`r rmdees::title_icons_fa5()`'
 output:
   xaringan::moon_reader:
     lib_dir: lib
     css: ["robot", "robot-fonts", "css/slides.css"]
+    self_contained: true
     nature:
       highlightStyle: github
       highlightLines: true
@@ -31,7 +32,6 @@ print <- function(x, n = NULL, align = "c", digits = 3) {
 }
 ```
 
----
 
 ## Agenda
 + Computing basics
