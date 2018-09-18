@@ -68,7 +68,14 @@ class: inverse, center, middle
 ## Bash shortcuts
 + Most popular conventions from bash/terminal found in R scripts
    - **`..`** to go back a folder or **`../..`** to go back two folders
+   ``` sh
+   ls ../tidyverse
+   ls ../..
+   ```
    - **`~`** as a shortcut for home, e.g., **`~/R/stat`**
+   ``` sh
+   ls ~/R/stat
+   ```
 
 ---
 
@@ -85,12 +92,12 @@ Why should you care?
 ---
 
 ## Don't let these terms confuse you
-+ `File` is the **name**/location of a file
-+ `Path` is the name/**location** of a file
-+ `Folder` is the **name**/location of a file folder
-+ `Directory` is the name/**location** of a file folder
 
-<p class="note">file == path & folder == directory</p>
++ **File** is **name**/location of a file
++ **Folder** is **name**/location of a file folder
+
++ **Path** is name/**location** of a file
++ **Directory** is name/**location** of a file folder
 
 ---
 class: inverse, center, middle
@@ -100,11 +107,11 @@ class: inverse, center, middle
 ---
 
 ## FutuRe you
+Using scripts and writing clear code makes life easier
 
-+ Using scripts and writing clear code makes life easier
-+ It's like writing down a routine of pointing/clicking you don't have to memorize
-+ The internet is full of routines/scripts you can edit and customize to your liking
-+ With some notes and extra attention, future you will be very happy with current you!
++ It's writing down point/click routines you don't have to memorize
++ Internet is full of scripts you can customize
++ With some notes and attention, future you will be very happy with current you!
 
 ---
 class: inverse, center, middle
@@ -127,6 +134,7 @@ class: inverse, center, middle
 1. [Wrangling (basics)](../tidyverse/02-wrangle.Rmd)
 1. [Merging & Joining](../tidyverse/03-merge-and-join.Rmd)
 1. [Transforming & Cleaning](../tidyverse/04-transform-and-clean.Rmd)
+1. [Case Study](../tidyverse/05-case-study.Rmd)
 
 <style>
 huge {font-size:1.7em;}
