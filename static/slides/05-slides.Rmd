@@ -17,7 +17,9 @@ output:
 Build course directory on your computer:
 
 ``` r
-source("https://raw.githubusercontent.com/mkearney/stat/master/R/build-course.R")
+source(
+  "https://raw.githubusercontent.com/mkearney/stat/master/R/build-course.R"
+)
 ```
 
 ---
@@ -257,7 +259,7 @@ p2 <- ggplot(mpg, aes(displ, hwy)) + geom_smooth(method = "loess")
 p1 + p2 + ggsave("img/05-04.png", width = 6, height = 4, units = "in")
 ```
 
-<p style="align:center"> <img src="img/05-4.png"</img> </p>
+<p style="align:center"> <img src="img/05-04.png"</img> </p>
 
 ## Geoms
 
@@ -286,7 +288,7 @@ p2 <- ggplot(mpg) + geom_boxplot(aes(class, hwy), binwidth = 2)
 p1 + p2 + ggsave("img/05-05.png", width = 6, height = 4, units = "in")
 ```
 
-<p style="align:center"> <img src="img/05-5.png"</img> </p>
+<p style="align:center"> <img src="img/05-05.png"</img> </p>
 
 
 ---
@@ -296,12 +298,12 @@ p1 + p2 + ggsave("img/05-05.png", width = 6, height = 4, units = "in")
 With your partner, make the histogram of hwy below. Use the cheatsheet. Hint: do not supply a y variable.
 
 ```{r, include = FALSE}
-p <- ggplot(mpg) + geom_histogram(aes(hwy))
+p <- ggplot(mpg) + geom_histogram(aes(hwy), binwidth = 2)
 
 p + ggsave("img/05-06.png", width = 6, height = 4, units = "in")
 ```
 
-<p style="align:center"> <img src="img/05-6.png"</img> </p>
+<p style="align:center"> <img src="img/05-06.png"</img> </p>
 
 
 ---
