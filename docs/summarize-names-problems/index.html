@@ -1,0 +1,449 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	
+  <link rel="shortcut icon" href="../favicon.png">
+  <link rel="apple-touch-icon-precomposed" href="../favicon-152.png">
+
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+
+	<title>JOURN 8016</title>
+
+	<meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
+
+	
+	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+  <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" />
+
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">	
+  <link rel="stylesheet" href="https://cdn.rawgit.com/gaborcsardi/r-font/master/rlogo.css">
+  <link rel="stylesheet" href="https://cdn.rawgit.com/wesbos/Font-Awesome-Docker-Icon/master/fontcustom/fontcustom.css">
+
+	
+    <link href="../css/bootstrap.min.css" rel="stylesheet" />
+    <link href="../css/material-kit.css" rel="stylesheet"/>
+    <link href="../css/custom.css" rel="stylesheet"/>
+</head>
+
+
+  
+<body class="profile-page">
+  	<nav class="navbar navbar-transparent navbar-fixed-top navbar-color-on-scroll">
+	    	<div class="container">
+        	
+        	<div class="navbar-header">
+        		<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navigation-example">
+            		<span class="sr-only">Toggle navigation</span>
+		            <span class="icon-bar"></span>
+		            <span class="icon-bar"></span>
+		            <span class="icon-bar"></span>
+        		</button>
+        		<a class="navbar-brand" href="../"><img src="../favicon.png" style="margin-top:-.5em" width="42px" /></a>
+        	</div>
+
+        	<div class="collapse navbar-collapse" id="navigation-example">
+        		<ul class="nav navbar-nav navbar-right">
+      
+        
+
+        <li class="nav-item">
+          <a href="../">
+            <i class="fas fa-home fa-lg"></i>
+            <span>Home</span>
+          </a>
+        </li>
+        
+      
+        
+
+        <li class="nav-item">
+          <a href="../syllabus">
+            <i class="fas fa-file-alt fa-lg"></i>
+            <span>Syllabus</span>
+          </a>
+        </li>
+        
+      
+        
+
+        <li class="nav-item">
+          <a href="../schedule">
+            <i class="fas fa-calendar-alt fa-lg"></i>
+            <span>Schedule</span>
+          </a>
+        </li>
+        
+      
+        
+
+        <li class="nav-item">
+          <a href="../reading">
+            <i class="fas fa-book-open fa-lg"></i>
+            <span>Readings</span>
+          </a>
+        </li>
+        
+      
+        		</ul>
+        	</div>
+    	</div>
+    </nav>
+  <div class="wrapper">
+    <div class="header header-filter" style="background-image: url('/img/bg2.png');">
+    </div>
+		<div class="main main-raised">
+			<div class="container">
+		  	<div class="section text-left">
+		  	  <h2 class="title">Tick marks, variable names, and ggplot2</h2>
+	            
+
+<p>This tutorial identifies <strong>three common mistakes users make when attempting to
+map variables</strong> from <a href="https://dplyr.tidyverse.org/reference/summarise.html"><code>dplyr::summarize()</code></a>
+to aesthetic dimensions of a plot with <a href="https://ggplot2.tidyverse.org">ggplot2</a>.
+It concludes by describing the solution to these common mistakes.</p>
+
+<h2 id="packages-styles">Packages/styles</h2>
+
+<p>To complete this tutorial, you will need to load the <a href="https://tidyverse.org">tidyverse</a>
+set of packages and define a couple stylistic functions used throughout to make
+the <a href="https://twitter.com/search?q=%23rstats%20%23dataviz&amp;src=typed_query&amp;f=image">#dataviz</a> a little prettier.</p>
+
+<pre><code class="language-r">## load tidyverse
+library(tidyverse)
+#&gt; ── Attaching packages ─────────────────────────────────────────────────────────── tidyverse 1.2.1 ──
+#&gt; ✔ ggplot2 3.0.0.9000     ✔ purrr   0.2.5     
+#&gt; ✔ tibble  1.4.2          ✔ dplyr   0.7.6     
+#&gt; ✔ tidyr   0.8.1          ✔ stringr 1.3.1     
+#&gt; ✔ readr   1.1.1          ✔ forcats 0.3.0
+#&gt; ── Conflicts ────────────────────────────────────────────────────────────── tidyverse_conflicts() ──
+#&gt; ✖ dplyr::filter() masks stats::filter()
+#&gt; ✖ dplyr::lag()    masks stats::lag()
+
+## create style theme
+my_theme &lt;- function() {
+  theme_minimal(base_family = &quot;Roboto Condensed&quot;) + 
+    theme(plot.title = element_text(size = rel(1.5), face = &quot;bold&quot;), 
+      plot.subtitle = element_text(size = rel(1.1)),
+      plot.caption = element_text(color = &quot;#777777&quot;, vjust = 0),
+      axis.title = element_text(size = rel(.9), hjust = 0.95, face = &quot;italic&quot;),
+      panel.grid.major = element_line(size = rel(.1), color = &quot;#000000&quot;), 
+      panel.grid.minor = element_line(size = rel(.05), color = &quot;#000000&quot;))
+}
+my_labs &lt;- function() {
+  labs(title = &quot;Average miles per gallon by number of cylinders&quot;, 
+    subtitle = &quot;Scatter plot depicting average miles per gallon aggregated by number of cylinders&quot;,
+    x = &quot;Number of cylinders&quot;, y = &quot;Miles per gallon&quot;,
+    caption = &quot;Source: Estimates calculated from the 'mtcars' data set&quot;)
+}
+</code></pre>
+
+<h2 id="data">Data</h2>
+
+<p>The examples below use the <strong>mtcars</strong> data from the <a href="https://stat.ethz.ch/R-manual/R-devel/library/datasets/html/mtcars.html">datasets</a>
+package. Specifically, the examples below will feature the <code>mpg</code> (miles per gallon)
+and <code>cyl</code> (number of cylinders) variables.</p>
+
+<pre><code class="language-r">## print first six rows
+head(mtcars)
+</code></pre>
+
+<div class="kable-table">
+
+                      mpg   cyl   disp    hp   drat      wt    qsec   vs   am   gear   carb
+------------------  -----  ----  -----  ----  -----  ------  ------  ---  ---  -----  -----
+Mazda RX4            21.0     6    160   110   3.90   2.620   16.46    0    1      4      4
+Mazda RX4 Wag        21.0     6    160   110   3.90   2.875   17.02    0    1      4      4
+Datsun 710           22.8     4    108    93   3.85   2.320   18.61    1    1      4      1
+Hornet 4 Drive       21.4     6    258   110   3.08   3.215   19.44    1    0      3      1
+Hornet Sportabout    18.7     8    360   175   3.15   3.440   17.02    0    0      3      2
+Valiant              18.1     6    225   105   2.76   3.460   20.22    1    0      3      1
+
+</div>
+
+<h3 id="names-from-summarize">Names from <code>summarize()</code></h3>
+
+<p>A popular workflow in R uses <a href="https://dplyr.tidyverse.org">dplyr</a> to <code>group_by()</code>
+and then <code>summarise()</code><sup>1</sup> variables.
+It&rsquo;s an intuitive and easy way to aggregate and describe data, especially along
+multiple dimensions. The cost of being both powerful and user-friendly,
+however, is its arguably inconvenient default method for assigning names to
+summarized values. As the code illustrates below, users can provide their own
+names when using <code>summarize()</code>.</p>
+
+<pre><code class="language-r">## explicitly named summarize variable
+mtcars %&gt;%
+  group_by(cyl) %&gt;%
+  summarize(mpg = mean(mpg))
+</code></pre>
+
+<div class="kable-table">
+
+ cyl       mpg
+----  --------
+   4   26.6636
+   6   19.7429
+   8   15.1000
+
+</div>
+
+<p>But when users don&rsquo;t explicitly name the summarized values, instead of inheriting
+the name of the summarized variable (in this case, <code>mpg</code>), they are named with
+the expression used to calculate it.</p>
+
+<pre><code class="language-r">## unnamed summarize variable
+mtcars %&gt;%
+  group_by(cyl) %&gt;%
+  summarize(mean(mpg))
+</code></pre>
+
+<div class="kable-table">
+
+ cyl   mean(mpg)
+----  ----------
+   4     26.6636
+   6     19.7429
+   8     15.1000
+
+</div>
+
+<p>As you can see above, the variable name <code>mean(mpg)</code> in the unnamed summarize
+output is different than the simpler and cleaner name <code>mpg</code> in the explicitly
+names summarize output.</p>
+
+<p>This may seem a bit obnoxious at first, but it makes a lot of sense when you
+think about instances when you may want to use <strong>two or more</strong> variables when
+calculating <code>summarize()</code> values.</p>
+
+<p>Regardless, while it&rsquo;s probably better practice to provide your own summary
+variable names, you will invariably find yourself in a situation where you are
+trying to plot variables that were named using the expressions used to create
+them.</p>
+
+<h2 id="mapping-incorrect-names">Mapping incorrect names</h2>
+
+<p>When visualizing data with <a href="https://ggplot2.tidyverse.org">ggplot2</a>, one of the
+first and most important steps entails mapping observed variables in the data
+set to aesthetic dimensions of a plot. But aesthetic mapping will only work as
+expected when you provide the correct names via <code>ggplot2::aes()</code>.</p>
+
+<p>The following section describes three common mistakes users make that result in
+the mapping of incorrect names.</p>
+
+<h3 id="1-assuming-a-statistic-inherits-the-name-of-a-variable">1. Assuming a statistic inherits the name of a variable.</h3>
+
+<p>A common mistake is to assume that summarizing via <code>mean()</code> or <code>median()</code>
+results in a variable with the same name. For example, if we summarize the mean
+of <code>mpg</code> like we did above, i.e., <code>summarize(mean(mpg))</code>, and then try to map
+<code>y = mpg</code>, we get an error because &ldquo;mpg&rdquo; doesn&rsquo;t exist.</p>
+
+<pre><code class="language-r">## this gets an error because there is no variable named &quot;mpg&quot;
+mtcars %&gt;%
+  group_by(cyl) %&gt;%
+  summarize(mean(mpg)) %&gt;%
+  ggplot(aes(x = cyl, y = mpg)) + 
+  geom_point() + 
+  geom_line() + 
+  my_theme() + 
+  my_labs()
+Error: Aesthetics must be either length 1 or the same as the data (3): x, y
+</code></pre>
+
+<p>We know from the <strong>summarize</strong> section above the variable&rsquo;s name is actually
+<code>mean(mpg)</code>. As this example illustrates, it is incorrect to assume that
+summarized estimates inherit the name of the variable they summarize. This may
+seem annoying at first, but it makes sense when you think about times when you
+may want to summarize using <strong>two or more variables</strong> in the data set.</p>
+
+<h3 id="2-repeating-the-expression-used-in-summarize">2. Repeating the expression used in <code>summarize()</code>.</h3>
+
+<p>A second common mistake is to assume that you can simply repeat the expression
+used in <code>summarize()</code> when specifying aesthetic mappings.</p>
+
+<pre><code class="language-r">## this also doesn't work because it tries to caculate the mean of mpg
+mtcars %&gt;%
+  group_by(cyl) %&gt;%
+  summarize(mean(mpg)) %&gt;%
+  ggplot(aes(x = cyl, y = mean(mpg))) + 
+  geom_point() + 
+  geom_line() + 
+  my_theme() + 
+  my_labs()
+#&gt; Warning in mean.default(mpg): argument is not numeric or logical: returning
+#&gt; NA
+
+#&gt; Warning in mean.default(mpg): argument is not numeric or logical: returning
+#&gt; NA
+
+#&gt; Warning in mean.default(mpg): argument is not numeric or logical: returning
+#&gt; NA
+#&gt; Warning: Removed 3 rows containing missing values (geom_point).
+#&gt; Warning: Removed 3 rows containing missing values (geom_path).
+</code></pre>
+
+<p><img src="tickvarnameggplot_files/figure-html/unnamed-chunk-7-1.png" width="100%" /></p>
+
+<p>The result is a handful of warnings and an empty plot. The above code fails
+because it tries to calculate mean of <code>mpg</code>, which, again, doesn&rsquo;t exist in the
+summarized data.</p>
+
+<h3 id="3-passing-the-expression-name-as-a-string">3. Passing the expression name as a string.</h3>
+
+<p>The third common mistake is to treat the summarized expression name as a string.</p>
+
+<pre><code class="language-r">## if we put quotes around it, it assumes it's a string
+mtcars %&gt;%
+  group_by(cyl) %&gt;%
+  summarize(mean(mpg)) %&gt;%
+  ggplot(aes(x = cyl, y = &quot;mean(mpg)&quot;)) + 
+  geom_point() + 
+  geom_line() + 
+  my_theme() + 
+  my_labs()
+</code></pre>
+
+<p><img src="tickvarnameggplot_files/figure-html/unnamed-chunk-8-1.png" width="100%" /></p>
+
+<p>This time we get a plot and no warnings, but it&rsquo;s clearly not right. It shows
+every <code>y</code> value is exactly the same, but it seems far fetched to think the
+average miles per gallon would not vary with number of cylinders.</p>
+
+<p>In this case, the literal string <code>&quot;mean(mpg)&quot;</code> is mapped to the <code>y</code> variable
+value, which means it&rsquo;s converted to a factor and the single factor level is
+coded as <code>1</code> at each observation.</p>
+
+<h3 id="solution-use-tick-marks">Solution: use tick marks</h3>
+
+<p>At this point it should be clear the name of the summarized <code>mpg</code> variable is
+actually &ldquo;mean(mpg),&rdquo; only now we also know wrapping the expression with quotes
+doesn&rsquo;t work because it assumes the expression is a literal string, not a
+variable name.</p>
+
+<p>The solution to correctly mapping unnamed <code>summarize()</code> variables is to use
+tick marks&ndash;the apostrophe-like symbol at the top-left of your keyboard. Tick
+marks work a lot like quotes insofar as they open and close and wrap all
+elements into a single object. The difference is tick marks assume the marked
+object references a symbol. To illustrate, the code below assigns 10 random
+numbers to <code>x</code> and then prints it using both ticks and quotes.</p>
+
+<pre><code class="language-r">## assign 10 random numbers to x
+x &lt;- rnorm(10)
+
+## print x wrapped in quotes
+&quot;x&quot;
+#&gt; [1] &quot;x&quot;
+
+## print x wrapped in tick marks
+`x`
+#&gt;  [1]  1.182656  0.124761 -0.571954  0.625281  0.839700 -1.814136  1.271081
+#&gt;  [8] -0.904857  0.833569  2.745342
+</code></pre>
+
+<p>So, really, tick marks are used to distinguish symbols that contain one or more
+unfriendly punctuation/characters, e.g., parenthesis, dashes, spaces, etc.</p>
+
+<p>With this knowledge, we can now fix the featured <code>summarize()</code> example by
+wrapping the summarized expression, which functions as the name of the
+summarized variable, in tick marks.</p>
+
+<pre><code class="language-r">## if we put quotes around it, aes() assumes we are entering a string
+mtcars %&gt;%
+  group_by(cyl) %&gt;%
+  summarize(mean(mpg)) %&gt;%
+  ggplot(aes(x = cyl, y = `mean(mpg)`)) + 
+  geom_point() + 
+  geom_line() + 
+  my_theme() + 
+  my_labs()
+</code></pre>
+
+<p><img src="tickvarnameggplot_files/figure-html/unnamed-chunk-10-1.png" width="100%" /></p>
+
+<h2 id="notes">Notes</h2>
+
+<p><sup>1</sup> The <code>s</code> and <code>z</code> toward the end of <code>summarise()</code> and <code>summarize()</code>
+are interchangeable.</p>
+
+<style>
+.author em {
+font-style: normal;
+color: #33333388;
+text-align: center;
+display: block;
+font-size: .95em;
+padding-top: 20px;
+font-weight: 400;
+} 
+.citation {
+font-style: normal;
+font-size: .8em;
+}
+.date {
+padding-bottom: 20px;
+}
+img {
+display: block;
+margin: auto;
+}
+.table {
+width: unset;
+min-width: 30%
+}
+</style>
+
+	      </div>
+      </div>
+		</div>
+    <footer class="footer">
+  <div class="container">
+	  <nav class="pull-left">
+	    <ul>
+	    
+        
+
+        <li>
+          <a href="https://journalism.missouri.edu"><i class="button-icon fas fa-university fa-2x"></i> School of Journalism</a>
+        </li>
+        
+      
+        
+
+        <li>
+          <a href="../install-rstats"><i class="icon-rlogo" style="font-size:150%"></i> R/RStudio</a>
+        </li>
+        
+      
+        
+
+        <li>
+          <a href="https://github.com/mkearney/stat/"><i class="button-icon fab fa-github fa-2x"></i> GitHub</a>
+        </li>
+        
+      
+      </ul>
+    </nav>
+	  <div class="copyright pull-right">
+	    <img src="../img/cc-by.svg"/>
+	  </div>
+  </div>
+</footer>
+	</div>
+</body>
+
+			
+
+	
+	<script src="../js/jquery.min.js" type="text/javascript"></script>
+	<script src="../js/bootstrap.min.js" type="text/javascript"></script>
+	<script src="../js/material.min.js"></script>
+
+	
+	<script src="../js/nouislider.min.js" type="text/javascript"></script>
+
+	
+	<script src="../js/bootstrap-datepicker.js" type="text/javascript"></script>
+
+	
+	<script src="../js/material-kit.js" type="text/javascript"></script>
+
+</html>

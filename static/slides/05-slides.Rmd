@@ -67,12 +67,12 @@ class: inverse, center, middle
 
 ## Bash shortcuts
 + Most popular conventions from bash/terminal found in R scripts
-   - **`..`** to go back a folder or **`../..`** to go back two folders
+   - `..` to go back a folder or `../..` to go back two folders
    ``` sh
    ls ../tidyverse
    ls ../..
    ```
-   - **`~`** as a shortcut for home, e.g., **`~/R/stat`**
+   - `~` as a shortcut for home, e.g., `~/R/stat`
    ``` sh
    ls ~/R/stat
    ```
@@ -85,16 +85,21 @@ Why should you care?
 + Because you need to know where things are to interact with them!
 + Because you want to be able to replicate your work!
 
-> **tl;dr**: Open your file browser.
-> **tl;dr**: See how they're organized?
-> **tl;dr**: Yeah? Good!
+> **tl;dr**:
+> Open your file browser.
+> See how they're organized?
+> Yeah? Good!
 
 ---
 
 ## Don't let these terms confuse you
 
+The name or `basename()` of a file/folder:
+
 + **File** is **name**/location of a file
 + **Folder** is **name**/location of a file folder
+
+The name or `dirname()` of a file/folder:
 
 + **Path** is name/**location** of a file
 + **Directory** is name/**location** of a file folder
@@ -122,7 +127,7 @@ class: inverse, center, middle
 
 ## Cheatsheets
 
-+ Check out these [Rstudio cheatsheets](https://www.rstudio.com/resources/cheatsheets/)
++ Check out [Rstudio cheatsheets](https://www.rstudio.com/resources/cheatsheets/)
 
 <p style="align:center"> <img src="img/cheatsheets.png" </img> </p>
 
