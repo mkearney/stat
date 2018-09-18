@@ -1,16 +1,8 @@
 ---
 title: "Day 5"
 subtitle: "Data wrangling"
-author: "Michael W. Kearney📊<br/>School of Journalism <br/>Informatics Institute <br/>University of Missouri"
-date: "<table style=\"border-style:none;padding-top:30px;\" class=\".table\">
-  <tr>
-    <th style=\"padding-right:75px!important\"><a href=\"https://twitter.com/kearneymw\"> <i class=\"fa fa-twitter\"></i> </a></th>
-    <th style=\"padding-left:75px!important\"><a href=\"https://github.com/mkearney\"> <i class=\"fa fa-github\"></i> </a></th>
-  </tr>
-  <tr style=\"background-color:#fff\">
-    <th style=\"padding-right:75px!important\"><a href=\"https://github.com/mkearney\"> @kearneymw </a></th>
-    <th style=\"padding-left:75px!important\"><a href=\"https://github.com/mkearney\"> @mkearney </a></th>
-  </tr></table>"
+author: '`r rmdees::title_author()`'
+date: '`r rmdees::title_icons()`'
 output:
   xaringan::moon_reader:
     lib_dir: lib
@@ -23,15 +15,34 @@ output:
 class: inverse, center, middle
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE, eval = FALSE,
-  collapse = TRUE, comment = "#>")
+knitr::opts_chunk$set(echo = TRUE, eval = TRUE, collapse = TRUE, comment = "#>")
 options(htmltools.dir.version = FALSE)
 htmltools::tagList(rmarkdown::html_dependency_font_awesome())
+
+## load libraries, set ggplot2 theme, and create datatable function
+library(tidyverse)
+theme_set(tfse::theme_mwk(base_size = 18))
+set.seed(20180911)
+print <- function(x, n = NULL, align = "c", digits = 3) {
+  if (is.null(n)) n <- nrow(x)
+  if (nrow(x) < n) n <- nrow(x)
+  cat(paste(knitr::kable(x[seq_len(n), ], format = "markdown", 
+    align = align, digits = digits), collapse = "\n"))
+}
 ```
 
+---
 
-## Data wrangling
-
+## Agenda
++ Computing basics
++ Tidyverse
+   - [Visualize](../tidyverse/01-Visualize.Rmd)
+   - [Transform](../tidyverse/01-Visualize.Rmd)
+   - [Tidy](../tidyverse/01-Visualize.Rmd)
+   - [Data types](../tidyverse/01-Visualize.Rmd)
+   - [Iterate](../tidyverse/01-Visualize.Rmd)
+   - [Model](../tidyverse/01-Visualize.Rmd)
+   - [Organize](../tidyverse/01-Visualize.Rmd)
 
 
 ---
@@ -91,3 +102,20 @@ class: inverse, center, middle
 <style>
 huge {font-size:1.7em;}
 </style>
+
+
+<!--
+## Data wrangling
++ Computing basics
++ Data frames
+   - Wrangle: `select()`, `filter()`, `arrange()`, `mutate()`, `transmute()`
+   - Bind: `bind_rows()`, `bind_cols()`
+   - Join: `left_join()`, `full_join()`, `right_join()`
++ Text
+   - Capitalize: `to_upper()`, `to_lower()`
+   - RegEx: `str_replace()`, `str_remove()`, `str_extract()`, `str_detect()`
+   - Split: `str_split()`
++ Numbers
+   - Numbers (dollar sign, commas, etc.)
+   - Dates/Times
+-->

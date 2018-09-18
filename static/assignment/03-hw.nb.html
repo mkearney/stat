@@ -74,7 +74,7 @@ display: none;
 padding: 0 4px 0 4px;
 }
 .pagedtable .even {
-background-color: rgba(140, 140, 140, 0.1);
+background-color: #fcfcfc;
 }
 .pagedtable-padding-col {
 display: none;
@@ -1657,70 +1657,9 @@ button.code-folding-btn:focus {
 <div class="container-fluid main-container">
 
 <!-- tabsets -->
-
-<style type="text/css">
-.tabset-dropdown > .nav-tabs {
-  display: inline-table;
-  max-height: 500px;
-  min-height: 44px;
-  overflow-y: auto;
-  background: white;
-  border: 1px solid #ddd;
-  border-radius: 4px;
-}
-
-.tabset-dropdown > .nav-tabs > li.active:before {
-  content: "";
-  font-family: 'Glyphicons Halflings';
-  display: inline-block;
-  padding: 10px;
-  border-right: 1px solid #ddd;
-}
-
-.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
-  content: "";
-  border: none;
-}
-
-.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
-  content: "";
-  font-family: 'Glyphicons Halflings';
-  display: inline-block;
-  padding: 10px;
-  border-right: 1px solid #ddd;
-}
-
-.tabset-dropdown > .nav-tabs > li.active {
-  display: block;
-}
-
-.tabset-dropdown > .nav-tabs > li > a,
-.tabset-dropdown > .nav-tabs > li > a:focus,
-.tabset-dropdown > .nav-tabs > li > a:hover {
-  border: none;
-  display: inline-block;
-  border-radius: 4px;
-}
-
-.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
-  display: block;
-  float: none;
-}
-
-.tabset-dropdown > .nav-tabs > li {
-  display: none;
-}
-</style>
-
 <script>
 $(document).ready(function () {
   window.buildTabsets("TOC");
-});
-
-$(document).ready(function () {
-  $('.tabset-dropdown > .nav-tabs > li').click(function () {
-    $(this).parent().toggleClass('nav-tabs-open')
-  });
 });
 </script>
 
@@ -1734,6 +1673,7 @@ $(document).ready(function () {
   window.initializeCodeFolding("show" === "show");
 });
 </script>
+
 
 
 
@@ -1759,22 +1699,16 @@ $(document).ready(function () {
 
 
 <!-- rnb-text-begin -->
-<p>The data set <code>papp</code>, entered below, provides President approval ratings (on 0-10 scale) given by an equal number of journalists and non-journalists.</p>
+<p>The data set <code>d</code>, entered below, provides estimates on media use, health info, and education levels.</p>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuIyMgcHJlcyBhcHByb3ZhbCByYXRpbmcgZGF0YVxuZCA8LSBkYXRhLmZyYW1lKFxuICBtZWRpYV91c2UgPSBjKDMsIDIsIDUsIDcsIDEsIDIsIDUsIDQsIDMsIDksIDIpLFxuICBoZWFsdGhfaW5mbyA9IGMoMCwgMiwgMSwgNCwgMiwgNiwgMSwgMywgMiwgNCwgMiksXG4gIGVkdSA9IGMoMywgMiwgNCwgMiwgMSwgNSwgMiwgMywgNCwgNSlcbilcblxuYGBgIn0= -->
-<pre class="r"><code>## pres approval rating data
-d &lt;- data.frame(
-  media_use = c(3, 2, 5, 7, 1, 2, 5, 4, 3, 9, 2),
-  health_info = c(0, 2, 1, 4, 2, 6, 1, 3, 2, 4, 2),
-  edu = c(3, 2, 4, 2, 1, 5, 2, 3, 4, 5)
-)
-</code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-output-begin eyJkYXRhIjoiRXJyb3IgaW4gZGF0YS5mcmFtZShtZWRpYV91c2UgPSBjKDMsIDIsIDUsIDcsIDEsIDIsIDUsIDQsIDMsIDksIDIpLCBoZWFsdGhfaW5mbyA9IGMoMCwgIDogXG4gIGFyZ3VtZW50cyBpbXBseSBkaWZmZXJpbmcgbnVtYmVyIG9mIHJvd3M6IDExLCAxMFxuIn0= -->
-<pre><code>Error in data.frame(media_use = c(3, 2, 5, 7, 1, 2, 5, 4, 3, 9, 2), health_info = c(0,  : 
-  arguments imply differing number of rows: 11, 10</code></pre>
-<!-- rnb-output-end -->
+<!-- rnb-frame-begin eyJtZXRhZGF0YSI6eyJjbGFzc2VzIjpbImRhdGEuZnJhbWUiXSwibmNvbCI6MywibnJvdyI6MTF9LCJyZGYiOiJINHNJQUFBQUFBQUFBM1ZSd1c2RE1BdzFTZGtLcUYybGNlaGhwOTNMb1Q4d0R2dUNuWHFyTWtnTEdrMHFDTnFPKytSOVFiY0U0bXBZYXFSZysvbjUyUTV2cjd0dHZJc0JnQUVQQTJEY3VqTm1Qd0hNSUhMMkM0QS9Xc2RsbHZZbStSeUdrNE8zcWJkUG8zMzV1WkZmZVl2MXoxTWU2bU9BK0ZWdk5jWHpOY25UdVFqLzV2eUVkOVZMQ1c5TytPa1VKdzhYS25HU25YVWNuWHN3T3NteUZ2dStreDVJS2lrYVUrMXJkZEFlNHJMc2lWYlU2czhNOVJiMnN1K3hZMEtiRm8zb3NDbUNjU21NeUE2dHJiZlJoWlRjNjdPcHRiSkZ6UDNta0JRSExRRWVldVVtS1RkRjFhdVB6ZFkxR05MaldYZy8rZWZ6c1NYNzlWS2hsN3FUNmxncmZJcXdFZSt5OGNIU2Jqd3NuSjNiV2huY3hLSmRaclFSeUlzTDNTQXk3QWFYUHlRSW9FWFVBZ0FBIn0= -->
+<div data-pagedtable="false">
+<script data-pagedtable-source type="application/json">
+{"columns":[{"label":["media_use"],"name":[1],"type":["dbl"],"align":["right"]},{"label":["health_info"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["edu"],"name":[3],"type":["dbl"],"align":["right"]}],"data":[{"1":"3","2":"0","3":"3"},{"1":"2","2":"2","3":"2"},{"1":"5","2":"1","3":"4"},{"1":"7","2":"4","3":"2"},{"1":"1","2":"2","3":"1"},{"1":"2","2":"6","3":"5"},{"1":"5","2":"1","3":"2"},{"1":"4","2":"3","3":"3"},{"1":"3","2":"2","3":"4"},{"1":"9","2":"4","3":"5"},{"1":"2","2":"2","3":"3"}],"options":{"columns":{"min":{},"max":[10],"total":[3]},"rows":{"min":[10],"max":[10],"total":[11]},"pages":{}}}
+  </script>
+</div>
+<!-- rnb-frame-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 <ol style="list-style-type: decimal">
@@ -1782,9 +1716,14 @@ d &lt;- data.frame(
 </ol>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuIyMgeW91ciBjb2RlIGdvZXMgaGVyZVxuYGBgIn0= -->
-<pre class="r"><code>## your code goes here</code></pre>
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuIyMgeW91ciBjb2RlIGdvZXMgaGVyZVxuY29yKGQkbWVkaWFfdXNlLCBkJGhlYWx0aF9pbmZvKVxuXG5gYGAifQ== -->
+<pre class="r"><code>## your code goes here
+cor(d$media_use, d$health_info)
+</code></pre>
 <!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiWzFdIDAuMjA1NTE5XG4ifQ== -->
+<pre><code>[1] 0.205519</code></pre>
+<!-- rnb-output-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 <ol start="2" style="list-style-type: decimal">
@@ -1792,8 +1731,9 @@ d &lt;- data.frame(
 </ol>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuIyMgeW91ciBjb2RlIGdvZXMgaGVyZVxuYGBgIn0= -->
-<pre class="r"><code>## your code goes here</code></pre>
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuYGBgclxuIyMgeW91ciBjb2RlIGdvZXMgaGVyZVxuYGBgXG5gYGAifQ== -->
+<p><code>r</code>r ## your code goes here</p>
+<pre><code></code></pre>
 <!-- rnb-source-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
@@ -1802,9 +1742,24 @@ d &lt;- data.frame(
 </ol>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuIyMgeW91ciBjb2RlIGdvZXMgaGVyZVxuYGBgIn0= -->
-<pre class="r"><code>## your code goes here</code></pre>
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuIyMgeW91ciBjb2RlIGdvZXMgaGVyZVxuY29yLnRlc3QoZCRtZWRpYV91c2UsIGQkaGVhbHRoX2luZm8pXG5cbmBgYCJ9 -->
+<pre class="r"><code>## your code goes here
+cor.test(d$media_use, d$health_info)
+</code></pre>
 <!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiXG5cdFBlYXJzb24ncyBwcm9kdWN0LW1vbWVudCBjb3JyZWxhdGlvblxuXG5kYXRhOiAgZCRtZWRpYV91c2UgYW5kIGQkaGVhbHRoX2luZm9cbnQgPSAwLjYzLCBkZiA9IDksIHAtdmFsdWUgPSAwLjU0NFxuYWx0ZXJuYXRpdmUgaHlwb3RoZXNpczogdHJ1ZSBjb3JyZWxhdGlvbiBpcyBub3QgZXF1YWwgdG8gMFxuOTUgcGVyY2VudCBjb25maWRlbmNlIGludGVydmFsOlxuIC0wLjQ0OTgxMSAgMC43MTY5OThcbnNhbXBsZSBlc3RpbWF0ZXM6XG4gICAgIGNvciBcbjAuMjA1NTE5IFxuIn0= -->
+<pre><code>
+    Pearson's product-moment correlation
+
+data:  d$media_use and d$health_info
+t = 0.63, df = 9, p-value = 0.544
+alternative hypothesis: true correlation is not equal to 0
+95 percent confidence interval:
+ -0.449811  0.716998
+sample estimates:
+     cor 
+0.205519 </code></pre>
+<!-- rnb-output-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 <ol start="4" style="list-style-type: decimal">
@@ -1812,8 +1767,9 @@ d &lt;- data.frame(
 </ol>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuIyMgeW91ciBjb2RlIGdvZXMgaGVyZVxuYGBgIn0= -->
-<pre class="r"><code>## your code goes here</code></pre>
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuYGBgclxuIyMgeW91ciBjb2RlIGdvZXMgaGVyZVxuYGBgXG5gYGAifQ== -->
+<p><code>r</code>r ## your code goes here</p>
+<pre><code></code></pre>
 <!-- rnb-source-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
@@ -1822,14 +1778,15 @@ d &lt;- data.frame(
 </ol>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuIyMgeW91ciBjb2RlIGdvZXMgaGVyZVxuYGBgIn0= -->
-<pre class="r"><code>## your code goes here</code></pre>
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuYGBgclxuIyMgeW91ciBjb2RlIGdvZXMgaGVyZVxuYGBgXG5gYGAifQ== -->
+<p><code>r</code>r ## your code goes here</p>
+<pre><code></code></pre>
 <!-- rnb-source-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 <!-- rnb-text-end -->
 
-<div id="rmd-source-code">LS0tCnRpdGxlOiAiSG9tZXdvcmsgIzMiCm91dHB1dDogaHRtbF9ub3RlYm9vawotLS0KClRoZSBkYXRhIHNldCBgcGFwcGAsIGVudGVyZWQgYmVsb3csIHByb3ZpZGVzIFByZXNpZGVudCBhcHByb3ZhbCByYXRpbmdzIChvbiAwLTEwIHNjYWxlKSBnaXZlbiBieSBhbiBlcXVhbCBudW1iZXIgb2Ygam91cm5hbGlzdHMgYW5kIG5vbi1qb3VybmFsaXN0cy4KCmBgYHtyfQojIyBwcmVzIGFwcHJvdmFsIHJhdGluZyBkYXRhCmQgPC0gZGF0YS5mcmFtZSgKICBtZWRpYV91c2UgPSBjKDMsIDIsIDUsIDcsIDEsIDIsIDUsIDQsIDMsIDksIDIpLAogIGhlYWx0aF9pbmZvID0gYygwLCAyLCAxLCA0LCAyLCA2LCAxLCAzLCAyLCA0LCAyKSwKICBlZHUgPSBjKDMsIDIsIDQsIDIsIDEsIDUsIDIsIDMsIDQsIDUsIDMpCikKYGBgCgoxLiBDYWxjdWxhdGUgUGVhcnNvbidzIGNvcnJlbGF0aW9uIGNvZWZmaWNpZW50IGJldHdlZW4gbWVkaWEgdXNlIGFuZCBoZWFsdGggaW5mb3JtYXRpb24uCgpgYGB7cn0KIyMgeW91ciBjb2RlIGdvZXMgaGVyZQpgYGAKCjIuIENhbGN1bGF0ZSB0aGUgcmFuay1vcmRlciBjb3JyZWxhdGlvbiBjb2VmZmljaWVudCBiZXR3ZWVuIG1lZGlhIHVzZSBhbmQgaGVhbHRoIGluZm9ybWF0aW9uLiAKCmBgYHtyfQojIyB5b3VyIGNvZGUgZ29lcyBoZXJlCmBgYAoKMy4gQ29uZHVjdCBhIHNpZ25pZmFuY2UgdGVzdCBvZiB0aGUgY29ycmVsYXRpb24gYmV0d2VlbiBtZWRpYSB1c2UgYW5kIGhlYWx0aCBpbmZvcm1hdGlvbi4gVXNlIHRoZSBhcHByb3ByaWF0ZSBtZXRob2QuCgpgYGB7cn0KIyMgeW91ciBjb2RlIGdvZXMgaGVyZQpgYGAKCjQuIENyZWF0ZSBhIGNvcnJlbGF0aW9uIG1hdHJpeCBjb250YWluaW5nIGFsbCB0aHJlZSB2YXJpYWJsZXMKCmBgYHtyfQojIyB5b3VyIGNvZGUgZ29lcyBoZXJlCmBgYAoKNS4gVmlzdWFsaXplIHRoZSBjb3JyZWxhdGlvbnMKCmBgYHtyfQojIyB5b3VyIGNvZGUgZ29lcyBoZXJlCmBgYAoK</div>
+<div id="rmd-source-code">LS0tCnRpdGxlOiAiSG9tZXdvcmsgIzMiCm91dHB1dDogaHRtbF9ub3RlYm9vawplZGl0b3Jfb3B0aW9uczogCiAgY2h1bmtfb3V0cHV0X3R5cGU6IGlubGluZQotLS0KClRoZSBkYXRhIHNldCBgZGAsIGVudGVyZWQgYmVsb3csIHByb3ZpZGVzIGVzdGltYXRlcyBvbiBtZWRpYSB1c2UsIGhlYWx0aCBpbmZvLCBhbmQgZWR1Y2F0aW9uIGxldmVscy4KCmBgYHtyfQojIyBwcmVzIGFwcHJvdmFsIHJhdGluZyBkYXRhCmQgPC0gZGF0YS5mcmFtZSgKICBtZWRpYV91c2UgPSBjKDMsIDIsIDUsIDcsIDEsIDIsIDUsIDQsIDMsIDksIDIpLAogIGhlYWx0aF9pbmZvID0gYygwLCAyLCAxLCA0LCAyLCA2LCAxLCAzLCAyLCA0LCAyKSwKICBlZHUgPSBjKDMsIDIsIDQsIDIsIDEsIDUsIDIsIDMsIDQsIDUsIDMpCikKYGBgCgoxLiBDYWxjdWxhdGUgUGVhcnNvbidzIGNvcnJlbGF0aW9uIGNvZWZmaWNpZW50IGJldHdlZW4gbWVkaWEgdXNlIGFuZCBoZWFsdGggaW5mb3JtYXRpb24uCgpgYGB7cn0KIyMgeW91ciBjb2RlIGdvZXMgaGVyZQpjb3IoZCRtZWRpYV91c2UsIGQkaGVhbHRoX2luZm8sIG1ldGhvZCA9ICJwZWFyc29uIikKYGBgCgoyLiBDYWxjdWxhdGUgdGhlIHJhbmstb3JkZXIgY29ycmVsYXRpb24gY29lZmZpY2llbnQgYmV0d2VlbiBtZWRpYSB1c2UgYW5kIGhlYWx0aCBpbmZvcm1hdGlvbi4gCgpgYGB7cn0KIyMgeW91ciBjb2RlIGdvZXMgaGVyZQpjb3IoZCRtZWRpYV91c2UsIGQkaGVhbHRoX2luZm8sIG1ldGhvZCA9ICJzcGVhcm1hbiIpCmBgYAoKMy4gQ29uZHVjdCBhIHNpZ25pZmFuY2UgdGVzdCBvZiB0aGUgY29ycmVsYXRpb24gYmV0d2VlbiBtZWRpYSB1c2UgYW5kIGhlYWx0aCBpbmZvcm1hdGlvbi4gVXNlIHRoZSBhcHByb3ByaWF0ZSBtZXRob2QuCgpgYGB7cn0KIyMgeW91ciBjb2RlIGdvZXMgaGVyZQpjb3IudGVzdChkJG1lZGlhX3VzZSwgZCRoZWFsdGhfaW5mbykKYGBgCgo0LiBDcmVhdGUgYSBjb3JyZWxhdGlvbiBtYXRyaXggY29udGFpbmluZyBhbGwgdGhyZWUgdmFyaWFibGVzCgpgYGB7cn0KIyMgeW91ciBjb2RlIGdvZXMgaGVyZQoKYGBgCgo1LiBWaXN1YWxpemUgdGhlIGNvcnJlbGF0aW9ucwoKYGBge3J9CiMjIHlvdXIgY29kZSBnb2VzIGhlcmUKCmBgYAoK</div>
 
 
 

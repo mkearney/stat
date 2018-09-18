@@ -1,9 +1,11 @@
 ---
 title: "Homework #3"
 output: html_notebook
+editor_options: 
+  chunk_output_type: inline
 ---
 
-The data set `papp`, entered below, provides President approval ratings (on 0-10 scale) given by an equal number of journalists and non-journalists.
+The data set `d`, entered below, provides estimates on media use, health info, and education levels.
 
 ```{r}
 ## pres approval rating data
@@ -18,29 +20,34 @@ d <- data.frame(
 
 ```{r}
 ## your code goes here
+cor(d$media_use, d$health_info, method = "pearson")
 ```
 
 2. Calculate the rank-order correlation coefficient between media use and health information. 
 
 ```{r}
 ## your code goes here
+cor(d$media_use, d$health_info, method = "spearman")
 ```
 
 3. Conduct a signifance test of the correlation between media use and health information. Use the appropriate method.
 
 ```{r}
 ## your code goes here
+cor.test(d$media_use, d$health_info)
 ```
 
 4. Create a correlation matrix containing all three variables
 
 ```{r}
 ## your code goes here
+
 ```
 
 5. Visualize the correlations
 
 ```{r}
 ## your code goes here
+
 ```
 

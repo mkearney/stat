@@ -22,7 +22,7 @@ htmltools::tagList(rmarkdown::html_dependency_font_awesome())
 ## load libraries, set ggplot2 theme, and create datatable function
 library(tidyverse)
 theme_set(tfse::theme_mwk(base_size = 18))
-set.seed(20180911)
+set.seed(20180917)
 print <- function(x, n = NULL, align = "c", digits = 3) {
   if (is.null(n)) n <- nrow(x)
   if (nrow(x) < n) n <- nrow(x)
