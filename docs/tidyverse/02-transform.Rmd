@@ -33,17 +33,17 @@ See if you can use the logical operators to manipulate our code below to show:
 
 The data for United States
 ```{r}
-filter(gapminder, country == "New Zealand")
+filter(gapminder, country == "United States")
 ```
 
 All data for countries in Oceania
 ```{r}
-filter(gapminder, country == "New Zealand")
+filter(gapminder, continent == "Oceania")
 ```
 
 Rows where the life expectancy is greater than 82
 ```{r}
-filter(gapminder, country == "New Zealand")
+filter(gapminder, lifeExp > 82)
 ```
 
 
@@ -54,19 +54,21 @@ Use Boolean operators to alter the code below to return only the rows that conta
 * United States before 1970
 
 ```{r}
-filter(gapminder, country == "New Zealand", year > 2000)
+filter(gapminder, country == "United States", 
+  year > 1970)
 ```
 
 *  Countries where life expectancy in 2007 is below 50
 
 ```{r}
-filter(gapminder, country == "New Zealand", year > 2000)
+filter(gapminder, year == 2007 & lifeExp < 50)
 ```
 
 * Records for any of "New Zealand", "Canada" or "United States"
 
 ```{r}
-filter(gapminder, country == "New Zealand", year > 2000)
+filter(gapminder, country %in% c("New Zealand",
+  "Canada", "United States"))
 ```
 
 ## Your Turn 3
@@ -74,19 +76,25 @@ filter(gapminder, country == "New Zealand", year > 2000)
 Use `filter()` to get the records for the US, then plot the life expectancy over time.
 
 ```{r}
-gapminder
+gapminder %>%
+  filter(country == "United States") %>%
+  filter(year > 1960) %>%
+  ggplot() + 
+  aes(x = year, y = lifeExp) + 
+  geom_point() + 
+  geom_smooth()
 ```
 
 ## Your Turn 4
 
 Find the records with the smallest population.
 ```{r}
-
+arrange(gapminder, pop)
 ```
 
 Find the records with the largest GDP per capita.
 ```{r}
-
+arrange(gapminder, desc(gdpPercap))
 ```
 
 ## Quiz 

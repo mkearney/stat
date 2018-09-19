@@ -1,6 +1,8 @@
 ---
 title: "Visualize Data"
 output: html_notebook
+editor_options: 
+  chunk_output_type: inline
 ---
 
 Load the [tidyverse](https://tidyverse.org) set of packages.
@@ -36,7 +38,9 @@ Add `color`, `size`, `alpha`, and `shape` aesthetics to your graph. Experiment.
 
 ```{r}
 ggplot(data = mpg) + 
-  geom_point(mapping = aes(x = displ, y = hwy))
+  geom_point(mapping = aes(x = displ, y = hwy, size = hwy, 
+    color = model, 
+    alpha = displ, shape = year > 2000))
 ```
 
 ## Your Turn 3
@@ -44,8 +48,28 @@ ggplot(data = mpg) +
 Replace this scatterplot with one that draws boxplots. Use the cheatsheet. Try your best guess.
 
 ```{r}
-ggplot(data = mpg) +
-  geom_point(mapping = aes(x = class, y = hwy))
+mpg %>%
+  mutate(class = case_when(
+    class == "2seater" ~ "Two-Seater",
+    class == "compact" ~ "Compact",
+    class == "subcompact" ~ "Sub-Compact",
+    class == "midsize" ~ "Mid-Size",
+    class == "minivan" ~ "Mini-Van",
+    class == "pickup" ~ "Pickup Truck",
+    class == "suv" ~ "S.U.V.", 
+    TRUE ~ NA_character_
+  )) %>%
+  mutate(class = factor(class, levels = c("Sub-Compact","Two-Seater", "Compact", 
+    "Mid-Size", "PickupTruck", "Mini-Van", "S.U.V."))) %>%
+  ggplot() + 
+  geom_boxplot(aes(x = class, y = hwy, fill = class, color = class), alpha = .5) + 
+  geom_jitter(aes(x = class, y = hwy, fill = class), shape = 21, size = 2.5, alpha = .5) + 
+  theme_minimal() + 
+  labs(title = "Highway fuel efficiency by car class", 
+    subtitle = "Based on data from the ggplot2::mpg data set", 
+    x = "Class of Car", y = "Highway Fuel Efficiency (MPG)") + 
+  theme(plot.title = element_text(face = "bold"), 
+    axis.title = element_text(face = "italic", hjust = .95))
 ```
 
 ## Your Turn 4
@@ -53,7 +77,7 @@ ggplot(data = mpg) +
 Make a histogram of the `hwy` variable from `mpg`.
 
 ```{r}
-ggplot(data = mpg) 
+ggplot(data = mpg) + geom_histogram(aes(x = hwy), binwidth = 2)
 
 ```
 
@@ -62,8 +86,9 @@ ggplot(data = mpg)
 Make a density plot of `hwy` colored by `class`.
 
 ```{r}
-ggplot(data = mpg) 
-
+ggplot(data = mpg) + geom_density(aes(x = hwy), fill = "red", 
+  alpha = .5, binwidth = 2, bw = 1) + 
+  geom_histogram(aes(x = hwy, y = ..density..), alpha = .25)
 ```
 
 ## Your Turn 6
@@ -71,8 +96,9 @@ ggplot(data = mpg)
 Make a bar chart `class` colored by `class`.
 
 ```{r}
-ggplot(data = mpg) 
-
+ggplot(data = mpg) + 
+  geom_bar(aes(x = class, fill = class), width = .2) + 
+  coord_flip()
 ```
 
 ## Your Turn 7
@@ -82,7 +108,7 @@ Predict what this code will do. Then run it.
 ```{r}
 ggplot(mpg) + 
   geom_point(aes(displ, hwy)) +
-  geom_smooth(aes(displ, hwy))
+  geom_smooth(aes(displ, hwy), method = "lm")
 ```
 
 ## Your Turn 8
@@ -98,7 +124,10 @@ getwd()
 Save the last plot and then locate it in the files pane.
 
 ```{r}
-
+ggplot(mpg) + 
+  geom_point(aes(displ, hwy)) +
+  geom_smooth(aes(displ, hwy), method = "lm") + 
+  ggsave("displ-hw.png", width = 8, height = 5, units = "in")
 ```
 
 ***
