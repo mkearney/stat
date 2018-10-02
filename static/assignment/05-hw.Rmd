@@ -1,0 +1,243 @@
+---
+title: "R Notebook"
+output: html_notebook
+---
+
+This is an [R Markdown](http://rmarkdown.rstudio.com) Notebook. When you execute code within the notebook, the results appear beneath the code. 
+
+Try executing this chunk by clicking the *Run* button within the chunk or by placing your cursor inside it and pressing *Cmd+Shift+Enter*. 
+
+```{r}
+if (!requireNamespace("broom", quietly = TRUE)) {
+  install.packages("broom")
+}
+if (!requireNamespace("tidyverse", quietly = TRUE)) {
+  install.packages("tidyverse")
+}
+## load tidyverse
+library(tidyverse)
+
+## read in exam 1 data
+examdat <- readr::read_csv("https://github.com/mkearney/stat/raw/master/static/data/1-data.csv", skip = 1)
+
+## create news_use, pie, and cat variables
+examdat <- examdat %>%
+  mutate(news_use = tv + news,
+    pie = (pie1 + pie2 + pie3 + pie4) / 4,
+    cat = sample(letters[1:4], nrow(examdat), replace = TRUE))
+```
+
+
+## 1. Simple (one variable) regression
+
+Run a regression model for `news_use` predicted by `pie`
+
+```{r}
+## regression of news use predicted by pie
+lm(news_use ~ pie, data = examdat)
+```
+
+Repeat the above code but this time store the output as an object named `m1`
+
+```{r}
+## regression of news use predicted by pie
+m1 <- lm(news_use ~ pie, data = examdat)
+```
+
+Print the summary information for `m1`
+
+```{r}
+## summarize model results
+summary(m1)
+```
+
+Use the **{broom}** package to get coefficients and fit statistics
+
+```{r}
+## coefficients
+broom::tidy(m1)
+
+## fit statistics
+broom::glance(m1)
+```
+
+
+
+## 2. YOUR TURN - SIMPLE REGRESSION
+
+Run a regression model for `fbtime` predicted by `age`
+
+```{r}
+## regression of fbtime predicted by age
+
+```
+
+Repeat the above code but this time store the output as an object named `m2`
+
+```{r}
+## regression of fbtime predicted by age
+
+```
+
+Print the summary information for `m2`
+
+```{r}
+## summarize model results
+
+```
+
+Use the **{broom}** package to get coefficients and fit statistics
+
+```{r}
+## coefficients
+
+## fit statistics
+
+```
+
+
+
+
+## 3. YOUR TURN - MULTIPLE REGRESSION
+
+Run a regression model for `news_use` predicted by `age`, `pie`, and `fbtime`
+
+```{r}
+## regression of news use predicted by age, pie, and fbtime
+
+```
+
+Repeat the above code but this time store the output as an object named `m3`
+
+```{r}
+## regression of news use predicted by age, pie, and fbtime
+
+```
+
+Print the summary information for `m3`
+
+```{r}
+## summarize model results
+
+```
+
+Use the **{broom}** package to get coefficients and fit statistics
+
+```{r}
+## coefficients
+
+## fit statistics
+
+```
+
+
+
+
+
+## 4. With dummy variable
+
+Run a regression model for `news_use` predicted by whether the respondent sex is male.
+
+```{r}
+## regression of news use predicted by whether male
+lm(news_use ~ sex=="Male", data = examdat)
+```
+
+Repeat the above code but this time store the output as an object named `m4`
+
+```{r}
+## regression of news use predicted by whether male
+m4 <- lm(news_use ~ sex=="Male", data = examdat)
+```
+
+Print the summary information for `m4`
+
+```{r}
+## summarize model results
+summary(m4)
+```
+
+Use the **{broom}** package to get coefficients and fit statistics
+
+```{r}
+## coefficients
+broom::tidy(m4)
+
+## fit statistics
+broom::glance(m4)
+```
+
+
+
+
+## 5. YOUR TURN: DUMMY VARIABLES
+
+Run a regression model for `news_use` predicted by pie and whether 
+`fbfriends >= 1000`
+
+```{r}
+## regression of news use predicted by pie and whether fbfriends > 1000
+
+```
+
+Repeat the above code but this time store the output as an object named `m5`
+
+```{r}
+## regression of news use predicted by pie and whether fbfriends > 1000
+
+```
+
+Print the summary information for `m5`
+
+```{r}
+## summarize model results
+
+```
+
+Use the **{broom}** package to get coefficients and fit statistics
+
+```{r}
+## coefficients
+
+
+## fit statistics
+
+```
+
+
+
+
+## 6. Smarter way to dummy variable
+
+Run a regression model for `news_use` predicted by pie and the `cat` variable
+
+```{r}
+## regression of news use predicted by pie and cat
+lm(news_use ~ pie + cat, data = examdat)
+```
+
+Repeat the above code but this time store the output as an object named `m6`
+
+```{r}
+## regression of news use predicted by pie and cat
+m6 <- lm(news_use ~ pie + cat, data = examdat)
+```
+
+Print the summary information for `m6`
+
+```{r}
+## summarize model results
+summary(m6)
+```
+
+Use the **{broom}** package to get coefficients and fit statistics
+
+```{r}
+## coefficients
+broom::tidy(m6)
+
+## fit statistics
+broom::glance(m6)
+```
+
+

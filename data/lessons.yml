@@ -30,7 +30,7 @@ lessons:
     title: "Linear model - regression"
     reading: "#6-linear-model-regression"
     slides: "06-slides.html"
-    assignment: "#"
+    assignment: "#05-hw.Rmd"
   - date: "2018-10-09"
     title: "Linear model - ANOVA"
     reading: "#7-linear-model-anova"
