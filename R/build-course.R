@@ -14,7 +14,7 @@ home_dir <- normalizePath("~")
 ## functions to help find desktop
 back_one <- function(x) normalizePath(file.path(x, ".."))
 has_desktop <- function(x) {
-  "Desktop" %in% list.dirs(x, full.names = FALSE, recursive = FALSE)
+  any(grepl("/Desktop", list.dirs(x, full.names = FALSE, recursive = FALSE)))
 }
 list_dirs <- function(d, depth = 1, all = FALSE) {
   i <- 1
@@ -63,18 +63,18 @@ if (.Platform$OS.type == "windows") {
     d <- paste0(d, "/", username)
   }
   ds <- list_dirs(d, 3)
-  ds <- grep("Desktop", ds, value = TRUE)
+  ds <- grep("/Desktop", ds, value = TRUE)
   if (length(ds) > 0 && any(has_perm(ds))) {
     d <- ds[which(has_perm(ds))[1]]
   }
 }
 
-if (!grepl("Desktop$", d) && has_desktop(d)) {
+if (!grepl("/Desktop$", d) && has_desktop(d)) {
   d <- file.path(d, "Desktop")
 }
 
 ## if still no desktop, then use home directory
-if (!grepl("Desktop$", d)) {
+if (!grepl("/Desktop$", d)) {
   d <- home_dir
 }
 
@@ -95,6 +95,8 @@ download.file("https://github.com/mkearney/stat/archive/master.zip",
 dir.create(dd)
 
 unzip(tmp, exdir = dd)
+
+unlink(tmp)
 
 file.rename(file.path(dd, "stat-master"), file.path(dd, "stat"))
 
