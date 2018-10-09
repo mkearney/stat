@@ -14,7 +14,7 @@ home_dir <- normalizePath("~")
 ## functions to help find desktop
 back_one <- function(x) normalizePath(file.path(x, ".."))
 has_desktop <- function(x) {
-  any(grepl("/Desktop", list.dirs(x, full.names = FALSE, recursive = FALSE)))
+  any(grepl("/Desktop", list.dirs(x, full.names = TRUE, recursive = FALSE)))
 }
 list_dirs <- function(d, depth = 1, all = FALSE) {
   i <- 1
@@ -56,7 +56,7 @@ while (!has_desktop(d)) {
 }
 
 
-if (.Platform$OS.type == "windows") {
+if (!has_desktop(d) && .Platform$OS.type == "windows") {
   d <- "C:/Users"
   username <- Sys.getenv("USERNAME")
   if (!identical(username, "")) {
