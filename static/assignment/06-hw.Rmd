@@ -1,0 +1,111 @@
+---
+title: "R Notebook"
+output: html_notebook
+---
+
+## the data
+
+
+```{r}
+if (!requireNamespace("broom", quietly = TRUE)) {
+  install.packages("broom")
+}
+if (!requireNamespace("tidyverse", quietly = TRUE)) {
+  install.packages("tidyverse")
+}
+## load tidyverse
+library(tidyverse)
+
+## read in exam 1 data
+examdat <- readr::read_csv("https://github.com/mkearney/stat/raw/master/static/data/1-data.csv", skip = 1)
+
+## create news_use, pie, and cat variables
+examdat <- examdat %>%
+  mutate(news_use = tv + news,
+    pie = (pie1 + pie2 + pie3 + pie4) / 4,
+    cat = sample(letters[1:4], nrow(examdat), replace = TRUE))
+```
+
+
+## 1. Simple (one variable) models
+
+Linear model for `news_use` predicted by `sex`
+
+```{r}
+m1a <- lm(news_use ~ 1 + sex, data = examdat)
+summary(m1a)
+```
+
+
+```{r}
+m1b <- lm(news_use ~ 0 + sex, data = examdat)
+summary(m1b)
+```
+
+
+## 2. Simple (one variable) multiple-level models
+
+Linear model for `news_use` predicted by `race`
+
+```{r}
+m2a <- lm(news_use ~ 1 + race, data = examdat)
+summary(m2a)
+```
+
+
+```{r}
+m2b <- lm(news_use ~ 0 + race, data = examdat)
+summary(m2b)
+```
+
+
+
+
+
+## 3. Two-way ANOVA
+
+Linear model for `news_use` predicted by `race` and `sex`
+
+```{r}
+m3a <- lm(news_use ~ 1 + race + sex, data = examdat)
+summary(m3a)
+```
+
+
+```{r}
+m3b <- lm(news_use ~ 0 + race + sex, data = examdat)
+summary(m3b)
+```
+
+
+
+
+## 4. Interaction
+
+Linear model for `news_use` predicted by `race` and `sex` interaction
+
+```{r}
+m4a <- lm(news_use ~ 1 + race * sex, data = examdat)
+summary(m4a)
+```
+
+
+```{r}
+m4b <- lm(news_use ~ 0 + race * sex, data = examdat)
+summary(m4b)
+```
+
+
+## 5. Compare models
+
+Compare the models with the intercept 
+
+```{r}
+anova(m3a, m4a)
+```
+
+Compare the models without the intercept
+
+```{r}
+anova(m3b, m4b)
+```

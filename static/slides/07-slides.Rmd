@@ -13,16 +13,27 @@ output:
       highlightLines: true
       countIncrementalSlides: false
 ---
+
+Build course directory on your computer:
+
+``` r
+## this time it should actually work
+source(
+  "https://goo.gl/F7sD3U"
+)
+```
+
+---
 class: inverse, center, middle
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE, eval = TRUE, collapse = TRUE, comment = "#>")
+knitr::opts_chunk$set(echo = FALSE, eval = TRUE, collapse = TRUE, comment = "#>")
 options(htmltools.dir.version = FALSE)
 htmltools::tagList(rmarkdown::html_dependency_font_awesome())
 
 ## load libraries, set ggplot2 theme, and create datatable function
-library(tidyverse)
-theme_set(tfse::theme_mwk(base_size = 18))
+library(mwk)
+theme_set(tfse::theme_mwk(base_size = 14))
 set.seed(20180911)
 print <- function(x, n = NULL, align = "c", digits = 3) {
   if (is.null(n)) n <- nrow(x)
@@ -30,6 +41,123 @@ print <- function(x, n = NULL, align = "c", digits = 3) {
   cat(paste(knitr::kable(x[seq_len(n), ], format = "markdown", 
     align = align, digits = digits), collapse = "\n"))
 }
+#source("06-slides.R")
 ```
 
 ## Linear model - ANOVA
+
+---
+
+## Overview
++ Hypothesis testing (review)
++ Covariance (review)
+
+
+---
+class: inverse, center, middle
+
+## Hypothesis testing
+
+---
+
+## Alternative hypothesis
++ Also referred to as **research hypothesis**, this hypothesis formally states a **theorized relationship or difference**
+   - Relationship between two or more **variables**
+   - Difference between two or more **groups**
++ Research hypotheses describe **patterns**, not a lack of patterns
+   - Every research hypothesis has a null hypothesis
++ Alternative/research hypotheses are typically represented as $H_{1}$:...
+
+
+---
+
+## Null hypothesis
++ The **null hypothesis** is the version of the research hypothesis that assumes **no relationship or difference**
+   - **No relationship** between two or more variables
+   - **No difference** between two or more groups
++ Null hypotheses are typically represented as $H_{0}$:...
+
+> In other words, a null hypothesis restates the research hypothesis as though everything in the world **only varies at random**
+
+
+---
+
+## P-values
++ Calculate a statistic using sample data related to hypothesis
++ Convert test statistic to p-value
++ **p-value**: Likelihood of observing the data given a true null hypothesis
+   - Absurdity of observing data if we assume null (no relationship)
++ **Significance**: p-value less than pre-set alpha level
+   - Convention is .05
+
+---
+
+## Test decisions
+
++ There are two types of errors
++ Alpha = significant
++ Beta = power
+
+
+|Decision       |$H_{0}$_true                 |H0_false              |
+|:--------------|:-----------------------|:---------------------|
+|Fail to reject |Correct (1 - alpha)     |Incorrect Type I beta |
+|Reject Null    |Incorrect Type II alpha |Correct (1 - beta)    |
+
+
+---
+
+## Parametric vs non-parametric
+**Parametric**
+
++ Assumes theoretical distribution
+
+**Non-parametric**
+
++ Does not assume any particular distribution
+
+---
+class: inverse, center, middle
+
+## Linear model - ANOVA
+
+---
+
+## Anova
+
++ Study effect of one or more categorical variables on a numeric outcome
++ Predictors are categorical (sometimes called factors)
+   - Factors are comprised of two or more levels
+
+
+---
+
+## One-way ANOVA
++ A single factor/predictor (with mulitiple levels) 
++ Used because each value is classified in one way 
++ Null hypothesis is that mean at each level is equal
+
+
+---
+
+## Assumptions
+
++ Independence
++ Normality
++ Homogeneity of variance
+
+---
+
+## Anova
++ We can generalize one-way ANOVA to multiple factors/predictors
++ Just like regression, but we are modeling means
+   - Intercept = **grand mean**
+   
+---
+
+<p style="align:center"> <img src="img/anova1.png" /> </p>
+
+---
+
+<p style="align:center"> <img src="img/anova2.png" /> </p>
+
