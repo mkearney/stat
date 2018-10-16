@@ -16,20 +16,171 @@ output:
 class: inverse, center, middle
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE, eval = TRUE, collapse = TRUE, comment = "#>")
+knitr::opts_chunk$set(echo = TRUE, eval = FALSE, collapse = TRUE, comment = "#>")
 options(htmltools.dir.version = FALSE)
 htmltools::tagList(rmarkdown::html_dependency_font_awesome())
 
-## load libraries, set ggplot2 theme, and create datatable function
-library(tidyverse)
-theme_set(tfse::theme_mwk(base_size = 18))
-set.seed(20180911)
-print <- function(x, n = NULL, align = "c", digits = 3) {
-  if (is.null(n)) n <- nrow(x)
-  if (nrow(x) < n) n <- nrow(x)
-  cat(paste(knitr::kable(x[seq_len(n), ], format = "markdown", 
-    align = align, digits = digits), collapse = "\n"))
-}
 ```
 
-## Linear model - diagnostics
+## Linear Model - Pt 3
+
+---
+
+## Agenda
++ ANOVA
++ Interactions
++ Assumptions
+
+---
+class: inverse, center, middle
+
+## ANOVA
+
+---
+
+## Calculating ANOVA
+
+ANOVA compares variation **between** groups to variation **within** groups
+
++ F-statistic is the **ratio** of **between to within** variation
++ **ANOVA table** simply breaks down the different sources of variation
+
+---
+
+## Sum of Squares - Between
+
++ Sum of squared distances between **group means** and **grand mean** (mean 
+differences)
+
+$$SS_{between} = \sum (\bar{x}_{group} - \bar{x}_{grand})^2$$
+
+> To what extent do the _group _means differ from the _grand mean_?
+
+---
+
+## Sum of Squares - Within
+
++ Sum of squared distances between **observed values** and **group means** (group variances)
+
+$$SS_{within} = \sum (x_{obser} - \bar{x}_{group})^2$$
+
+> To what extent do the _observed scores_ differ from the _group means_?
+
+---
+
+## Sum of Squares - Total
+
++ Sum of squared distances between **observed values** and **grand mean** (total variance)
+
+$$SS_{total} = \sum (x_{obser} - \bar{x}_{grand})^2$$
+
+> To what extent do the _observed scores_ differ from the _grand mean_?
+
+---
+
+## Sum of Squares - Total
+
+
++ The total sum of squares is equal to the sum of the *between* and *within* sum of squares
+
+$$SS_{total} = SS_{between} + SS_{within}$$
+
+> The variation _within groups_ plus the variation _between groups_
+
+
+---
+class: testtable
+
+## Sources of variation
+
+| Source             | Calculation                                  |
+|--------------------|----------------------------------------------|
+| $SS_{between}$     | $\sum (\bar{x}_{group} - \bar{x}_{grand})^2$ |
+| $SS_{within}$      | $\sum (x_{obser} - \bar{x}_{group})^2$       |
+| $SS_{total}$       | $\sum (x_{obser} - \bar{x}_{grand})^2$       |
+
+---
+class: testtable
+
+## Sources of variation
+
+| Source             | Calculation                                  |
+|--------------------|----------------------------------------------|
+| $SS_{between}$     | $\sum (\bar{x}_{group} - \bar{x}_{grand})^2$ |
+| $SS_{within}$      | $\sum (x_{obser} - \bar{x}_{group})^2$       |
+| $SS_{total}$       | $SS_{between} + SS_{within}$    |
+
+
+<style>
+.testtable table {font-size: 140% !important}
+</style>
+
+
+
+---
+
+## ANOVA table
+
+| Source  | SS                                           | df       | MS                | F                 |
+|---------|----------------------------------------------|----------|-------------------|-------------------|
+| Between | $\sum (\bar{x}_{group} - \bar{x}_{grand})^2$ | $k - 1$  | $SS_{b} / df_{b}$ | $MS_{b} / MS_{w}$ |
+| Within  | $\sum (x_{obser} - \bar{x}_{group})^2$       | $N - k$  | $SS_{w} / df_{w}$ |                   |
+| Total   | $SS_{b} + SS_{w}$                            | $N - 1$  |                   |                   |
+
+
+---
+
+## ANOVA table
+
+| Source             | df      | Sum Sq   | Mean Sq  | F value           | Pr(>F) |
+|--------------------|---------|----------|----------|-------------------|--------|
+| Factor             | $k$     | $SS_{b}$ | $MS_{b}$ | $MS_{b} / MS_{w}$ | $p$    |
+| Residuals          | $N - k$ | $SS_{w}$ | $MS_{w}$ |                   | &nbsp; |
+
+
+---
+
+## F-statistic
+
++ F is a ratio of variances
++ If ratio is large, the group means are different from each other for reasons other than random chance
++ If two groups, F maps perfectly onto t-statistic
+
+
+
+---
+
+## Bonferroni
+
+``` r
+pairwise.t.test(data$Value, data$Factor, p.adjust.method = "bonferroni")
+```
+
+
+---
+
+## Tukey's 
+
+``` r
+TukeyHSD(aov(Value ~ Factor, data), "Factor")
+```
+
+
+
+---
+
+## Residuals
+
+View the residuals with by accessing `$residuals` from the model object
+
+``` r
+m$residuals
+```
+
+---
+
+## Checking assumptions?
+
++ What kind of plot of the residuals would be helpful?
++ How can we check for multi-collinearity?
+

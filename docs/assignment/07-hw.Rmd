@@ -1,0 +1,133 @@
+---
+title: "R Notebook"
+output: html_notebook
+---
+
+## the data
+
+
+```{r}
+if (!requireNamespace("broom", quietly = TRUE)) {
+  install.packages("broom")
+}
+if (!requireNamespace("tidyverse", quietly = TRUE)) {
+  install.packages("tidyverse")
+}
+## load tidyverse
+library(tidyverse)
+
+## read in data
+dat <- readRDS("https://github.com/mkearney/stat/raw/master/static/data/class-data.rds")
+```
+
+
+## 1. Visualize partisan score by party group
+
+```{r}
+pp_levels <- c(
+  "Strong Democrat",
+  "Democrat",
+  "Lean Democrat",
+  "Slight Lean Democrat",
+  "Slight Lean Republican",
+  "Lean Republican",
+  "Republican",
+  "Strong Republican"
+)
+
+dat %>% 
+  mutate(party_label = factor(party_label, levels = pp_levels)) %>%
+  ggplot() +
+  aes(x = party_label, y = therm_1 - therm_2) +
+  geom_boxplot() + 
+  coord_flip()
+```
+
+## 2. Conduct ANOVA model predicting partisan by partisan (therm_1 - therm_2)
+
+```{r}
+dat$partisan <- dat$therm_1 - dat$therm_2
+
+m1 <- aov(partisan ~ party_label, data = dat)
+```
+
+## 3. View ANOVA table
+
+```{r}
+anova(m1)
+```
+
+## 4. View summary
+
+```{r}
+summary(m2)
+```
+
+
+## 5. Visualize `ambiv_sexism` by `party_label`
+
+```{r}
+
+```
+
+
+## 6. Conduct ANOVA of `ambiv_sexism` by `party_label`
+
+```{r}
+
+```
+
+## 7. View ANOVA table
+
+```{r}
+
+```
+
+## 8. View summary
+
+```{r}
+
+```
+
+
+
+## 9. Conduct ANOVA of `polar_therm` by `sex` and by `party_label`
+
+```{r}
+
+```
+
+## 10. View ANOVA table
+
+```{r}
+
+```
+
+## 11. View summary
+
+```{r}
+
+```
+
+
+
+
+## 12. Conduct ANOVA of `polar_therm` by interaction of `sex` and `party_label`
+
+```{r}
+
+```
+
+## 13. View ANOVA table
+
+```{r}
+
+```
+
+## 14. View summary
+
+```{r}
+
+```
+
+
