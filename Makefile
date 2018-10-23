@@ -6,4 +6,3 @@ all:
 clean:
 	@echo Clean all
 	rm -rf docs/*
-include: make.R

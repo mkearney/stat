@@ -129,13 +129,25 @@ title: Readings
 <hr>
 
 
-### 9. Generalized linear models
+### 9. Mediation, Moderation, & Generalized linear models
+
+#### Mediation & Moderation
+  - [Preacher, Rucker, & Hayes Multivariate Behavioral Research 2007](https://www.tandfonline.com/doi/full/10.1080/00273170701341316)
+  - [Hayes Communication Methods and Measures, 2012](https://www.tandfonline.com/doi/full/10.1080/19312458.2012.651415)
+  - [Preacher & Hayes Behavioral Reseach Methods 2008](https://link.springer.com/content/pdf/10.3758/BRM.40.3.879.pdf)
+  - [Edwards & Lambert Psychological Methods 2007](http://public.kenan-flagler.unc.edu/faculty/edwardsj/EdwardsLambert2007.pdf)
+
+#### Maximum Likelihood
+  - [Lambert (video) Pt 1 2003](https://www.youtube.com/watch?v=I_dhPETvll8)
+  - [Lambert (video) Pt 2 2003](https://www.youtube.com/watch?v=Z582V53dfr8)
 
 #### Logistic regression
   - <extra>Fox Ch. 14: Logit and probit models for categorical response variables, 370-417</extra>
 
 #### Generalized models
   - <extra>Fox Ch. 15: Generalized linear models, 418-472</extra>
+
+
 
 <hr>
 
