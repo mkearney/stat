@@ -17,7 +17,7 @@ is_csv <- function(x) {
 #' @export
 read_qualtrics <- function(x) {
   ## check to make sure it's a valid csv file
-  is_csv(x)
+  stopifnot(is_csv(x))
   ## read first three rows
   vars <- read.csv(x, header = TRUE, stringsAsFactors = FALSE)
   x <- vars[c(3:nrow(vars)), ]
@@ -42,27 +42,153 @@ read_qualtrics <- function(x) {
 }
 
 is_likert5 <- function(x) {
+  if (!is.character(x)) return(FALSE)
+  o <- unique(x)
+  if (all(is.na(o))) return(FALSE)
+  o <- tfse::na_omit(o)
+  if (length(o) > 5) return(FALSE)
+  
+  ## likert choices
+  l <- c(
+    ## strong[ly]
+    "^agree\\s{0,}strong\\S{0,}$|^strong\\S{0,}\\s{0,}agree$", 
+    "^disagree\\s{0,}strong\\S{0,}$|^strong\\S{0,}\\s{0,}disagree$", 
+    ## agree/disagree
+    "^agree$", "^disagree$", 
+    ## neither (midpoint)
+    "neither|undecided|neutral")
+  
+  ## look for any choice that's not missing or likert
+  all(vapply(l, function(x) {
+    any(!grepl(x, o, ignore.case = TRUE)), logical(1), USE.NAMES = FALSE)
+  })
+}
+
+
+is_likert7 <- function(x) {
+  if (!is.character(x)) return(FALSE)
+  o <- unique(x)
+  if (all(is.na(o))) return(FALSE)
+  o <- tfse::na_omit(o)
+  if (length(o) > 7) return(FALSE)
+  
+  ## likert choices
+  l <- c(
+    ## strong[ly]
+       "^agree\\s{0,}strong\\S{0,}$|^strong\\S{0,}\\s{0,}agree$", 
+    "^disagree\\s{0,}strong\\S{0,}$|^strong\\S{0,}\\s{0,}disagree$", 
+    ## moderate[ly]
+       "^agree\\s{0,}moderate\\S{0,}$|^moderate\\S{0,}\\s{0,}agree$", 
+    "^disagree\\s{0,}moderate\\S{0,}$|^moderate\\S{0,}\\s{0,}disagree$", 
+    ## slight[ly]
+       "^agree\\s{0,}slight\\S{0,}$|^slight\\S{0,}\\s{0,}agree$", 
+    "^disagree\\s{0,}slight\\S{0,}$|^slight\\S{0,}\\s{0,}disagree$", 
+    ## agree/disagree
+    "^agree$", "^disagree$", 
+    ## neither (midpoint)
+    "neither|undecided|neutral")
+  
+  ## look for any choice that's not missing or likert
+  all(vapply(l, function(x) {
+    any(!grepl(x, o, ignore.case = TRUE)), logical(1), USE.NAMES = FALSE)
+  })
+}
+
+prep_char_vector <- function(x) {
+  ## if list of single-length elems
+  if (is.list(x) && all(lengths(x) == 1L)) {
+    x <- unlist(x)
+  }
+  ## convert to char
   if (is.factor(x)) {
     x <- as.character(x)
   }
-  if (!is.character(x)) return(FALSE)
-  o <- unique(x)
-  if (length(o) > 6) return(FALSE)
-  if (all(is.na(o))) return(FALSE)
-  l <- c("^agree\\s?strong\\S{0,}$|^strong\\S{0,}\\s?agree$", 
-    "^disagree\\s?strong\\S{0,}$|^strong\\S{0,}\\s?disagree$", 
-    "^agree$", "^disagree$", "^neither")
-  all(vapply(l, function(x) any(!grepl(x, o, ignore.case = TRUE)), logical(1), USE.NAMES = FALSE))
+  ## trim whitespace
+  if (is.character(x)) {
+    x <- tfse::trim_ws(x)
+  }
+  x
 }
 
 recode_likert <- function(x) {
-  if (!is_likert5(x)) return(x)
-  ifelse(grepl("^agree\\s?strong\\S{0,}$|^strong\\S{0,}\\s?agree$", x, ignore.case = TRUE), 5, 
-    ifelse(grepl("^agree$", x, ignore.case = TRUE), 4,
-      ifelse(grepl("^neither", x, ignore.case = TRUE), 3, 
-        ifelse(grepl("^disagree$", x, ignore.case = TRUE), 2,
-          ifelse(grepl("^disagree\\s?strong\\S{0,}$|^strong\\S{0,}\\s?disagree$", 
-                       x, ignore.case = TRUE), 1, NA_real_)))))
+  ## prep/coerce to char (if factor of single-elem list)
+  x <- prep_char_vector(x)
+  ## proceed if char
+  if (!is.character(x)) return(x)
+  if (is_likert5(x)) {
+    ## recode
+    ifelse(
+      ## strong[ly] agree = 5
+      grepl("^agree\\s{0,}strong\\S{0,}$|^strong\\S{0,}\\s{0,}agree$", 
+        x, ignore.case = TRUE), 5L,
+    ifelse(
+      ## agree = 4
+      grepl("^agree$", x, ignore.case = TRUE), 4L,
+    ifelse(
+      ## neither = 3
+      grepl("neither|undecided|neutral", x, ignore.case = TRUE), 3L,
+    ifelse(
+      ## agree = 2
+      grepl("^disagree$", x, ignore.case = TRUE), 2L,
+    ifelse(
+      ## strong[ly] disagree = 1
+      grepl("^disagree\\s{0,}strong\\S{0,}$|^strong\\S{0,}\\s{0,}disagree$", 
+        x, ignore.case = TRUE), 1L, NA_integer_)))))
+  } else if (is_likert7(x) && any(grepl("slight", x, ignore.case = TRUE))) {
+    ## recode
+    ifelse(
+      ## strong[ly] agree = 7
+      grepl("^agree\\s{0,}strong\\S{0,}$|^strong\\S{0,}\\s{0,}agree$", 
+        x, ignore.case = TRUE), 7L,
+    ifelse(
+      ## agree = 6
+      grepl("^agree$", x, ignore.case = TRUE), 5L,
+    ifelse(
+      ## slight[ly] agree = 6
+      grepl("^agree\\s{0,}slight\\S{0,}$|^slight\\S{0,}\\s{0,}agree$", 
+        x, ignore.case = TRUE), 4L,
+    ifelse(
+      ## neither = 4
+      grepl("neither|undecided|neutral", x, ignore.case = TRUE), 4L,
+    ifelse(
+      ## slight[ly] agree = 3
+      grepl("^disagree\\s{0,}slight\\S{0,}$|^slight\\S{0,}\\s{0,}disagree$", 
+        x, ignore.case = TRUE), 3L,
+    ifelse(
+      ## agree = 2
+      grepl("^disagree$", x, ignore.case = TRUE), 2L,
+    ifelse(
+      ## strong[ly] disagree = 1
+      grepl("^disagree\\s{0,}strong\\S{0,}$|^strong\\S{0,}\\s{0,}disagree$", 
+        x, ignore.case = TRUE), 1L, NA_integer_)))))))
+  } else if (is_likert7(x)) {
+    ## recode
+    ifelse(
+      ## strong[ly] agree = 7
+      grepl("^agree\\s{0,}strong\\S{0,}$|^strong\\S{0,}\\s{0,}agree$", 
+        x, ignore.case = TRUE), 7L,
+    ifelse(
+      ## moderate[ly] agree = 6
+      grepl("^agree\\s{0,}moderate\\S{0,}$|^moderate\\S{0,}\\s{0,}agree$", 
+        x, ignore.case = TRUE), 6L,
+    ifelse(
+      ## agree = 5
+      grepl("^agree$", x, ignore.case = TRUE), 5L,
+    ifelse(
+      ## neither = 4
+      grepl("neither|undecided|neutral", x, ignore.case = TRUE), 4L,
+    ifelse(
+      ## agree = 3
+      grepl("^disagree$", x, ignore.case = TRUE), 2L,
+    ifelse(
+      ## moderate[ly] agree = 2
+      grepl("^disagree\\s{0,}moderate\\S{0,}$|^moderate\\S{0,}\\s{0,}disagree$", 
+        x, ignore.case = TRUE), 2L,
+    ifelse(
+      ## strong[ly] disagree = 1
+      grepl("^disagree\\s{0,}strong\\S{0,}$|^strong\\S{0,}\\s{0,}disagree$", 
+        x, ignore.case = TRUE), 1L, NA_integer_)))))))
+  }
 }
 
 recode_likerts <- function(x) {

@@ -34,3 +34,82 @@ print <- function(x, n = NULL, align = "c", digits = 3) {
 
 
 ## Generalized linear models
+
+---
+
+## Agenda
++ Moderation (interactions)
++ Mediation
++ Generalized models
++ Logistic regression
+
+---
+class: inverse, center, middle
+
+## Moderation
+
+“Moderation analysis” used to examine how the
+effect of an antecedent
+X on an consequent
+Y depends
+on a third moderator variable
+M (a.k.a. “interaction”)
+
+---
+
+## What is moderation?
+
+Moderation. The effect of X on Y can be said to be moderated if its size or
+direction is dependent on M. It tells us about the conditions that facilitate,
+enhance, or inhibit the effect, or for whom or what the effect is large vs. small,
+present versus absent, and so forth
+
+```{r}
+foo("Newsworthiness", data = "data", 
+  c("Twitter Use")) + 
+  ggsave("static/img/x-y.png", width = 8, height = 4, units = "in")
+
+foo("Newsworthiness", data = "bias", 
+  c("Twitter Use", "Journalist")) + 
+  ggsave("static/img/x12-y.png", width = 8, height = 4, units = "in")
+
+foo("Newsworthiness", data = "bias", 
+  c("Twitter Use", "Journalist", "News Use")) + 
+  ggsave("static/img/x13-y.png", width = 8, height = 4, units = "in")
+```
+
+M is depicted here to moderate the size of the effect of X on Y, meaning that the size of
+the effect of X on Y depends on M. We say M is the moderator of the X → Y
+relationship, or X and M interact in their influence on Y.
+
+---
+class: inverse, center, middle
+
+## Mediation
+
+
+A mediation model links a putative cause (X) to a presumed
+effect (Y) at least in part through an intermediary or “mediator”
+variable (M)
+
+
+X→M→Y is a causal chain of events. A mediator variable can be a psychological
+state, a cognitive process, an affective response, a biological change, or any other
+conceivable “mechanism” variable through which X exerts an effect on Y. But it
+must be causally between X and Y.
+
+
+The indirect effect quantifies the effect of X on Y through M. Evidence that ab is different
+from zero is consistent with mediation. Evidence that path c is different from zero is not a
+requirement of 21st century mediation analysis. Correlation between X and Y is neither
+sufficient nor necessary to claim that X affects Y.
+
+---
+class: inverse, center, middle
+
+## Generalized models
+
+---
+
+
+
