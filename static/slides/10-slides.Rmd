@@ -185,13 +185,6 @@ class: inverse, center, middle
    - Magnitude or direction of change can be different across individuals
    - e.g., "(Latent) growth curve models" -> **time is meaningfully sampled**
 
-+ **Within-person (WP) fluctuation**: No expected effects of time
-   - OUtcome just varies/fluctuates over time (e.g., emotion, mood, stress)
-   - **Time is just a way to get lots of data per person**
-   - Need to consider reactivity, day of the week, circadian/schedule effets
-
-
-
 ---
 
 ## Longitudinal data continuum
