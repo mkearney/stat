@@ -33,3 +33,96 @@ print <- function(x, n = NULL, align = "c", digits = 3) {
 ```
 
 ## Longitudinal models
+
+
+---
+
+## Panel models
+
++ Survey/experimental studies with at least two time-points
++ Each time point represents a unique variable
+   - e.g., media exposure at $t_{1}$, media exposure at $t_{2}$
++ Path analysis
++ Account for time dependencies
+   - Contemporaneous
+   - Correlation with past self
++ Causality
+
+
+
+---
+class: inverse, center, middle
+
+## Multilevel models
+
+---
+
+## Nested data
++ Data are **nested** if they vary by subgroup and by observation
+   - Observations nested by sub-group
+   - Variation occurs within sub-group
++ Multilevel modeling explains different piles of variance
+   - **Between** cases (differences between individuals/groups)
+   - **Within** cases (change within individuals/groups)
+
+---
+
+## Example
+
++ Student test scores nested in classroom
+
+| Teacher | Student | Score |
+|---------|---------|-------|
+| Gorf    | Rory    | 85    |
+| Gorf    | Blake   | 91    |
+| Gorf    | Taylor  | 82    |
+| Jewls   | Avery   | 75    |
+| Jewls   | Amari   | 80    |
+| Jewls   | Zion    | 89    |
+
+---
+class: inverse, center, middle
+
+## Latent models
+
+---
+
+## Latent variables
+
+Measurement via survey and/or self-report suffers from measurement error
+
+Ways to control for measurement error
+
+1. Eliminate measurement error in our instruments
+1. Statistically disentangle measurement error (requires multiple items)
+
+---
+
+## Validity vs reliability
+
++ **Validity**: accuracy
+
++ **Reliability**: consistency
+
+---
+
+## Latent variables models
+
++ Latent variable models use correlations between indicators to dillineate measurement error from true latent values
+
+---
+
+## CFA
+
++ **Confirmatory Factor Analysis** refers to the analysis of mapping latent variables to observed indicators
+   - Observed indicators predict latent variables (regression)
+   - One or more latent variables are unrelated (correlation)
+
+
+---
+
+## SEM
+
++ **Structural equation modeling** refers to the analysis of regression paths in latent variable models
+   - Confirmatory factor analysis
+   - Path analysis (structural regression)
