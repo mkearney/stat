@@ -28,7 +28,9 @@ To read the data set, use the following code:
 
 ```{r}
 ## read in the twitter-AP news headline study data
-twap <- readRDS(here::here("static", "exams", "exam2-data.rds"))
+twap <- readRDS(
+  "https://github.com/mkearney/stat/blob/master/static/exams/exam2-data.rds?raw=true"
+)
 ```
 
 ## 1. Descriptives
@@ -48,6 +50,8 @@ the corresponding response label from Qualtrics)
 
 ```{r}
 ## descriptives-related code goes here
+
+
 ```
 
 <!-- ------------------------------------------------- -->
@@ -107,12 +111,11 @@ etc.) and *empirical* reasons (correlations, factor analysis, etc.).
 Your first hypothesize should predict relationship(s) between the format
 and topic of headlines and the perceived newsworthiness of the headline.
 To test your first hypothesis, I'd like you to use Analysis of Variance 
-(ANOVA) via the `aov()` function, to test your first hypothesis. In the 
-code chunk below, estimate an `aov()` model, print out a summary of
-the results, and then write a brief description of what you found--if your
-results are significant, be sure to point out which level of the 
-experimental factor(s) corresponded with higher and lower levels of 
-newsworthiness.
+(ANOVA) via the `aov()` function. In the code chunk below, estimate an 
+`aov()` model, print out a summary of the results, and then write a 
+brief description of what you found--if your results are significant, be 
+sure to point out which level of theexperimental factor(s) corresponded 
+with higher and lower levels of newsworthiness.
 
 *NOTE: Make sure you formally state whether the results reject or fail 
 to reject the NULL*
@@ -131,13 +134,13 @@ to reject the NULL*
 
 For your second hypothesis, which should predict relationship(s) between 
 the format and topic of headlines and the credibility of the source of
-the headline, I want you to use regression via the `lm()` and include 
+the headline, I want you to use regression via the `lm()` function and include 
 **at least four control variables** (other variables to be included as
 predictors besides `headline_format` and `headline_topic`) in the model.
-In the code chunk and the space below you should again provide code to 
-estimate the model and a brief summary of the results. For this one, 
-however, you should also include a brief explanation of why you chose
-the control variables you did.
+In the code chunk below you should again provide code to estimate the 
+model. And then in the space below that, provide a brief summary of the
+results and a brief explanation of why you chose the control variables 
+that you did.
 
 *NOTE: Make sure you formally state whether the results reject or fail 
 to reject the NULL*
