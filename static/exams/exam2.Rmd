@@ -10,21 +10,35 @@ knitr::opts_chunk$set(echo = TRUE)
 
 ## Exam #2
 
-The data for this exam come from Amazon mturk workers who were paid 
-35 cents to copmlete a Qualtrics questionnaire. In addition to basic
-demographic items, respondents were asked about their political
-orientations and media habits. Also featured in the questionnaire was a
-2 (headline formats: twitter.com/apnews.com) x 2 (headline topics: 
-politics/health) experiment wherein each respondent was randomly
-exposed to three news headlines that were either about health or politics 
-and either formatted as though they came from apnews.com or twitter.com.
+Data for this exam were collected from mturk workers via Qualtrics. To allow for
+more of a focus on the statistical techniques, I've done a lot of the data cleaning
+for you. I think the variable names are fairly straightforward, but even if they
+aren't, you should still have access to the Qualtrics survey, so I'd encourage you
+to spend a little bit of time becoming familiar with the survey–e.g., making sure
+you have a decent understanding of which columns were produced by which Qualtrics
+items. I've also included a write-up of the data collection procedures (methods),
+so hopefully that helps provide some context for the data as well. 
 
-The names of the variables in the data set are fairly straightforward, but 
-you should also still have access to the Qualtrics survey, so you'll probably
-want to spend a little bit of time making sure you understand which Qualtrics
-item produced which column in the data set.
+## Method
 
-To read the data set, use the following code:
+### Procedures
+
+Data collection consisted of an online questionnaire, which was distributed to 
+United States-based Amazon Mturk workers who were paid 35 cents to complete a 
+Qualtrics questionnaire "about their opinions on the news." In addition to basic
+demographic items, respondents were asked a small handful of questions about their 
+political orientations and media habits. The questionnaire then featured stimuli 
+for a 2 (headline formats: twitter.com/apnews.com) x 2 (headline topics: 
+politics/health) factorial-design experiment. All respondents were randomly
+exposed to three news headlines with (a) roughly half of the respondents receiving
+headlines about health while the other half received headlines about politics and 
+(b) roughly half of the respondents receiving headlines formatted as tweets on 
+*twitter.com* while the other half received headlines formatted as news stories 
+on *apnews.com*.
+
+### Data
+
+To read the data set into R, use the following code:
 
 ```{r}
 ## download data set to temporary file
@@ -36,7 +50,7 @@ download.file(
 twap <- readRDS(tmp)
 ```
 
-## 1. Descriptives
+#### 1. Descriptives
 
 For your first task, I'd like you to describe the data set. Be sure to include
 any code you use in the code chunk below, but then write a paragraph like you 
@@ -81,20 +95,20 @@ about an interaction between the two variables is up to you.
 <!-- H2 about `credibility` goes about here            -->
 <!-- ------------------------------------------------- -->
 
-## 3-5. Credibility
+## 3-4. Credibility
 
-As you probably noticed, we have seven different `credibility_*` 
-variables–each of which represents responses to bipolar semantic
-scales with higher numbers associated with the more positive of 
-the two words and lower numbers associated with the more
-negative of the two words. For your third and fourth tasks, I want 
-you to decide which of those seven items you'd like to use to create
-your credibility variable (and then create/add a `credibility` 
-variable to the data set) and then explain your decision below. And, 
-for the record, there's not really a right or wrong answer, but 
-whatever you decide to do should be supported by both *theoretical* 
-(logic, reason, human understanding of media/communication/journalism, 
-etc.) and *empirical* reasons (correlations, factor analysis, etc.).
+As you probably noticed, we have seven different `credibility_*` variables–each
+one represents responses to bipolar semantic scales with higher numbers
+associated with the more positive of the two words and lower numbers associated
+with the more negative of the two words. For your third and fourth tasks, decide
+which among the seven credibility items you think best represent the concept of
+credibility (you can pick anywhere from 2-7 items) and then aggregate those
+items into a single `credibility` variable (which should be added as a column to
+the `twap` data object) and then explain your decision below. For the record,
+there's not really a right or wrong answer, but whatever you decide to do should
+be supported by both *theoretical* (logic, reason, human understanding of
+media/communication/journalism, etc.) and *empirical* reasons (correlations,
+factor analysis, etc.).
 
 ```{r}
 ## insert code below that adds a `credibility` variable to the data set
@@ -106,11 +120,12 @@ etc.) and *empirical* reasons (correlations, factor analysis, etc.).
 
 ```
 
+
 <!-- ------------------------------------------------- -->
-<!-- Paragraph (5-6 sentences) about credibility here  -->
+<!-- 5-6 sentences justifying credibility items here   -->
 <!-- ------------------------------------------------- -->
 
-## 6. Hypothesis #1
+## 5. Hypothesis #1
 
 Your first hypothesis should predict relationship(s) between the format
 and topic of headlines and the perceived newsworthiness of the headline.
@@ -134,7 +149,7 @@ to reject the NULL*
 <!-- ------------------------------------------------- -->
 
 
-## 7. Hypothesis #2
+## 6. Hypothesis #2
 
 For your second hypothesis, which should predict relationship(s) between 
 the format and topic of headlines and the credibility of the source of
@@ -159,7 +174,7 @@ to reject the NULL*
 <!-- Write-up of H2 results goes about here            -->
 <!-- ------------------------------------------------- -->
 
-## 8. #dataviz
+## 7. #dataviz
 
 For your final task, I'd like you create a data visualization for your 
 first hypothesis. In one way or another, your data visualization should 
