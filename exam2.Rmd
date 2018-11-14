@@ -1,0 +1,165 @@
+---
+title: 'Exam #2'
+author: 'YOUR NAME GOES HERE'
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Exam #2
+
+The data come from the responses of Amazon mturk workers who were paid 
+35 cents upon completion of a Qualtrics questionnaire. In addition to basic
+demographic items, respondents were asked about their political
+orientations and media habits. Also featured in the questionnaire was a
+2 (headline formats: twitter.com/apnews.com) x 2 (headline topics: 
+politics/health) experiment wherein each respondent was randomly
+exposed to three news headlines that were either about health or politics 
+and either formatted as though they came from apnews.com or twitter.com.
+
+The names of the variables in the data set are fairly straightforward, but 
+you should also still have access to the Qualtrics survey, so you'll probably
+want to spend a little bit of time making sure you understand which Qualtrics
+item produced which column in the data set.
+
+To read the data set, use the following code:
+
+```{r}
+## read in the twitter-AP news headline study data
+twap <- readRDS(here::here("static", "exams", "exam2-data.rds"))
+```
+
+## 1. Descriptives
+
+For your first task, I'd like you to describe the data set. Be sure to include
+any code you use in the code chunk below, but then write a paragraph like you 
+would in a full-on research paper. At a minimum, the paragraph should include
+the following details:
+
++ The number of respondents (sample size)
++ The number and percent of each `gender`
++ The number and percent of each `race`
++ The number and percent of each political `party`
++ The mean, standard deviation, minimum, and maximum of `age`
++ The modal (mode) response to the education question (you'll need to look up
+the corresponding response label from Qualtrics)
+
+```{r}
+## descriptives-related code goes here
+```
+
+<!-- ------------------------------------------------- -->
+<!-- 1. DESCRIPTIVES PARAGRAPH WRITE-UP SHOULD GO HERE -->
+<!-- ------------------------------------------------- -->
+
+## 2-3. Hypotheses
+
+With this study, we're ultimately interested in whether the presentation
+(`headline_format`) and/or topic (`headline_topic`) of news headlines have 
+an effect on the perceived newsworthiness (`newsworthy`) and/or credibility 
+(`credibility_*`) of the information. With this in mind, write two 
+hypotheses–one predicting each DV (`newsworthy` and `credibility`). Each
+hypothesis should theorize a relationship between `headline_format` and 
+`headline_topic` and the dependent variable. Whether you want to theorize
+about an interaction between the two variables is up to you.
+
+<!-- ------------------------------------------------- -->
+<!-- H1 about `newsworthy` goes about here             -->
+<!-- ------------------------------------------------- -->
+
+<!-- ------------------------------------------------- -->
+<!-- H2 about `credibility` goes about here            -->
+<!-- ------------------------------------------------- -->
+
+## 3-5. Credibility
+
+As you probably noticed, we have seven different `credibility_*` 
+variables–each of which represents responses to bipolar semantic
+scales with higher numbers associated with the more positive of 
+the two words and lower numbers associated with the more
+negative of the two words. For your third and fourth tasks, I want 
+you to decide which of those seven items you'd like to use to create
+your credibility variable (and then create/add a `credibility` 
+variable to the data set) and then explain your decision below. And, 
+for the record, there's not really a right or wrong answer, but 
+whatever you decide to do should be supported by both *theoretical* 
+(logic, reason, human understanding of media/communication/journalism, 
+etc.) and *empirical* reasons (correlations, factor analysis, etc.).
+
+```{r}
+## insert code below that adds a `credibility` variable to the data set
+## the two lines below are two possible examples of what the code may 
+## start to look like (only pick one to work from)
+#twap$credibility <- 
+#twap <- mutate(twap, credibility = )
+
+
+```
+
+<!-- ------------------------------------------------- -->
+<!-- Paragraph (5-6 sentences) about credibility here  -->
+<!-- ------------------------------------------------- -->
+
+## 6. Hypothesis #1
+
+Your first hypothesize should predict relationship(s) between the format
+and topic of headlines and the perceived newsworthiness of the headline.
+To test your first hypothesis, I'd like you to use Analysis of Variance 
+(ANOVA) via the `aov()` function, to test your first hypothesis. In the 
+code chunk below, estimate an `aov()` model, print out a summary of
+the results, and then write a brief description of what you found--if your
+results are significant, be sure to point out which level of the 
+experimental factor(s) corresponded with higher and lower levels of 
+newsworthiness.
+
+*NOTE: Make sure you formally state whether the results reject or fail 
+to reject the NULL*
+
+```{r}
+## anova model code goes here
+
+```
+
+<!-- ------------------------------------------------- -->
+<!-- Write-up of H1 results goes about here            -->
+<!-- ------------------------------------------------- -->
+
+
+## 7. Hypothesis #2
+
+For your second hypothesis, which should predict relationship(s) between 
+the format and topic of headlines and the credibility of the source of
+the headline, I want you to use regression via the `lm()` and include 
+**at least four control variables** (other variables to be included as
+predictors besides `headline_format` and `headline_topic`) in the model.
+In the code chunk and the space below you should again provide code to 
+estimate the model and a brief summary of the results. For this one, 
+however, you should also include a brief explanation of why you chose
+the control variables you did.
+
+*NOTE: Make sure you formally state whether the results reject or fail 
+to reject the NULL*
+
+```{r}
+## regression model code goes here
+
+
+```
+
+<!-- ------------------------------------------------- -->
+<!-- Write-up of H2 results goes about here            -->
+<!-- ------------------------------------------------- -->
+
+## 8. #dataviz
+
+For your final task, I'd like you create a data visualization for your 
+first hypothesis. In one way or another, your data visualization should 
+compare the means and/or distributions of the four groups (twitter 
+versus apnews; health versus politics).
+
+```{r}
+## you data viz code and output go below here
+```
+
