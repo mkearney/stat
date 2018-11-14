@@ -27,10 +27,13 @@ item produced which column in the data set.
 To read the data set, use the following code:
 
 ```{r}
-## read in the twitter-AP news headline study data
-twap <- readRDS(
-  "https://github.com/mkearney/stat/blob/master/static/exams/exam2-data.rds?raw=true"
+## download data set to temporary file
+download.file(
+  "https://github.com/mkearney/stat/blob/master/static/exams/exam2-data.rds?raw=true",
+  assign("tmp", tempfile(fileext = ".rds"))
 )
+## read in the twitter-AP news headline study data
+twap <- readRDS(tmp)
 ```
 
 ## 1. Descriptives
@@ -47,6 +50,7 @@ the following details:
 + The mean, standard deviation, minimum, and maximum of `age`
 + The modal (mode) response to the education question (you'll need to look up
 the corresponding response label from Qualtrics)
++ The number and percent of respondents who passed the manipulation check `mancheck`
 
 ```{r}
 ## descriptives-related code goes here
