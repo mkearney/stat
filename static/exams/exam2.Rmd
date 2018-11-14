@@ -5,7 +5,7 @@ output: html_document
 ---
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
+knitr::opts_chunk$set(echo = TRUE, eval = FALSE)
 ```
 
 ## Exam #2
@@ -13,7 +13,7 @@ knitr::opts_chunk$set(echo = TRUE)
 Data for this exam were collected from mturk workers via Qualtrics. To allow for
 more of a focus on the statistical techniques, I've done a lot of the data cleaning
 for you. I think the variable names are fairly straightforward, but even if they
-aren't, you should still have access to the Qualtrics survey, so I'd encourage you
+aren't, you should still have access to the Qualtrics survey, so you're encouraged
 to spend a little bit of time becoming familiar with the survey–e.g., making sure
 you have a decent understanding of which columns were produced by which Qualtrics
 items. I've also included a write-up of the data collection procedures (methods),
@@ -52,7 +52,7 @@ twap <- readRDS(tmp)
 
 #### 1. Descriptives
 
-For your first task, I'd like you to describe the data set. Be sure to include
+For your first task, you'll need to describe the data set. Be sure to include
 any code you use in the code chunk below, but then write a paragraph like you 
 would in a full-on research paper. At a minimum, the paragraph should include
 the following details:
@@ -129,11 +129,11 @@ factor analysis, etc.).
 
 Your first hypothesis should predict relationship(s) between the format
 and topic of headlines and the perceived newsworthiness of the headline.
-To test your first hypothesis, I'd like you to use Analysis of Variance 
+To test your first hypothesis, use an Analysis of Variance 
 (ANOVA) via the `aov()` function. In the code chunk below, estimate an 
 `aov()` model, print out a summary of the results, and then write a 
 brief description of what you found--if your results are significant, be 
-sure to point out which level of theexperimental factor(s) corresponded 
+sure to point out which level of the experimental factor(s) corresponded 
 with higher and lower levels of newsworthiness.
 
 *NOTE: Make sure you formally state whether the results reject or fail 
@@ -176,7 +176,7 @@ to reject the NULL*
 
 ## 7. #dataviz
 
-For your final task, I'd like you create a data visualization for your 
+For your final task, create a data visualization for your 
 first hypothesis. In one way or another, your data visualization should 
 compare the means and/or distributions of the four groups (twitter 
 versus apnews; health versus politics).
