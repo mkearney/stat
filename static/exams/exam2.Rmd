@@ -10,8 +10,8 @@ knitr::opts_chunk$set(echo = TRUE)
 
 ## Exam #2
 
-The data come from the responses of Amazon mturk workers who were paid 
-35 cents upon completion of a Qualtrics questionnaire. In addition to basic
+The data for this exam come from Amazon mturk workers who were paid 
+35 cents to copmlete a Qualtrics questionnaire. In addition to basic
 demographic items, respondents were asked about their political
 orientations and media habits. Also featured in the questionnaire was a
 2 (headline formats: twitter.com/apnews.com) x 2 (headline topics: 
@@ -108,7 +108,7 @@ etc.) and *empirical* reasons (correlations, factor analysis, etc.).
 
 ## 6. Hypothesis #1
 
-Your first hypothesize should predict relationship(s) between the format
+Your first hypothesis should predict relationship(s) between the format
 and topic of headlines and the perceived newsworthiness of the headline.
 To test your first hypothesis, I'd like you to use Analysis of Variance 
 (ANOVA) via the `aov()` function. In the code chunk below, estimate an 
