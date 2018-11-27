@@ -23,3 +23,6 @@ table thead th {
 th, td { padding: 4px 12px; }
 td { vertical-align: middle; }
 tr:nth-child(even) { background: #f3f3f3 }
+pre code, .remark-code {
+  font-size: 80%;
+}

@@ -1,6 +1,6 @@
 ---
 title: "Day 12"
-subtitle: "Data science"
+subtitle: "Text mining"
 author: '`r rmdees::title_author()`'
 date: '`r rmdees::title_icons_fa5()`'
 output:
@@ -32,5 +32,125 @@ print <- function(x, n = NULL, align = "c", digits = 3) {
 }
 ```
 
+# Text mining
 
-## Data science
+---
+
+## Agenda
++ Natural Language Processing (NLP)
++ Sentiment analysis
++ Topic modeling
++ Packages/resources
+
+---
+class:inverse,middle,center
+
+# Natural Language Processing (NLP)
+
+
+---
+
+## Natural Language Processing
+
++ Area of computer science concerned with processing and analyzing natural
+[human] language
+   - How to deal with large amounts of natural language data
+   - Typically focuses on frequency-based patterns
+   - Different form **natural language understanding**
++ Key NLP concepts
+   - Regular expressions
+   - String manipulation
+   - Tokenizing
+
+---
+
+## Regular expressions
+
++ Regular expressions are used to describe a template or textual pattern
++ Pattern matching allows for easier text manipulation
+   - Removing punctuation, numbers, etc.
+   - Identifying phrases, links, phone numbers, etc.
+   - Stemming or reformatting words
+
+---
+
+## String manipulation
+
++ Character (textual) observations are referred to as **strings**
++ String manipulation can be achieved via a number of different tools
+   - In R try the **{stringr}** package (tidyverse approved) though the base
+   functions of `grepl()`, `grep()`, `gregexpr()`, etc. are great as well
+
+---
+
+## Tokenizers
+
++ Tokenizing text refers to the process of systematically splitting textual data
+into desired units
+   - Sentences
+   - Paragraphs
+   - Words
+   - In R try the **{tokenizers}** package
+
+> Most of NLP is done with tokens (frequencies, co-occurrences, etc.)
+
+---
+class:inverse,middle,center
+
+# Sentiment analysis
+
+---
+
+## Sentiment analysis
+
++ Estimate various tonal/affect dimensions associated with words/tokens
++ There are several dictionaries to choose from
++ In R, it's super easy with a vector of text and the **{syuzhet}** package
+
+```{r}
+txt <- c(
+  "super awesome positive great best amazing excellent",
+  "neutral plain about for on from near is to be are",
+  "lowsy terrible horrible awful worst dreadful painful"
+)
+syuzhet::get_sentiment(txt)
+```
+
+
+
+
+---
+class:inverse,middle,center
+
+# Topic modeling
+
+
+---
+
+## Topic modeling
+
++ Identify themes, or topics, by clusters of tokens (words, phrases, etc)
++ Similar to factor analysis
+   - Specify a number of topics
+   - Look for that many word/token clusters
+   - Get topic loading estimates for each word/token
+
+
+
+---
+class:inverse,middle,center
+
+# Text mining resources
+
+
+---
+
+## Packages
+
++ **{{tidytext}}**
+   - **Website**: [github.com/juliasilge/tidytext](https://github.com/juliasilge/tidytext)
+   - **Book**: [tidytextmining.com](https://www.tidytextmining.com/)
++ **{{quanteda}}**
+   - **Website**: [quanteda.io](https://quanteda.io/)
+   - **Tutorials**: [tutorials.quanteda.io/](https://tutorials.quanteda.io/)
+

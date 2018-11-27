@@ -1,0 +1,187 @@
+---
+title: 'Exam #2'
+author: 'YOUR NAME GOES HERE'
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, eval = FALSE)
+```
+
+## Exam #2
+
+Data for this exam were collected from mturk workers via Qualtrics. To allow for
+more of a focus on the statistical techniques, I've done a lot of the data cleaning
+for you. I think the variable names are fairly straightforward, but even if they
+aren't, you should still have access to the Qualtrics survey, so you're encouraged
+to spend a little bit of time becoming familiar with the survey–e.g., making sure
+you have a decent understanding of which columns were produced by which Qualtrics
+items. I've also included a write-up of the data collection procedures (methods),
+so hopefully that helps provide some context for the data as well. 
+
+## Method
+
+### Procedures
+
+Data collection consisted of an online questionnaire, which was distributed to 
+United States-based Amazon Mturk workers who were paid 35 cents to complete a 
+Qualtrics questionnaire "about their opinions on the news." In addition to basic
+demographic items, respondents were asked a small handful of questions about their 
+political orientations and media habits. The questionnaire then featured stimuli 
+for a 2 (headline formats: twitter.com/apnews.com) x 2 (headline topics: 
+politics/health) factorial-design experiment. All respondents were randomly
+exposed to three news headlines with (a) roughly half of the respondents receiving
+headlines about health while the other half received headlines about politics and 
+(b) roughly half of the respondents receiving headlines formatted as tweets on 
+*twitter.com* while the other half received headlines formatted as news stories 
+on *apnews.com*.
+
+### Data
+
+To read the data set into R, use the following code:
+
+```{r}
+## download data set to temporary file
+download.file(
+  "https://github.com/mkearney/stat/blob/master/static/exams/exam2-data.rds?raw=true",
+  assign("tmp", tempfile(fileext = ".rds"))
+)
+## read in the twitter-AP news headline study data
+twap <- readRDS(tmp)
+```
+
+#### 1. Descriptives
+
+For your first task, you'll need to describe the data set. Be sure to include
+any code you use in the code chunk below, but then write a paragraph like you 
+would in a full-on research paper. At a minimum, the paragraph should include
+the following details:
+
++ The number of respondents (sample size)
++ The number and percent of each `gender`
++ The number and percent of each `race`
++ The number and percent of each political `party`
++ The mean, standard deviation, minimum, and maximum of `age`
++ The modal (mode) response to the education question (you'll need to look up
+the corresponding response label from Qualtrics)
++ The number and percent of respondents who passed the manipulation check `mancheck`
+
+```{r}
+## descriptives-related code goes here
+
+
+```
+
+<!-- ------------------------------------------------- -->
+<!-- 1. DESCRIPTIVES PARAGRAPH WRITE-UP SHOULD GO HERE -->
+<!-- ------------------------------------------------- -->
+
+## 2-3. Hypotheses
+
+With this study, we're ultimately interested in whether the presentation
+(`headline_format`) and/or topic (`headline_topic`) of news headlines have 
+an effect on the perceived newsworthiness (`newsworthy`) and/or credibility 
+(`credibility_*`) of the information. With this in mind, write two 
+hypotheses–one predicting each DV (`newsworthy` and `credibility`). Each
+hypothesis should theorize a relationship between `headline_format` and 
+`headline_topic` and the dependent variable. Whether you want to theorize
+about an interaction between the two variables is up to you.
+
+<!-- ------------------------------------------------- -->
+<!-- H1 about `newsworthy` goes about here             -->
+<!-- ------------------------------------------------- -->
+
+<!-- ------------------------------------------------- -->
+<!-- H2 about `credibility` goes about here            -->
+<!-- ------------------------------------------------- -->
+
+## 3-4. Credibility
+
+As you probably noticed, we have seven different `credibility_*` variables–each
+one represents responses to bipolar semantic scales with higher numbers
+associated with the more positive of the two words and lower numbers associated
+with the more negative of the two words. For your third and fourth tasks, decide
+which among the seven credibility items you think best represent the concept of
+credibility (you can pick anywhere from 2-7 items) and then aggregate those
+items into a single `credibility` variable (which should be added as a column to
+the `twap` data object) and then explain your decision below. For the record,
+there's not really a right or wrong answer, but whatever you decide to do should
+be supported by both *theoretical* (logic, reason, human understanding of
+media/communication/journalism, etc.) and *empirical* reasons (correlations,
+factor analysis, etc.).
+
+```{r}
+## insert code below that adds a `credibility` variable to the data set
+## the two lines below are two possible examples of what the code may 
+## start to look like (only pick one to work from)
+#twap$credibility <- 
+#twap <- mutate(twap, credibility = )
+
+
+```
+
+
+<!-- ------------------------------------------------- -->
+<!-- 5-6 sentences justifying credibility items here   -->
+<!-- ------------------------------------------------- -->
+
+## 5. Hypothesis #1
+
+Your first hypothesis should predict relationship(s) between the format
+and topic of headlines and the perceived newsworthiness of the headline.
+To test your first hypothesis, use an Analysis of Variance 
+(ANOVA) via the `aov()` function. In the code chunk below, estimate an 
+`aov()` model, print out a summary of the results, and then write a 
+brief description of what you found--if your results are significant, be 
+sure to point out which level of the experimental factor(s) corresponded 
+with higher and lower levels of newsworthiness.
+
+*NOTE: Make sure you formally state whether the results reject or fail 
+to reject the NULL*
+
+```{r}
+## anova model code goes here
+
+```
+
+<!-- ------------------------------------------------- -->
+<!-- Write-up of H1 results goes about here            -->
+<!-- ------------------------------------------------- -->
+
+
+## 6. Hypothesis #2
+
+For your second hypothesis, which should predict relationship(s) between 
+the format and topic of headlines and the credibility of the source of
+the headline, I want you to use regression via the `lm()` function and include 
+**at least four control variables** (other variables to be included as
+predictors besides `headline_format` and `headline_topic`) in the model.
+In the code chunk below you should again provide code to estimate the 
+model. And then in the space below that, provide a brief summary of the
+results and a brief explanation of why you chose the control variables 
+that you did.
+
+*NOTE: Make sure you formally state whether the results reject or fail 
+to reject the NULL*
+
+```{r}
+## regression model code goes here
+
+
+```
+
+<!-- ------------------------------------------------- -->
+<!-- Write-up of H2 results goes about here            -->
+<!-- ------------------------------------------------- -->
+
+## 7. #dataviz
+
+For your final task, create a data visualization for your 
+first hypothesis. In one way or another, your data visualization should 
+compare the means and/or distributions of the four groups (twitter 
+versus apnews; health versus politics).
+
+```{r}
+## you data viz code and output go below here
+```
+
