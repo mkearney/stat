@@ -14,16 +14,19 @@ table {
   border-bottom: 2px solid #000;
   border-spacing: 0;
   min-width: 30%;
-  font-size: 45%;
-  margin-left: -15%;
+  font-size: 75%;
 }
 table thead th { 
   border-bottom: 1px solid #333; 
   border-collapse: collapse;
 }
-th, td { padding: 2px 3px; }
+th, td { padding: 4px 12px; }
 td { vertical-align: middle; }
 tr:nth-child(even) { background: #f3f3f3 }
 pre code, .remark-code {
   font-size: 80%;
+}
+.fab {
+    font-family: "Font Awesome 5 Brands";
+    font-size: 2em;
 }

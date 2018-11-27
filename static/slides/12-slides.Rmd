@@ -92,6 +92,8 @@ into desired units
    - Words
    - In R try the **{tokenizers}** package
 
+---
+
 ```{r}
 x <- c(
   "This is SEN'ENCE! right here in 2018", 
