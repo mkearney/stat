@@ -92,7 +92,14 @@ into desired units
    - Words
    - In R try the **{tokenizers}** package
 
-> Most of NLP is done with tokens (frequencies, co-occurrences, etc.)
+```{r}
+x <- c(
+  "This is SEN'ENCE! right here in 2018", 
+  "lol u what IM SAYING toDAY everywhere"
+)
+tokenizers::tokenize_words(x)
+```
+
 
 ---
 class:inverse,middle,center
@@ -153,4 +160,34 @@ class:inverse,middle,center
 + **{{quanteda}}**
    - **Website**: [quanteda.io](https://quanteda.io/)
    - **Tutorials**: [tutorials.quanteda.io/](https://tutorials.quanteda.io/)
+
+
+---
+class:inverse,middle,center
+
+# Exam #2
+
+---
+
+## Exam #2 data
+
+```{r}
+## download CSV version of data
+download.file(
+  "https://github.com/mkearney/stat/blob/master/static/exams/exam2-data.csv?raw=true",
+  assign("tmp", tempfile(fileext = ".rds"))
+)
+
+## read in the twitter-AP news headline study data
+twap <- readr::read_csv(tmp)
+```
+
+
+---
+
+## Data set
+
+```{r, results='asis', echo=FALSE}
+print(head(twap, 10))
+```
 
